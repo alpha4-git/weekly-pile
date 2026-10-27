@@ -1,7 +1,7 @@
 /* Weekly Pile core. All data lives in this browser's IndexedDB on the phone:
    exercises (library add-ons), plans (ordered set lists), logs (one record per set), meta (settings). */
 'use strict';
-const APP_VERSION = '1.2.3';
+const APP_VERSION = '1.2.4';
 
 // ---------------------------------------------------------------- utilities
 const $ = s => document.querySelector(s);
@@ -221,6 +221,7 @@ async function loadAll() {
   S.pool = validPool(m.pool);
   S.hidden = new Set(validHidden(m.hidden));
   S.libVersion = Number.isInteger(m.libVersion) ? m.libVersion : 0;
+  S.sound = m.sound !== false;
   S.picks = m.picks && m.picks.day === dayKey(new Date()) && typeof m.picks.p === 'object' ? m.picks.p : {};   // exercise choices last for the day
 }
 function setPick(m, id) { S.picks[m] = id; setMeta('picks', { day: dayKey(new Date()), p: S.picks }); }
@@ -543,11 +544,36 @@ async function holdScreen(on) {
     if (!on && wake) { const w = wake; wake = null; await w.release(); }
   } catch (e) { wake = null; }
 }
+// One soft beep when a rest ends: a short sine tone with a gentle fade in and out, at moderate volume.
+// It plays through headphones when they're connected. Browsers only allow sound after a tap, so the audio is
+// unlocked on the first tap (and on every Log tap); a page in the background can't play it.
+let actx = null;
+function audioUnlock() {
+  try {
+    if (!actx) { const AC = window.AudioContext || window.webkitAudioContext; if (AC) actx = new AC(); }
+    if (actx && actx.state === 'suspended') actx.resume();
+  } catch (e) { actx = null; }
+}
+function beep() {
+  if (!S.sound || !actx) return;
+  try {
+    if (actx.state === 'suspended') actx.resume();
+    const t = actx.currentTime + 0.03, o = actx.createOscillator(), g = actx.createGain();
+    o.type = 'sine'; o.frequency.value = 880;
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(0.25, t + 0.02);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.35);
+    o.connect(g); g.connect(actx.destination);
+    o.start(t); o.stop(t + 0.4);
+  } catch (e) {}
+}
 function tickRest() {
   const now = Date.now(), finished = [];
-  for (const [ex, r] of Object.entries(S.rest)) if (r.end <= now) { finished.push(ex); delete S.rest[ex]; }
+  let late = true;
+  for (const [ex, r] of Object.entries(S.rest)) if (r.end <= now) { finished.push(ex); if (now - r.end < 5000) late = false; delete S.rest[ex]; }
   if (finished.length) {
     setMeta('rest', S.rest);
+    if (!late) beep();          // no beep for a rest that ended while the app was in the background
     if (navigator.vibrate) try { navigator.vibrate([250, 120, 250]); } catch (e) {}
     const names = finished.map(x => (S.ex.get(x) || {}).short || x).join(', ');
     toast(`Rest done · ${names}`, 3000);
@@ -574,6 +600,7 @@ async function addLog(rec) {
   return l;
 }
 async function logSet(it) {
+  audioUnlock();
   const inp = inputsFor(it);
   if (!(inp.r > 0)) { toast('Enter the reps first'); return; }
   const e = S.ex.get(it.ex);
@@ -1091,6 +1118,11 @@ async function renderData() {
       <p>Version ${APP_VERSION}${swState.approved ? ` · running ${esc(swState.approved)}` : ''}${upd ? ` · <b>${esc(swState.version)} ready</b>` : ''}</p>
       <div class="btns">${upd ? '<button type="button" class="btn primary" data-a="update">Install update</button>' : ''}<button type="button" class="btn" data-a="checkupd">Check for update</button></div>
       <p class="muted" style="font-size:13px">Updates download in the background and only switch over when you tap Install update.</p>
+    </div>
+    <div class="card sec"><h3>Rest timer</h3>
+      <label class="tog"><input type="checkbox" id="soundOn" ${S.sound ? 'checked' : ''}> Beep when a rest ends</label>
+      <div class="btns"><button type="button" class="btn" data-a="testbeep">Test the beep</button></div>
+      <p class="muted" style="font-size:13px">One short, soft tone through your headphones, or the speaker at media volume. It plays while the app is open; the phone also vibrates.</p>
     </div></div>`;
 }
 function render(anim) {
@@ -1154,6 +1186,7 @@ function wire() {
   $('#jumpBtn').addEventListener('click', () => { renderJump(); $('#jumpDlg').showModal(); });
   $('#jumpList').addEventListener('click', e => { const b = e.target.closest('[data-jump]'); if (!b) return; e.preventDefault(); $('#jumpDlg').close(); showSlot(b.dataset.jump, null); });
   $('#updBtn').addEventListener('click', installUpdate);
+  document.addEventListener('pointerdown', audioUnlock, { once: true, capture: true });   // so a rest that started before a reload can still beep
   $('#totBox').addEventListener('click', () => {
     if (!S.plan) return;
     const T = setTotals();
@@ -1219,6 +1252,7 @@ function wire() {
       case 'persist': try { const ok = await navigator.storage.persist(); toast(ok ? 'Storage is protected' : 'Firefox didn\'t allow it. Keep exporting backups.'); } catch (err) { toast('Not supported here'); } renderData(); break;
       case 'update': installUpdate(); break;
       case 'checkupd': checkUpdate(); break;
+      case 'testbeep': { audioUnlock(); const was = S.sound; S.sound = true; beep(); S.sound = was; if (!was) toast('The beep is switched off'); break; }
     }
   });
   document.addEventListener('input', e => {
@@ -1241,6 +1275,7 @@ function wire() {
   document.addEventListener('change', e => {
     const t = e.target;
     if (t.dataset.tgt || t.dataset.foc) { refreshEstimate(); return; }
+    if (t.id === 'soundOn') { S.sound = t.checked; setMeta('sound', S.sound); if (S.sound) { audioUnlock(); beep(); } return; }
     if (t.id === 'revOnly') { S.pool.reviewedOnly = t.checked; setMeta('pool', S.pool); changed(); renderPlan(); renderHeader(); return; }
     if (t.id === 'planSel') { const p = S.plans.get(t.value); if (p) { S.plan = p; setMeta('currentPlan', p.id); changed(); toast(`"${p.name}" is now current`); render(); } }
   });
