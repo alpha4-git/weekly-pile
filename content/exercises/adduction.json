@@ -2,13 +2,14 @@
  "type": "exercise",
  "schema": 1,
  "id": "adduction",
- "version": 1,
+ "version": 2,
  "name": "Hip adduction machine",
  "short": "Adduction",
  "equipment": "Hip adduction machine",
  "unit": "lb",
  "step": 5,
  "perSide": false,
+ "rest": 90,
  "credit": {
   "adductors": 1
  },

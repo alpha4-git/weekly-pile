@@ -2,13 +2,14 @@
  "type": "exercise",
  "schema": 1,
  "id": "calf_raise",
- "version": 1,
+ "version": 2,
  "name": "Standing calf raise",
  "short": "Calf raise",
  "equipment": "Standing calf raise machine",
  "unit": "lb",
  "step": 5,
  "perSide": false,
+ "rest": 90,
  "credit": {
   "calves": 1
  },

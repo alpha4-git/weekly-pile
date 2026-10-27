@@ -1,7 +1,7 @@
 /* Weekly Pile service worker: keeps the app working offline.
    New versions download in the background, but pages keep getting the approved
    version's files until the user taps "Install update" (message {type:'approve'}). */
-const VERSION = '1.0.0';
+const VERSION = '1.1.0';
 const CORE = ['./', 'index.html', 'app.js', 'app.css', 'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png'];
 const META = 'wp-meta';
 const APPROVED_KEY = new URL('./__approved', self.registration.scope).href;

@@ -2,13 +2,14 @@
  "type": "exercise",
  "schema": 1,
  "id": "lateral_raise",
- "version": 1,
+ "version": 2,
  "name": "Dumbbell lateral raise",
  "short": "Lateral raise",
  "equipment": "Two dumbbells",
  "unit": "lb",
  "step": 2.5,
  "perSide": false,
+ "rest": 90,
  "credit": {
   "sdelt": 1
  },

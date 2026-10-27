@@ -2,13 +2,14 @@
  "type": "exercise",
  "schema": 1,
  "id": "leg_curl",
- "version": 1,
+ "version": 2,
  "name": "Seated leg curl",
  "short": "Leg curl",
  "equipment": "Seated leg curl machine",
  "unit": "lb",
  "step": 5,
  "perSide": false,
+ "rest": 90,
  "credit": {
   "hams": 1
  },

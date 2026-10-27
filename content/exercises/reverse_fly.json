@@ -2,13 +2,14 @@
  "type": "exercise",
  "schema": 1,
  "id": "reverse_fly",
- "version": 1,
+ "version": 2,
  "name": "Reverse machine fly",
  "short": "Reverse fly",
  "equipment": "Rear delt / pec deck machine",
  "unit": "lb",
  "step": 5,
  "perSide": false,
+ "rest": 90,
  "credit": {
   "rdelt": 1
  },

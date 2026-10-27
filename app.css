@@ -175,3 +175,58 @@ dialog::backdrop{background:rgba(0,0,0,.45)}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--nav-h) + 22px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--card);padding:10px 16px;border-radius:10px;font-weight:600;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s;max-width:calc(100% - 32px);text-align:center;z-index:20}
 .toast.show{opacity:1}
 @media (prefers-reduced-motion: reduce){.bar i,.toast{transition:none}.page.in-l,.page.in-r{animation:none}}
+
+/* rest timer */
+.restbar{grid-column:1/-1;position:relative;overflow:hidden;border:2px solid var(--acc);border-radius:10px;background:var(--bg);color:var(--ink);padding:0;height:51px;display:flex;align-items:center;justify-content:center;gap:10px;touch-action:manipulation}
+.restbar i{position:absolute;inset:0 auto 0 0;width:0;background:var(--acc);opacity:.22}
+.restbar .rl{position:relative;font:700 20px/1 var(--f-display);text-transform:uppercase;letter-spacing:.04em}
+.restbar .rs{position:relative;font-size:12px;color:var(--muted)}
+
+/* PRs */
+.prline{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13.5px}
+.prline .k{color:var(--muted);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+.chipbtn.pr{box-shadow:inset 0 0 0 1.5px var(--acc)}
+.rowbtn .nm{display:flex;flex-direction:column;gap:2px}
+.rowbtn .nmt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.prbs{display:flex;gap:4px;flex-wrap:wrap}
+.prb{font-size:11px;font-weight:700;color:var(--acc);border:1px solid var(--acc);border-radius:4px;padding:0 5px;width:max-content}
+.rowbtn.isPr .wr{color:var(--acc)}
+
+/* goals */
+:root{--s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--grid:#e1e6e3;--axis:#c3ccc8}
+@media (prefers-color-scheme: dark){:root{--s1:#3987e5;--s2:#d95926;--s3:#199e70;--grid:#26302e;--axis:#3a4644}}
+.ct{font:700 16px/1.15 var(--f-display);text-transform:uppercase;letter-spacing:.02em;margin:0}
+.gsel{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px 2px}
+.gsel::-webkit-scrollbar{display:none}
+.gsel button{flex:none;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 11px;font-size:13px;font-weight:600;color:var(--muted)}
+.gsel button[aria-pressed="true"]{background:var(--ink);color:var(--card);border-color:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;margin:10px 0 2px;font-size:13px;color:var(--muted)}
+.legend b{color:var(--ink)}
+.key{display:inline-block;width:14px;height:2px;border-radius:1px;vertical-align:middle;margin-right:6px}
+.key.s1{background:var(--s1)}.key.s2{background:var(--s2)}.key.s3{background:var(--s3)}
+.chartbox{position:relative;margin-top:6px}
+svg.chart{width:100%;height:auto;display:block;touch-action:pan-y;user-select:none}
+.chart .gr{stroke:var(--grid);stroke-width:1}
+.chart .ax{stroke:var(--axis);stroke-width:1}
+.chart .tk{fill:var(--muted);font:11px var(--f-body);font-variant-numeric:tabular-nums}
+.chart .goal{stroke:var(--ink);stroke-width:1;opacity:.55}
+.chart .gl{fill:var(--muted);font:600 11px var(--f-body)}
+.chart .ln{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.chart .ln.s1{stroke:var(--s1)}.chart .ln.s2{stroke:var(--s2)}.chart .ln.s3{stroke:var(--s3)}
+.chart .dot{stroke:var(--card);stroke-width:2}
+.chart .dot.s1{fill:var(--s1)}.chart .dot.s2{fill:var(--s2)}.chart .dot.s3{fill:var(--s3)}
+.chart .cross{stroke:var(--muted);stroke-width:1}
+.tip{position:absolute;top:0;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 9px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);pointer-events:none;min-width:150px}
+.tip .th{font-weight:600;color:var(--muted);margin-bottom:2px}
+.tip .tr{display:flex;align-items:center;gap:6px}
+.tip .tr b{min-width:32px;font-variant-numeric:tabular-nums}
+.tip .tr span{color:var(--muted)}
+.tblwrap{overflow-x:auto}
+.gtab{width:100%;border-collapse:collapse;font-size:13.5px}
+.gtab th,.gtab td{padding:7px 6px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+.gtab th:first-child{text-align:left;font-weight:500;white-space:normal}
+.gtab thead th{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+.gtab tbody tr{cursor:pointer}
+.gtab tbody tr.sel th{font-weight:700}
+.gtab tbody tr.sel{background:var(--chip)}
+.gtab .low{font-size:11px;font-weight:700;color:var(--warn);white-space:nowrap}

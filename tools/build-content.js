@@ -22,7 +22,14 @@ const MUSCLES = [['chest', 'Chest'], ['back', 'Back (lats & upper back)'], ['fde
   ['biceps', 'Biceps'], ['triceps', 'Triceps'], ['quads', 'Quads'], ['glutes', 'Glutes'], ['adductors', 'Adductors'], ['hams', 'Hamstrings'],
   ['calves', 'Calves'], ['abs', 'Abs']];
 
-// Bump an exercise's version here whenever its content changes, so phones pick up the new copy.
+// Rest between sets, seconds: about 2.5 min after big compound lifts, 90 s after isolation work.
+const REST = {
+  leg_press: 150, lat_pulldown: 150, incline_db_press: 150, rdl: 150, cable_row: 150, shoulder_press: 150, chest_press: 150,
+  split_squat: 120, leg_curl: 90, lateral_raise: 90, reverse_fly: 90, machine_curl: 90, oh_triceps: 90, adduction: 90,
+  calf_raise: 90, cable_crunch: 90,
+};
+// Version of every exercise file; bump (globally or per id) whenever content changes so phones pick up the new copy.
+const BASE_VERSION = 2; // v2: added rest times
 const VERSIONS = {};
 
 const exDir = path.join(root, 'content', 'exercises');
@@ -30,8 +37,8 @@ fs.mkdirSync(exDir, { recursive: true });
 const index = [];
 for (const e of src) {
   const out = {
-    type: 'exercise', schema: 1, id: e.id, version: VERSIONS[e.id] || 1,
-    name: e.name, short: e.short, equipment: EQUIPMENT[e.id] || '', unit: 'lb', step: e.step, perSide: e.perSide,
+    type: 'exercise', schema: 1, id: e.id, version: VERSIONS[e.id] || BASE_VERSION,
+    name: e.name, short: e.short, equipment: EQUIPMENT[e.id] || '', unit: 'lb', step: e.step, perSide: e.perSide, rest: REST[e.id] || 120,
     credit: e.credit, cues: e.cues, safety: e.safety, refs: e.refs,
     figure: { svg: FIG.render(e.id) },
   };

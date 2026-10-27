@@ -26,11 +26,12 @@ tools/                          generator for the content files (node tools/buil
 
 ### Exercise file (`type: "exercise"`)
 `id` (unique, lowercase), `version` (raise it to push a change), `name`, `short`, `equipment`, `unit`, `step`,
-`perSide`, `credit` (muscle → 1 or 0.5 effective sets), `cues` (numbered to match the figure), `safety`,
+`perSide`, `rest` (seconds between sets), `credit` (muscle → 1 or 0.5 effective sets), `cues` (numbered to match the figure), `safety`,
 `refs` (https links), `figure.svg` (drawn with the app's CSS classes; scripts and links are stripped on import).
 
 ### Plan file (`type: "plan"`)
-`id`, `version`, `name`, `muscleTarget`, `muscles` (key → label), `items`: `[{ex, sets, lo, hi}]` in workout order.
+`id`, `version`, `name`, `muscleTarget`, `muscles` (key → label), `items`: `[{ex, sets, lo, hi, rest?}]` in workout order
+(`rest` here overrides the exercise's own).
 
 ### Export zip
 `plan.json`, `plans/`, `exercises/`, `logs/` (one JSON file per set: `id, ex, w, unit, r, t`), `settings.json`.

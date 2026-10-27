@@ -2,13 +2,14 @@
  "type": "exercise",
  "schema": 1,
  "id": "machine_curl",
- "version": 1,
+ "version": 2,
  "name": "Machine biceps curl",
  "short": "Biceps curl",
  "equipment": "Biceps curl machine (preacher pad)",
  "unit": "lb",
  "step": 5,
  "perSide": false,
+ "rest": 90,
  "credit": {
   "biceps": 1
  },

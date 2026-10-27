@@ -2,13 +2,14 @@
  "type": "exercise",
  "schema": 1,
  "id": "cable_crunch",
- "version": 1,
+ "version": 2,
  "name": "Cable crunch",
  "short": "Cable crunch",
  "equipment": "Cable station, high pulley, rope",
  "unit": "lb",
  "step": 5,
  "perSide": false,
+ "rest": 90,
  "credit": {
   "abs": 1
  },
