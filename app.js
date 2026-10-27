@@ -1,7 +1,7 @@
 /* Weekly Pile core. All data lives in this browser's IndexedDB on the phone:
    exercises (library add-ons), plans (ordered set lists), logs (one record per set), meta (settings). */
 'use strict';
-const APP_VERSION = '1.3.2';
+const APP_VERSION = '1.3.3';
 
 // ---------------------------------------------------------------- utilities
 const $ = s => document.querySelector(s);
@@ -750,7 +750,6 @@ function renderJump() {
 
 // ---------------------------------------------------------------- rendering
 function renderHeader() {
-  $('#weekLabel').textContent = 'Sets in the last 7 days' + (S.ramp < 1 ? ` · targets at ${S.ramp * 100}%` : '');
   const T = setTotals();
   const n = v => `<b class="nv${v ? '' : ' z'}">${v}</b>`, sl = '<i>/</i>';
   $('#need').innerHTML = !T.W ? '' : n(T.d) + sl + n(T.x) + sl + n(T.y) + '<span>DY</span>' + sl + '<span>WK</span>' + sl + '<span>MO</span>';

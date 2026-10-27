@@ -18,7 +18,7 @@ Use **Data → Export everything** now and then for a backup zip.
   for that muscle (with its figure or photos and the logger) and up to three other ways to work it, each with a different
   emphasis. Arrows and swipes walk the top 10 muscles; the middle button lists them. The order re-sorts after every set,
   and the page you're on stays put. An exercise you pick or log for a muscle stays its choice for the rest of the day.
-- **Header counter**: sets needed today, as DY / WK / MO. DY brings today up to the daily share of the weekly set target (the Plan
+- **Header**: logo, title, and the counter. **Counter**: sets needed today, as DY / WK / MO. DY brings today up to the daily share of the weekly set target (the Plan
   estimate ÷ 7), WK brings the last 7 days up to the target, MO brings the 30-day average up to it (tap it for details).
   The bar under the header is the last 7 days against the weekly target.
 - **Log**: every set, editable.
