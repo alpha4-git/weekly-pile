@@ -1,7 +1,7 @@
 /* Weekly Pile core. All data lives in this browser's IndexedDB on the phone:
    exercises (library add-ons), plans (ordered set lists), logs (one record per set), meta (settings). */
 'use strict';
-const APP_VERSION = '1.2.1';
+const APP_VERSION = '1.2.2';
 
 // ---------------------------------------------------------------- utilities
 const $ = s => document.querySelector(s);
@@ -68,6 +68,7 @@ function validExercise(o) {
     name: str(o.name, 80) || o.id, short: str(o.short, 24) || str(o.name, 24) || o.id, equipment: str(o.equipment, 120),
     equip: Object.hasOwn(EQUIP, o.equip) ? o.equip : 'other', level: LEVELS.includes(o.level) ? o.level : 'beginner',
     mechanic: o.mechanic === 'isolation' ? 'isolation' : 'compound', reviewed: o.reviewed === true, common: o.common === true, source: str(o.source, 60),
+    variant: str(o.variant, 40),
     unit: o.unit === 'kg' ? 'kg' : 'lb', step: clamp(num(o.step, 5), 0.25, 50), perSide: !!o.perSide, rest: clamp(Math.round(num(o.rest, 120)), 15, 600),
     lo, hi: clamp(Math.round(num(o.hi, lo + 4)), lo, 100), credit,
     cues: (Array.isArray(o.cues) ? o.cues : []).filter(c => typeof c === 'string').slice(0, 24).map(c => c.slice(0, 800)),
@@ -192,6 +193,7 @@ const S = {
   ex: new Map(), plans: new Map(), plan: null, logs: [],
   ramp: 1, view: 'workout', cur: null, inputs: {}, editing: null, armed: null, rest: {}, goalSel: 'all', goalRange: 90,
   targets: {}, focus: {}, pool: null, hidden: new Set(), libVersion: 0, est: null, rank: null, libQ: '', openMus: new Set(),
+  slot: null, picks: {},
 };
 function validPool(p) {
   const d = { reviewedOnly: false, levels: { beginner: true, intermediate: true, expert: false }, equip: {} };
@@ -219,7 +221,9 @@ async function loadAll() {
   S.pool = validPool(m.pool);
   S.hidden = new Set(validHidden(m.hidden));
   S.libVersion = Number.isInteger(m.libVersion) ? m.libVersion : 0;
+  S.picks = m.picks && m.picks.day === dayKey(new Date()) && typeof m.picks.p === 'object' ? m.picks.p : {};   // exercise choices last for the day
 }
+function setPick(m, id) { S.picks[m] = id; setMeta('picks', { day: dayKey(new Date()), p: S.picks }); }
 const setMeta = (k, v) => DB.put('meta', { k, v }).catch(e => console.warn(e));
 
 // week window
@@ -243,7 +247,7 @@ function inPool(e) {
   if (S.pool.levels[e.level] === false) return false;
   return S.pool.equip[e.equip] !== false;
 }
-const changed = () => { S.est = null; S.rank = null; };
+const changed = () => { S.est = null; S.rank = null; S.prio = null; };
 
 // ---------------------------------------------------------------- the ranking engine
 // Per muscle, from the logged sets (credit 1 = a full, focused set for that muscle; 0.5 = a partial set):
@@ -570,6 +574,7 @@ async function logSet(it) {
   if (before && w > before.w) pr.push(`weight ${fmtW(w)} ${e ? e.unit : 'lb'}`);
   if (before && w * inp.r > before.e) pr.push(`energy ${fmtE(w * inp.r)}`);
   toast(pr.length ? `New PR: ${pr.join(' and ')}` : `Logged ${fmtW(w)} × ${inp.r} · ${countToday(it.ex)} today`, pr.length ? 3500 : 2400);
+  if (S.slot && e && e.credit[S.slot] >= 1 && S.picks[S.slot] !== it.ex) setPick(S.slot, it.ex);
   startRest(it);
   render();
 }
@@ -626,38 +631,68 @@ async function deleteEditing() {
   render();
 }
 
-// ---------------------------------------------------------------- navigation: one exercise page at a time, top priorities first
-// The Workout tab shows the top 10 of the current ranking. The arrows and swipes walk that order, which re-sorts after every set;
-// the page you're on stays put while you do your sets, and its position updates.
+// ---------------------------------------------------------------- navigation: priorities are muscles, one page each
+// The Workout tab walks the 10 muscles that most need a full set right now (value of a focused set, which already
+// accounts for the focus minimum and for recent fatigue). Each page shows the best exercise for that muscle, scored with
+// everything else it trains, plus up to three alternatives that work it with a different emphasis.
+// The page you're on stays put while you log; the order re-sorts after every set.
 const TOP = 10;
-const rankedIds = () => getRank().list.slice(0, TOP).map(g => g.top.e.id);
-function curId() {
-  if (S.cur && S.ex.has(S.cur)) return S.cur;
-  S.cur = rankedIds()[0] || null;
-  return S.cur;
+const primaryOf = e => Object.keys(e.credit).filter(m => e.credit[m] >= 1);
+const altKey = (e, m) => e.variant || Object.keys(e.credit).filter(k => k !== m && e.credit[k] < 1).sort().join('+') || 'only';
+function muscleSlot(m, R, used) {
+  const s = R.st[m];
+  const opts = R.all.filter(r => r.e.credit[m] >= 1);
+  const pickId = S.picks[m], pickEx = pickId && S.ex.get(pickId);
+  let ex = pickEx && inPool(pickEx) && pickEx.credit[m] >= 1 ? pickEx : null;
+  if (!ex) { const r = opts.find(r => !used || !used.has(r.e.id)) || opts[0]; ex = r ? r.e : null; }
+  if (!ex) return null;
+  // alternatives: a different emphasis each (or different other muscles), best scored first
+  const seen = new Set([altKey(ex, m)]), alts = [];
+  for (const r of opts) { if (alts.length >= 3) break; if (r.e.id === ex.id || seen.has(altKey(r.e, m))) continue; seen.add(altKey(r.e, m)); alts.push(r.e); }
+  for (const r of opts) { if (alts.length >= 3) break; if (r.e.id !== ex.id && !alts.includes(r.e) && !alts.some(x => x.equip === r.e.equip && altKey(x, m) === altKey(r.e, m))) alts.push(r.e); }
+  return { m, s, ex, alts, v: s ? creditValue(s, 1) : 0 };
 }
-function openEx(id, anim) {
-  if (!S.ex.has(id)) return;
-  S.cur = id; S.view = 'workout';
-  render(anim);
-  window.scrollTo({ top: 0 });
+function priorities() {
+  const R = getRank(), list = [];
+  for (const [m] of muscleList()) {
+    const s = R.st[m];
+    if (!s || s.T <= 0) continue;
+    const v = creditValue(s, 1);
+    const best = R.all.find(r => r.e.credit[m] >= 1);
+    if (v > 0.02 && best) list.push({ m, v, tie: best.s });
+  }
+  list.sort((a, b) => b.v - a.v || b.tie - a.tie);
+  S.order = list.map(x => x.m);          // every muscle that still needs work, best first
+  const used = new Set();
+  return list.slice(0, TOP).map(({ m }) => { const sl = muscleSlot(m, R, used); if (sl) used.add(sl.ex.id); return sl; }).filter(Boolean);
+}
+function currentSlot() {
+  const P = S.prio || (S.prio = priorities());
+  if (!S.slot) S.slot = P[0] ? P[0].m : null;
+  if (!S.slot) return null;
+  return P.find(x => x.m === S.slot) || muscleSlot(S.slot, getRank(), null);
+}
+function showSlot(m, anim) { S.slot = m; S.view = 'workout'; render(anim); window.scrollTo({ top: 0 }); }
+function openEx(id) {           // from the library: show it as the way to work its main muscle
+  const e = S.ex.get(id); if (!e) return;
+  const m = primaryOf(e)[0]; if (!m) return;
+  setPick(m, id); showSlot(m, null);
 }
 function go(dir) {
-  const ids = rankedIds(); if (!ids.length) return;
-  const i = ids.indexOf(curId());
-  if (i < 0) { openEx(ids[0], 'in-r'); return; }      // an alternative, or it dropped out of the top 10: back to #1
+  const P = S.prio || (S.prio = priorities()); if (!P.length) return;
+  const i = P.findIndex(x => x.m === S.slot);
+  if (i < 0) { showSlot(P[0].m, 'in-r'); return; }
   const j = i + dir;
   if (j < 0) { toast('This is the top priority'); return; }
-  if (j >= ids.length) { toast(`That's #${ids.length}, the last of the top ${TOP}`); return; }
-  openEx(ids[j], dir > 0 ? 'in-r' : 'in-l');
+  if (j >= P.length) { toast(`That's #${P.length}, the last of the top ${TOP}`); return; }
+  showSlot(P[j].m, dir > 0 ? 'in-r' : 'in-l');
 }
 function renderJump() {
-  const R = getRank(), st = R.st;
-  $('#jumpList').innerHTML = R.list.slice(0, TOP).map((g, i) => {
-    const e = g.top.e, n = countToday(e.id), rest = S.rest[e.id];
-    const chips = Object.entries(e.credit).sort((a, b) => b[1] - a[1]).map(([m, c]) => chipHTML(m, c, st[m])).join('');
-    const sub = rest && rest.end > Date.now() ? `<span class="rb num" data-rest="${esc(e.id)}">Rest ${fmtClock(rest.end - Date.now())}</span>` : n ? `${n} today` : '';
-    return `<li><button type="button" data-jump="${esc(e.id)}" aria-current="${e.id === S.cur}"><span class="n num">${i + 1}</span><span class="jb"><span>${esc(e.name)}</span><span class="uc">${chips}</span></span><span class="c num">${sub}</span></button></li>`;
+  const P = S.prio || priorities();
+  $('#jumpList').innerHTML = P.map((x, i) => {
+    const n = countToday(x.ex.id), rest = S.rest[x.ex.id];
+    const sub = rest && rest.end > Date.now() ? `<span class="rb num" data-rest="${esc(x.ex.id)}">Rest ${fmtClock(rest.end - Date.now())}</span>` : n ? `${n} today` : '';
+    return `<li><button type="button" data-jump="${esc(x.m)}" aria-current="${x.m === S.slot}"><span class="n num">${i + 1}</span><span class="jb"><b>${esc(shortMuscle(x.m))}</b> <span class="muted num">${Math.round(x.s.open * 100)}% open${x.s.short ? ' · needs focused' : ''}</span><span class="muted">${esc(x.ex.name)}</span></span><span class="c num">${sub}</span></button></li>`;
   }).join('') || '<li class="muted">Nothing to suggest right now.</li>';
 }
 
@@ -668,13 +703,13 @@ function renderHeader() {
   const done = weekLogs().length, est = S.plan ? estimate().sets : 0;
   $('#tot').innerHTML = `${done}<small> / ≈${est} sets</small>`;
   $('#totBar').style.width = (est ? Math.min(100, done / est * 100) : 0) + '%';
-  const detail = S.view === 'workout' && S.plan && S.cur && S.ex.has(S.cur);
+  const detail = S.view === 'workout' && S.plan && S.slot && S.cur && S.ex.has(S.cur);
   $('#pager').hidden = !detail;
   if (detail) {
-    const ids = rankedIds(), i = ids.indexOf(S.cur), e = S.ex.get(S.cur);
-    $('#jumpBtn').textContent = (i >= 0 ? `${i + 1} / ${ids.length}` : 'Alt') + ' · ' + e.short;
+    const P = S.prio || [], i = P.findIndex(x => x.m === S.slot), k = (S.order || []).indexOf(S.slot);
+    $('#jumpBtn').textContent = (i >= 0 ? `${i + 1} / ${P.length}` : k >= 0 ? `#${k + 1}` : 'on target') + ' · ' + shortMuscle(S.slot);
     $('#prevBtn').disabled = i === 0;
-    $('#nextBtn').disabled = i >= 0 && i >= ids.length - 1;
+    $('#nextBtn').disabled = i >= 0 && i >= P.length - 1;
   }
   document.querySelectorAll('.tabs button').forEach(b => b.setAttribute('aria-selected', String(b.dataset.view === S.view)));
 }
@@ -688,10 +723,12 @@ function renderWorkout(anim) {
   const page = $('#page');
   page.className = 'page';
   if (!S.plan) { page.innerHTML = S.loading ? '<div class="card empty">Loading the plan and exercise library from the site…</div>' : onboardingHTML(); return; }
-  S.rank = rank();
-  if (!curId()) { page.innerHTML = '<div class="card empty">Nothing to suggest: every target is met, or the Plan tab\'s filters leave no exercises.</div>'; return; }
-  renderDetail(anim);
-  prefetchPhotos(S.rank.list.slice(0, TOP).map(g => g.top.e));
+  S.rank = rank(); S.prio = priorities();
+  const slot = currentSlot();
+  if (!slot) { S.cur = null; page.innerHTML = '<div class="card empty">Nothing to suggest: every target is met, or the Plan tab\'s filters leave no exercises.</div>'; return; }
+  S.cur = slot.ex.id;
+  renderDetail(slot, anim);
+  prefetchPhotos(S.prio.flatMap(x => [x.ex, ...x.alts.slice(0, 1)]));
   if (anim && !matchMedia('(prefers-reduced-motion: reduce)').matches) { void page.offsetWidth; page.classList.add(anim); }
 }
 const imgURL = p => IMG_BASE + p.split('/').map(encodeURIComponent).join('/');
@@ -700,13 +737,15 @@ function prefetchPhotos(exs) {
   if (navigator.onLine === false) return;
   for (const e of exs) for (const p of e.images || []) if (!prefetched.has(p)) { prefetched.add(p); const im = new Image(); im.crossOrigin = 'anonymous'; im.src = imgURL(p); }
 }
-function renderDetail(anim) {
-  const page = $('#page'), e = S.ex.get(S.cur), it = itFor(e);
+function renderDetail(slot, anim) {
+  const page = $('#page'), e = slot.ex, it = itFor(e), m = slot.m;
   const R = getRank(), st = R.st;
-  const pos = R.list.slice(0, TOP).findIndex(g => g.top.e.id === e.id);
-  const group = R.list.find(g => g.top.e.id === e.id || g.alts.some(a => a.e.id === e.id));
-  const alts = group ? [group.top, ...group.alts].filter(r => r.e.id !== e.id).slice(0, 6) : [];
-  const best = R.list[0] && R.list[0].top.e.id !== e.id ? R.list[0].top.e : null;
+  const pos = (S.order || []).indexOf(m), ms = st[m];
+  const why = !ms || ms.T <= 0 ? 'no target set' : ms.open <= 0.001 ? 'on target' : `${Math.round(ms.open * 100)}% of the weekly target open` + (ms.short ? ' · needs focused sets' : '') + (ms.R < 0.5 ? ' · worked hard in the last day' : '');
+  const altHTML = slot.alts.length ? `<div class="alts"><h3>Other ways to work ${esc(shortMuscle(m).toLowerCase())}</h3>${slot.alts.map(a => {
+    const others = Object.entries(a.credit).filter(([k]) => k !== m).sort((x, y) => y[1] - x[1]).map(([k, c]) => shortMuscle(k) + (c < 1 ? ' ½' : '')).join(', ');
+    return `<button type="button" data-pick="${esc(a.id)}" data-m="${esc(m)}"><span class="an">${esc(a.name)}</span><span class="av">${esc(a.variant || (others ? '+ ' + others : 'Isolation'))}</span><span class="ae muted">${esc(EQUIP[a.equip] || '')}${a.variant && others ? ' · + ' + esc(others) : ''}</span></button>`;
+  }).join('')}</div>` : '';
   const now = new Date(), tk = dayKey(now);
   const yd = new Date(now); yd.setDate(yd.getDate() - 1); const yk = dayKey(yd);
   const mine = S.logs.filter(l => l.ex === e.id);
@@ -720,10 +759,10 @@ function renderDetail(anim) {
     if (!today.length) {
       if (prevSets.every(l => l.r >= it.hi)) info.push(`<div class="hint up">Every set hit ${it.hi} reps last time. Add weight today (+${fmtW(e.step)} ${esc(e.unit)}).</div>`);
       else if (prevSets.some(l => l.r < it.lo)) info.push(`<div class="hint down">Reps fell below ${it.lo} last time. Use a little less weight so every set lands in ${it.lo}–${it.hi}.</div>`);
-      if (prevDay === yk) info.push('<div class="hint cap">You did this yesterday. If it was hard or you\'re still sore, pick something else from the list.</div>');
+      if (prevDay === yk) info.push('<div class="hint cap">You did this yesterday. If it was hard or you\'re still sore, pick one of the other ways below.</div>');
     }
   }
-  if (today.length >= 5) info.push(`<div class="hint cap">${today.length} sets of this today. That's the per-session cap; the list will steer you elsewhere.</div>`);
+  if (today.length >= 5) info.push(`<div class="hint cap">${today.length} sets of this today. That's the per-session cap; the next priority is a better use of the next set.</div>`);
   const tired = Object.keys(e.credit).filter(m => st[m] && st[m].R < 0.5);
   if (tired.length) info.push(`<div class="hint cap">${esc(tired.map(shortMuscle).join(', '))} ${tired.length > 1 ? 'have' : 'has'} had a lot of work in the last day.</div>`);
   const { best: prs, flags } = prScan();
@@ -742,7 +781,8 @@ function renderDetail(anim) {
   }).join('');
   page.innerHTML = `
     <article class="card">
-      <div class="pos"><span>${pos === 0 ? 'Top priority' : pos > 0 ? `Priority #${pos + 1}` : 'Alternative'}</span><span>${esc(e.equipment)}</span></div>
+      <div class="slot"><span class="sl">${pos === 0 ? 'Top priority' : pos > 0 ? `Priority ${pos + 1}` : 'On target'}</span><span class="sm2">${esc(muscleName(m))}</span><span class="sw muted">${esc(why)}</span></div>
+      <div class="pos"><span>${esc(e.variant || '')}</span><span>${esc(e.equipment)}</span></div>
       <div class="chead">
         <div><h2>${esc(e.name)}</h2><div class="meta">${it.lo}–${it.hi} reps${e.perSide ? ' per side' : ''} · rest ${fmtClock(restSecs(it) * 1000)}</div></div>
         <div class="count num">${today.length}<small>today</small></div>
@@ -756,13 +796,12 @@ function renderDetail(anim) {
         <div class="today">${today.length ? '<span class="t">Today · tap to edit</span>' + today.map(l => { const f = flags.get(l.id); return `<button type="button" class="chipbtn num${f ? ' pr' : ''}" data-edit="${esc(l.id)}">${fmtW(l.w)}×${l.r}${f ? ' ★' : ''}</button>`; }).join('') : ''}</div>
         ${prLine}
         <div class="info">${info.join('')}</div>
-        ${best ? `<button type="button" class="nextbest" data-open="${esc(best.id)}"><span class="k">Top priority now</span><span class="nb">${esc(best.name)}</span><span aria-hidden="true">›</span></button>` : ''}
       </div>
+      ${altHTML}
       <div class="works"><span class="k">Works</span>${works}</div>
       <ol class="cues">${e.cues.map((c, i) => `<li data-n="${i + 1}">${esc(c)}</li>`).join('')}</ol>
       ${e.safety ? `<p class="safety">${esc(e.safety)}</p>` : ''}
       ${e.refs.length ? `<div class="refs">Reference: ${e.refs.map(r => `<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title)}</a>`).join(' · ')}</div>` : ''}
-      ${alts.length ? `<div class="alts"><h3>Similar exercises</h3>${alts.map(r => `<button type="button" data-open="${esc(r.e.id)}"><span>${esc(r.e.name)}</span><span class="muted">${r.e.reviewed ? 'reviewed' : esc(EQUIP[r.e.equip] || '')}</span></button>`).join('')}</div>` : ''}
       <div class="btns"><button type="button" class="btn quiet" data-hide="${esc(e.id)}">Hide this exercise</button></div>
     </article>`;
   const fig = $('#fig'), svg = cleanSVG(e.figure && e.figure.svg);
@@ -1101,7 +1140,7 @@ function wire() {
   $('#prevBtn').addEventListener('click', () => go(-1));
   $('#nextBtn').addEventListener('click', () => go(+1));
   $('#jumpBtn').addEventListener('click', () => { renderJump(); $('#jumpDlg').showModal(); });
-  $('#jumpList').addEventListener('click', e => { const b = e.target.closest('[data-jump]'); if (!b) return; e.preventDefault(); $('#jumpDlg').close(); openEx(b.dataset.jump, null); });
+  $('#jumpList').addEventListener('click', e => { const b = e.target.closest('[data-jump]'); if (!b) return; e.preventDefault(); $('#jumpDlg').close(); showSlot(b.dataset.jump, null); });
   $('#updBtn').addEventListener('click', installUpdate);
   $('#edClose').addEventListener('click', () => $('#editDlg').close());
   $('#edCancel').addEventListener('click', () => $('#editDlg').close());
@@ -1115,9 +1154,10 @@ function wire() {
     render();
   });
   document.addEventListener('click', async e => {
-    const a = e.target.closest('[data-a],[data-edit],[data-ramp],[data-range],[data-gsel],[data-grange],[data-open],[data-hide],[data-unhide],[data-lvl],[data-eq],[data-mus]');
+    const a = e.target.closest('[data-a],[data-edit],[data-ramp],[data-range],[data-gsel],[data-grange],[data-open],[data-pick],[data-hide],[data-unhide],[data-lvl],[data-eq],[data-mus]');
     if (!a || a.closest('dialog')) return;
-    if (a.dataset.open) { openEx(a.dataset.open, 'in-r'); return; }
+    if (a.dataset.open) { openEx(a.dataset.open); return; }
+    if (a.dataset.pick) { setPick(a.dataset.m, a.dataset.pick); S.slot = a.dataset.m; renderWorkout('in-r'); renderHeader(); window.scrollTo({ top: 0 }); return; }
     if (a.dataset.mus) {
       const k = a.dataset.mus, box = a.closest('.mus'), open = !S.openMus.has(k);
       if (open) S.openMus.add(k); else S.openMus.delete(k);
@@ -1137,7 +1177,8 @@ function wire() {
     if (a.dataset.hide) {
       const id = a.dataset.hide; await setHidden(id, true);
       toast(`Hidden: ${(S.ex.get(id) || {}).short || id}. Show it again from the Plan tab.`, 3500);
-      if (S.cur === id) S.cur = null;
+      for (const [k, v] of Object.entries(S.picks)) if (v === id) delete S.picks[k];
+      setMeta('picks', { day: dayKey(new Date()), p: S.picks });
       render();
       return;
     }
@@ -1190,7 +1231,7 @@ function wire() {
   const area = $('#v-workout');
   let sx = 0, sy = 0, stt = 0, track = false;
   area.addEventListener('touchstart', e => {
-    if (e.touches.length !== 1 || !S.cur || !S.plan) { track = false; return; }
+    if (e.touches.length !== 1 || !S.slot || !S.plan) { track = false; return; }
     const t = e.touches[0]; sx = t.clientX; sy = t.clientY; stt = Date.now();
     track = !e.target.closest('input,select,textarea,.stepper');
   }, { passive: true });
@@ -1200,14 +1241,14 @@ function wire() {
     if (Math.abs(dx) > 70 && Math.abs(dx) > 2 * Math.abs(dy) && Date.now() - stt < 800) go(dx < 0 ? +1 : -1);
   }, { passive: true });
   document.addEventListener('keydown', e => {
-    if (S.view !== 'workout' || !S.cur || e.target.closest('input,select,textarea') || document.querySelector('dialog[open]')) return;
+    if (S.view !== 'workout' || !S.slot || e.target.closest('input,select,textarea') || document.querySelector('dialog[open]')) return;
     if (e.key === 'ArrowRight') go(+1); else if (e.key === 'ArrowLeft') go(-1);
   });
   // a return to the app re-ranks (rankings depend on the time since each set); after a long break it starts again at #1
   let hiddenAt = 0;
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) { hiddenAt = Date.now(); return; }
-    if (hiddenAt && Date.now() - hiddenAt > 45 * 60e3) S.cur = null;
+    if (hiddenAt && Date.now() - hiddenAt > 45 * 60e3) S.slot = null;
     changed(); render(); refreshUpdateState(); tickRest();
   });
 }

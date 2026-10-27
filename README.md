@@ -14,8 +14,10 @@ Use **Data → Export everything** now and then for a backup zip.
 
 ## Tabs
 
-- **Workout**: one exercise per page, starting with the top priority. Arrows and swipes walk the top 10 in ranked order (the
-  ranking re-sorts after every set; the page you're on stays put). The middle button lists the top 10 to jump to.
+- **Workout**: one page per priority muscle, starting with the muscle that most needs a set. Each page shows the best exercise
+  for that muscle (with its figure or photos and the logger) and up to three other ways to work it, each with a different
+  emphasis. Arrows and swipes walk the top 10 muscles; the middle button lists them. The order re-sorts after every set,
+  and the page you're on stays put. An exercise you pick or log for a muscle stays its choice for the rest of the day.
 - **Log**: every set, editable.
 - **Goals**: *Priorities* (the muscles furthest below target), every muscle's sets per week and focused share, and rolling
   sets-per-week charts (7-day, 30-day, year) overall and per muscle.

@@ -262,21 +262,24 @@ svg.chart{width:100%;height:auto;display:block;touch-action:pan-y;user-select:no
 /* exercise page additions */
 .nrbox{margin-top:10px;border-radius:8px;padding:7px 10px;font-size:13px;background:var(--warn-soft);color:var(--warn)}
 .works{display:flex;flex-direction:column;gap:5px;margin:12px 0 10px}
-.works .k,.nextbest .k{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+.works .k{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
 .wk{display:flex;gap:8px;align-items:center;font-size:12.5px}
-.nextbest{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;text-align:left;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:10px 12px;font-weight:600}
-.nextbest .nb{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 figure.photos{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 figure.photos>div{position:relative;border-radius:8px;overflow:hidden;background:var(--chip);aspect-ratio:850/567;min-height:90px}
 figure.photos img{display:block;width:100%;height:100%;object-fit:cover}
 figure.photos span{position:absolute;left:6px;top:6px;font-size:11px;font-weight:700;background:var(--card);color:var(--ink);border-radius:4px;padding:1px 6px;text-transform:uppercase;letter-spacing:.04em}
 figure.photos>div.off img{display:none}
 figure.photos>div.off::after{content:attr(data-msg);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:8px;font-size:12px;color:var(--muted)}
-.alts{margin-top:14px;border-top:1px solid var(--line);padding-top:10px}
-.alts h3{font:700 14px/1.2 var(--f-display);text-transform:uppercase;letter-spacing:.03em;margin:0 0 4px;color:var(--muted)}
-.alts button{display:flex;justify-content:space-between;gap:10px;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--line);padding:9px 0;font-size:14px}
-.alts button:last-child{border-bottom:0}
-.alts button .muted{font-size:12px;flex:none}
+.alts{grid-column:1/-1;margin-top:4px}
+.alts h3{font:700 14px/1.2 var(--f-display);text-transform:uppercase;letter-spacing:.03em;margin:4px 0 6px;color:var(--muted)}
+.alts button{display:grid;grid-template-columns:1fr auto;gap:1px 10px;width:100%;text-align:left;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:9px 11px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+.alts .an{font-weight:600}
+.alts .av{font-size:12px;font-weight:700;color:var(--acc);text-align:right;align-self:center}
+.alts .ae{grid-column:1/-1;font-size:12px}
+.slot{display:flex;flex-direction:column;gap:1px;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid var(--line)}
+.slot .sl{font-size:11.5px;color:var(--acc);text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+.slot .sm2{font:700 26px/1.05 var(--f-display);text-transform:uppercase;letter-spacing:.01em}
+.slot .sw{font-size:12.5px}
 .btn.quiet{font-size:13px;padding:7px 11px;color:var(--muted);font-weight:500}
 ol.cues li{font-size:14px}
 
