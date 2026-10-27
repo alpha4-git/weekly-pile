@@ -1,7 +1,7 @@
 /* Weekly Pile core. All data lives in this browser's IndexedDB on the phone:
    exercises (library add-ons), plans (ordered set lists), logs (one record per set), meta (settings). */
 'use strict';
-const APP_VERSION = '1.2.5';
+const APP_VERSION = '1.3.0';
 
 // ---------------------------------------------------------------- utilities
 const $ = s => document.querySelector(s);
@@ -43,6 +43,7 @@ const DB = (() => {
     put: (store, val) => write(store, s => s.put(val)),
     putMany: (store, vals) => write(store, s => vals.forEach(v => s.put(v))),
     del: (store, key) => write(store, s => s.delete(key)),
+    delMany: (store, keys) => write(store, s => keys.forEach(k => s.delete(k))),
   };
 })();
 
@@ -68,7 +69,7 @@ function validExercise(o) {
     name: str(o.name, 80) || o.id, short: str(o.short, 24) || str(o.name, 24) || o.id, equipment: str(o.equipment, 120),
     equip: Object.hasOwn(EQUIP, o.equip) ? o.equip : 'other', level: LEVELS.includes(o.level) ? o.level : 'beginner',
     mechanic: o.mechanic === 'isolation' ? 'isolation' : 'compound', reviewed: o.reviewed === true, common: o.common === true, source: str(o.source, 60),
-    variant: str(o.variant, 40),
+    variant: str(o.variant, 40), timed: o.timed === true,
     unit: o.unit === 'kg' ? 'kg' : 'lb', step: clamp(num(o.step, 5), 0.25, 50), perSide: !!o.perSide, rest: clamp(Math.round(num(o.rest, 120)), 15, 600),
     lo, hi: clamp(Math.round(num(o.hi, lo + 4)), lo, 100), credit,
     cues: (Array.isArray(o.cues) ? o.cues : []).filter(c => typeof c === 'string').slice(0, 24).map(c => c.slice(0, 800)),
@@ -197,9 +198,8 @@ const S = {
   slot: null, picks: {},
 };
 function validPool(p) {
-  const d = { reviewedOnly: false, levels: { beginner: true, intermediate: true, expert: false }, equip: {} };
+  const d = { levels: { beginner: true, intermediate: true, expert: false }, equip: {} };
   if (!p || typeof p !== 'object') return d;
-  d.reviewedOnly = p.reviewedOnly === true;
   for (const l of LEVELS) if (p.levels && typeof p.levels[l] === 'boolean') d.levels[l] = p.levels[l];
   for (const k of Object.keys(EQUIP)) if (p.equip && p.equip[k] === false) d.equip[k] = false;
   return d;
@@ -257,7 +257,7 @@ const focusShare = m => S.focus[m] != null ? S.focus[m] : planFocus(m);
 const targetWeek = m => targetMonth(m) * 7 / MONTH * S.ramp;
 function inPool(e) {
   if (S.hidden.has(e.id) || !Object.keys(e.credit).length) return false;
-  if (S.pool.reviewedOnly && !e.reviewed) return false;
+  if (!e.reviewed) return false;               // only hand-reviewed exercises are ever suggested
   if (S.pool.levels[e.level] === false) return false;
   return S.pool.equip[e.equip] !== false;
 }
@@ -329,8 +329,10 @@ function rank(now = Date.now()) {
     let s = scoreEx(e, st);
     if (s <= 0.02) continue;
     const lt = last.get(e.id);
-    if (e.reviewed) s *= 1.12;                         // prefer the hand-checked exercises when the work is the same
-    else s *= (e.common ? 1.05 : 1) * (e.level === 'beginner' ? 1.02 : e.level === 'expert' ? 0.95 : 1) * (STEADY.has(e.equip) ? 1.02 : 1);  // then staples, simpler, machine/cable
+    // ties between exercises that do the same work: your original exercises (drawn figures), then common staples,
+    // then simpler and machine/cable options; bands last (light, uneven resistance)
+    s *= (e.source === 'weekly-pile' ? 1.05 : 1) * (e.common ? 1.04 : 1) * (e.level === 'beginner' ? 1.02 : e.level === 'expert' ? 0.95 : 1)
+      * (STEADY.has(e.equip) ? 1.02 : e.equip === 'bands' ? 0.97 : 1);
     if (lt && now - lt < 28 * DAY) s *= 1.06;          // and ones you already know
     if (lt && lt >= t0 && now - lt < 6 * 36e5) s *= 1.05; // and the one you're in the middle of
     all.push({ e, s, last: lt });
@@ -456,6 +458,7 @@ function describe(sum) {
   if (sum.current) bits.push(`plan "${sum.current}" loaded`);
   else if (sum.plans) bits.push(`${sum.plans} plan${sum.plans > 1 ? 's' : ''} saved`);
   if (sum.logs) bits.push(`${sum.logs} set${sum.logs > 1 ? 's' : ''}`);
+  if (sum.removed) bits.push(`${sum.removed} unreviewed removed`);
   if (!bits.length) bits.push(sum.sameEx ? 'Everything was already up to date' : 'Nothing to import');
   return bits.join(', ') + (sum.errors.length ? ` · ${sum.errors.length} item${sum.errors.length > 1 ? 's' : ''} skipped` : '');
 }
@@ -478,7 +481,13 @@ async function getLatest() {
     libV = +lib.version;
   }
   const sum = await applyImport(classify(entries), { makeCurrent: true });
-  if (libV) { S.libVersion = libV; await setMeta('libVersion', libV); }
+  if (libV) {
+    S.libVersion = libV; await setMeta('libVersion', libV);
+    // the library is reviewed-only now: drop older unreviewed database entries, except ones you've logged sets on
+    const logged = new Set(S.logs.map(l => l.ex));
+    const drop = [...S.ex.values()].filter(e => !e.reviewed && e.source === 'free-exercise-db' && !logged.has(e.id)).map(e => e.id);
+    if (drop.length) { await DB.delMany('exercises', drop); drop.forEach(id => S.ex.delete(id)); sum.removed = drop.length; changed(); }
+  }
   return sum;
 }
 function download(blob, name) {
@@ -613,7 +622,7 @@ async function logSet(it) {
   const pr = [];
   if (before && w > before.w) pr.push(`weight ${fmtW(w)} ${e ? e.unit : 'lb'}`);
   if (before && w * inp.r > before.e) pr.push(`energy ${fmtE(w * inp.r)}`);
-  toast(pr.length ? `New PR: ${pr.join(' and ')}` : `Logged ${fmtW(w)} × ${inp.r} · ${countToday(it.ex)} today`, pr.length ? 3500 : 2400);
+  toast(pr.length ? `New PR: ${pr.join(' and ')}` : `Logged ${e && e.timed ? inp.r + ' s' : fmtW(w) + ' × ' + inp.r} · ${countToday(it.ex)} today`, pr.length ? 3500 : 2400);
   if (S.slot && e && e.credit[S.slot] >= 1 && S.picks[S.slot] !== it.ex) setPick(S.slot, it.ex);
   startRest(it);
   render();
@@ -824,14 +833,14 @@ function renderDetail(slot, anim) {
       <div class="slot"><span class="sl">${pos === 0 ? 'Top priority' : pos > 0 ? `Priority ${pos + 1}` : 'On target'}</span><span class="sm2">${esc(muscleName(m))}</span><span class="sw muted">${esc(why)}</span></div>
       <div class="pos"><span>${esc(e.variant || '')}</span><span>${esc(e.equipment)}</span></div>
       <div class="chead">
-        <div><h2>${esc(e.name)}</h2><div class="meta">${it.lo}–${it.hi} reps${e.perSide ? ' per side' : ''} · rest ${fmtClock(restSecs(it) * 1000)}</div></div>
+        <div><h2>${esc(e.name)}</h2><div class="meta">${it.lo}–${it.hi} ${e.timed ? 'seconds' : 'reps'}${e.perSide ? ' per side' : ''} · rest ${fmtClock(restSecs(it) * 1000)}</div></div>
         <div class="count num">${today.length}<small>today</small></div>
       </div>
       ${e.reviewed ? '' : '<div class="nrbox"><b>Not reviewed.</b> From the free-exercise-db, not checked like the core exercises. Watch the form video before going heavy.</div>'}
       <figure id="fig"></figure>
       <div class="logger">
         <div class="stepper"><button type="button" data-a="w-" aria-label="Less weight">−</button><label><input id="inW" type="number" inputmode="decimal" min="0" step="any" value="${fmtW(inp.w)}"><span>${esc(e.unit)}</span></label><button type="button" data-a="w+" aria-label="More weight">+</button></div>
-        <div class="stepper"><button type="button" data-a="r-" aria-label="Fewer reps">−</button><label><input id="inR" type="number" inputmode="numeric" min="0" step="1" value="${inp.r}"><span>reps</span></label><button type="button" data-a="r+" aria-label="More reps">+</button></div>
+        <div class="stepper"><button type="button" data-a="r-" aria-label="Fewer reps">−</button><label><input id="inR" type="number" inputmode="numeric" min="0" step="1" value="${inp.r}"><span>${e.timed ? 'sec' : 'reps'}</span></label><button type="button" data-a="r+" aria-label="More reps">+</button></div>
         ${action}
         <div class="today">${today.length ? '<span class="t">Today · tap to edit</span>' + today.map(l => { const f = flags.get(l.id); return `<button type="button" class="chipbtn num${f ? ' pr' : ''}" data-edit="${esc(l.id)}">${fmtW(l.w)}×${l.r}${f ? ' ★' : ''}</button>`; }).join('') : ''}</div>
         ${prLine}
@@ -1077,7 +1086,6 @@ function renderPlan() {
     </div>
     <div class="card sec"><h3>Exercise pool</h3>
       <p><b class="num">${pool.length}</b> of ${S.ex.size} exercises can be suggested.</p>
-      <label class="tog"><input type="checkbox" id="revOnly" ${S.pool.reviewedOnly ? 'checked' : ''}> Only the ${[...S.ex.values()].filter(e => e.reviewed).length} reviewed exercises</label>
       <h4>Level</h4><div class="pills">${LEVELS.map(l => pill('data-lvl', l, S.pool.levels[l] !== false, l[0].toUpperCase() + l.slice(1), lvCount[l] || 0)).join('')}</div>
       <h4>Equipment</h4><div class="pills">${Object.entries(EQUIP).filter(([k]) => eqCount[k]).map(([k, lab]) => pill('data-eq', k, S.pool.equip[k] !== false, lab, eqCount[k])).join('')}</div>
     </div>
@@ -1089,7 +1097,7 @@ function libRowsHTML() {
   const q = S.libQ.trim().toLowerCase();
   const exs = [...S.ex.values()].filter(e => !q || e.name.toLowerCase().includes(q) || e.id.includes(q)).sort((a, b) => (b.reviewed - a.reviewed) || a.name.localeCompare(b.name));
   const shown = exs.slice(0, 40);
-  return shown.map(e => `<li><button type="button" class="ln" data-open="${esc(e.id)}"><span>${esc(e.name)}${e.reviewed ? ' <span class="badge">reviewed</span>' : ''}</span><span class="id">${esc(EQUIP[e.equip] || '')} · ${esc(e.level)} · v${e.version}</span></button>${S.hidden.has(e.id) ? `<button type="button" data-unhide="${esc(e.id)}">Show</button>` : `<button type="button" data-hide="${esc(e.id)}">Hide</button>`}</li>`).join('')
+  return shown.map(e => `<li><button type="button" class="ln" data-open="${esc(e.id)}"><span>${esc(e.name)}${e.reviewed ? '' : ' <span class="badge nrb">not reviewed</span>'}</span><span class="id">${esc(EQUIP[e.equip] || '')} · ${esc(e.level)} · v${e.version}</span></button>${S.hidden.has(e.id) ? `<button type="button" data-unhide="${esc(e.id)}">Show</button>` : `<button type="button" data-hide="${esc(e.id)}">Hide</button>`}</li>`).join('')
     + (exs.length > shown.length ? `<li class="muted">${exs.length - shown.length} more. Type to narrow the list.</li>` : '') + (exs.length ? '' : '<li class="muted">No matches.</li>');
 }
 let swState = { version: null, approved: null };
@@ -1101,7 +1109,7 @@ async function renderData() {
   const nRev = [...S.ex.values()].filter(e => e.reviewed).length;
   v.innerHTML = `<div class="stack">
     <div class="card sec"><h3>Plan &amp; library</h3>
-      ${S.plan ? `<p><b>${esc(S.plan.name)}</b> · ${S.ex.size} exercises (${nRev} reviewed, ${S.ex.size - nRev} from the free-exercise-db)</p>` : '<p class="muted">No plan loaded.</p>'}
+      ${S.plan ? `<p><b>${esc(S.plan.name)}</b> · ${nRev} reviewed exercises${S.ex.size > nRev ? ` (plus ${S.ex.size - nRev} unreviewed kept for your logged sets, never suggested)` : ''}</p>` : '<p class="muted">No plan loaded.</p>'}
       ${S.plans.size > 1 ? `<label class="fld" style="margin-top:6px">Current plan<select id="planSel">${[...S.plans.values()].map(p => `<option value="${esc(p.id)}" ${S.plan && p.id === S.plan.id ? 'selected' : ''}>${esc(p.name)}</option>`).join('')}</select></label>` : ''}
       <div class="btns"><button type="button" class="btn primary" data-a="latest">Get latest plan &amp; exercises</button><button type="button" class="btn" data-a="import">Import files</button></div>
       <p class="muted" style="font-size:13px">Get latest downloads new or updated files from the site. Import reads plan, exercise or backup files (.json or .zip) from your phone. Database exercises come from the <a href="https://github.com/yuhonas/free-exercise-db" target="_blank" rel="noopener noreferrer">free-exercise-db</a> (public domain); their photos load from GitHub and are kept for offline use once viewed.</p>
@@ -1239,7 +1247,7 @@ function wire() {
     const cur = S.cur && S.ex.get(S.cur), it = cur && itFor(cur);
     switch (a.dataset.a) {
       case 'w-': case 'w+': if (!it) break; { const inp = inputsFor(it); inp.w = Math.max(0, +(inp.w + (a.dataset.a === 'w+' ? 1 : -1) * WSTEP).toFixed(2)); $('#inW').value = fmtW(inp.w); } break;
-      case 'r-': case 'r+': if (!it) break; { const inp = inputsFor(it); inp.r = Math.max(0, inp.r + (a.dataset.a === 'r+' ? 1 : -1)); $('#inR').value = inp.r; } break;
+      case 'r-': case 'r+': if (!it) break; { const inp = inputsFor(it); inp.r = Math.max(0, inp.r + (a.dataset.a === 'r+' ? 1 : -1) * (cur.timed ? 5 : 1)); $('#inR').value = inp.r; } break;
       case 'log': if (it) await logSet(it); break;
       case 'skiprest': if (it) { stopRest(it.ex); renderWorkout(); toast('Rest skipped'); } break;
       case 'resetTargets': S.targets = {}; S.focus = {}; setMeta('targets', {}); setMeta('focus', {}); changed(); renderPlan(); renderHeader(); toast('Targets reset to the plan defaults'); break;
@@ -1277,7 +1285,6 @@ function wire() {
     const t = e.target;
     if (t.dataset.tgt || t.dataset.foc) { refreshEstimate(); return; }
     if (t.id === 'soundOn') { S.sound = t.checked; setMeta('sound', S.sound); if (S.sound) { audioUnlock(); beep(); } return; }
-    if (t.id === 'revOnly') { S.pool.reviewedOnly = t.checked; setMeta('pool', S.pool); changed(); renderPlan(); renderHeader(); return; }
     if (t.id === 'planSel') { const p = S.plans.get(t.value); if (p) { S.plan = p; setMeta('currentPlan', p.id); changed(); toast(`"${p.name}" is now current`); render(); } }
   });
   // swipe between exercises on an exercise page

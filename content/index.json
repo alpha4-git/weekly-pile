@@ -5,88 +5,88 @@
  "exercises": [
   {
    "id": "incline_db_press",
-   "version": 3,
+   "version": 4,
    "file": "exercises/incline_db_press.json"
   },
   {
    "id": "chest_press",
-   "version": 3,
+   "version": 4,
    "file": "exercises/chest_press.json"
   },
   {
    "id": "shoulder_press",
-   "version": 3,
+   "version": 4,
    "file": "exercises/shoulder_press.json"
   },
   {
    "id": "lat_pulldown",
-   "version": 3,
+   "version": 4,
    "file": "exercises/lat_pulldown.json"
   },
   {
    "id": "cable_row",
-   "version": 3,
+   "version": 4,
    "file": "exercises/cable_row.json"
   },
   {
    "id": "leg_press",
-   "version": 3,
+   "version": 4,
    "file": "exercises/leg_press.json"
   },
   {
    "id": "split_squat",
-   "version": 3,
+   "version": 4,
    "file": "exercises/split_squat.json"
   },
   {
    "id": "rdl",
-   "version": 3,
+   "version": 4,
    "file": "exercises/rdl.json"
   },
   {
    "id": "leg_curl",
-   "version": 3,
+   "version": 4,
    "file": "exercises/leg_curl.json"
   },
   {
    "id": "machine_curl",
-   "version": 3,
+   "version": 4,
    "file": "exercises/machine_curl.json"
   },
   {
    "id": "oh_triceps",
-   "version": 3,
+   "version": 4,
    "file": "exercises/oh_triceps.json"
   },
   {
    "id": "lateral_raise",
-   "version": 3,
+   "version": 4,
    "file": "exercises/lateral_raise.json"
   },
   {
    "id": "reverse_fly",
-   "version": 3,
+   "version": 4,
    "file": "exercises/reverse_fly.json"
   },
   {
    "id": "adduction",
-   "version": 3,
+   "version": 4,
    "file": "exercises/adduction.json"
   },
   {
    "id": "calf_raise",
-   "version": 3,
+   "version": 4,
    "file": "exercises/calf_raise.json"
   },
   {
    "id": "cable_crunch",
-   "version": 3,
+   "version": 4,
    "file": "exercises/cable_crunch.json"
   }
  ],
  "library": {
   "file": "library.json",
-  "version": 1,
-  "count": 500
+  "version": 2,
+  "count": 152
  }
 }

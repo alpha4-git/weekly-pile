@@ -33,6 +33,13 @@ const EQUIP_KEY = {
   split_squat: 'dumbbell', rdl: 'dumbbell', leg_curl: 'machine', machine_curl: 'machine', oh_triceps: 'cable', lateral_raise: 'dumbbell',
   reverse_fly: 'machine', adduction: 'machine', calf_raise: 'machine', cable_crunch: 'cable',
 };
+// Emphasis within the main muscle, shared vocabulary with tools/reviewed/*.js ("other ways to work" a muscle).
+const VARIANT = {
+  incline_db_press: 'Incline press · upper chest', chest_press: 'Flat press', shoulder_press: 'Overhead press', lat_pulldown: 'Vertical pull · lats',
+  cable_row: 'Row · mid back', leg_press: 'Machine squat', split_squat: 'Single-leg', rdl: 'Hip hinge', leg_curl: 'Knee curl',
+  machine_curl: 'Arm in front (preacher)', oh_triceps: 'Overhead · long head', lateral_raise: 'Dumbbell raise', reverse_fly: 'Rear fly',
+  adduction: 'Machine adduction', calf_raise: 'Straight knee · gastrocnemius', cable_crunch: 'Crunch',
+};
 const ISOLATION = new Set(['leg_curl', 'machine_curl', 'oh_triceps', 'lateral_raise', 'reverse_fly', 'adduction', 'calf_raise', 'cable_crunch']);
 
 // Rest between sets, seconds: about 2.5 min after big compound lifts, 90 s after isolation work.
@@ -42,7 +49,7 @@ const REST = {
   calf_raise: 90, cable_crunch: 90,
 };
 // Version of every exercise file; bump (globally or per id) whenever content changes so phones pick up the new copy.
-const BASE_VERSION = 3; // v2: added rest times; v3: rep range, equipment key, level, reviewed flag
+const BASE_VERSION = 4; // v2: added rest times; v3: rep range, equipment key, level, reviewed flag; v4: emphasis label, 5 lb steps
 const VERSIONS = {};
 
 const exDir = path.join(root, 'content', 'exercises');
@@ -51,7 +58,7 @@ const index = [];
 for (const e of src) {
   const out = {
     type: 'exercise', schema: 1, id: e.id, version: VERSIONS[e.id] || BASE_VERSION,
-    name: e.name, short: e.short, equipment: EQUIPMENT[e.id] || '', equip: EQUIP_KEY[e.id] || 'other', unit: 'lb', step: e.step, perSide: e.perSide,
+    name: e.name, short: e.short, equipment: EQUIPMENT[e.id] || '', equip: EQUIP_KEY[e.id] || 'other', unit: 'lb', step: 5, perSide: e.perSide, variant: VARIANT[e.id],
     rest: REST[e.id] || 120, lo: e.lo, hi: e.hi, level: 'beginner', mechanic: ISOLATION.has(e.id) ? 'isolation' : 'compound', reviewed: true, source: 'weekly-pile',
     credit: e.credit, cues: e.cues, safety: e.safety, refs: e.refs,
     figure: { svg: FIG.render(e.id) },
@@ -69,7 +76,7 @@ const plan = {
 };
 fs.writeFileSync(path.join(root, 'content', 'plan.json'), JSON.stringify(plan, null, 1) + '\n');
 // library.json comes from tools/import-fedb.js; raise LIBRARY_VERSION whenever it is regenerated
-const LIBRARY_VERSION = 1;
+const LIBRARY_VERSION = 2;   // 2: reviewed-only library
 const libCount = fs.existsSync(path.join(root, 'content', 'library.json')) ? JSON.parse(fs.readFileSync(path.join(root, 'content', 'library.json'), 'utf8')).exercises.length : 0;
 fs.writeFileSync(path.join(root, 'content', 'index.json'), JSON.stringify({ type: 'library-index', schema: 1, plan: 'plan.json', exercises: index,
   library: { file: 'library.json', version: LIBRARY_VERSION, count: libCount } }, null, 1) + '\n');

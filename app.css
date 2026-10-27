@@ -315,3 +315,4 @@ ol.cues li{font-size:14px}
 .search{width:100%;border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:10px;font-size:16px;color:var(--ink)}
 .lib .ln{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;border:0;background:transparent;padding:0;font-size:14px;color:var(--ink);min-width:0}
 .tabs button{font-size:13px}
+.badge.nrb{background:var(--warn-soft);color:var(--warn)}
