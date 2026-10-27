@@ -18,9 +18,22 @@ const EQUIPMENT = {
 // Prescribed order: heavy and technique-sensitive lifts first, push/pull/legs alternating, small muscles last.
 const ORDER = ['leg_press', 'lat_pulldown', 'incline_db_press', 'rdl', 'cable_row', 'shoulder_press', 'split_squat', 'chest_press',
   'leg_curl', 'lateral_raise', 'reverse_fly', 'machine_curl', 'oh_triceps', 'adduction', 'calf_raise', 'cable_crunch'];
-const MUSCLES = [['chest', 'Chest'], ['back', 'Back (lats & upper back)'], ['fdelt', 'Front delts'], ['sdelt', 'Side delts'], ['rdelt', 'Rear delts'],
+const MUSCLES = [['chest', 'Chest'], ['back', 'Back (lats & mid back)'], ['fdelt', 'Front delts'], ['sdelt', 'Side delts'], ['rdelt', 'Rear delts'],
   ['biceps', 'Biceps'], ['triceps', 'Triceps'], ['quads', 'Quads'], ['glutes', 'Glutes'], ['adductors', 'Adductors'], ['hams', 'Hamstrings'],
-  ['calves', 'Calves'], ['abs', 'Abs']];
+  ['calves', 'Calves'], ['abs', 'Abs'], ['traps', 'Upper traps'], ['lowback', 'Lower back'], ['forearms', 'Forearms'], ['abductors', 'Abductors (outer hip)'],
+  ['neck', 'Neck']];
+// Default targets in sets per month (15 a week = 65 a month for the 13 original muscles; the newer muscles start at 0).
+// FOCUS = share of a muscle's sets that must come from exercises giving it a full set (credit 1).
+const MONTH = 30.44;
+const TARGETS = Object.fromEntries(MUSCLES.map(([k], i) => [k, i < 13 ? Math.round(15 * MONTH / 7) : 0]));
+const FOCUS = Object.fromEntries(MUSCLES.map(([k]) => [k, ['fdelt', 'sdelt', 'rdelt'].includes(k) ? 0.6 : 0]));
+// Filter keys for the Plan tab's equipment toggles.
+const EQUIP_KEY = {
+  incline_db_press: 'dumbbell', chest_press: 'machine', shoulder_press: 'machine', lat_pulldown: 'cable', cable_row: 'cable', leg_press: 'machine',
+  split_squat: 'dumbbell', rdl: 'dumbbell', leg_curl: 'machine', machine_curl: 'machine', oh_triceps: 'cable', lateral_raise: 'dumbbell',
+  reverse_fly: 'machine', adduction: 'machine', calf_raise: 'machine', cable_crunch: 'cable',
+};
+const ISOLATION = new Set(['leg_curl', 'machine_curl', 'oh_triceps', 'lateral_raise', 'reverse_fly', 'adduction', 'calf_raise', 'cable_crunch']);
 
 // Rest between sets, seconds: about 2.5 min after big compound lifts, 90 s after isolation work.
 const REST = {
@@ -29,7 +42,7 @@ const REST = {
   calf_raise: 90, cable_crunch: 90,
 };
 // Version of every exercise file; bump (globally or per id) whenever content changes so phones pick up the new copy.
-const BASE_VERSION = 2; // v2: added rest times
+const BASE_VERSION = 3; // v2: added rest times; v3: rep range, equipment key, level, reviewed flag
 const VERSIONS = {};
 
 const exDir = path.join(root, 'content', 'exercises');
@@ -38,7 +51,8 @@ const index = [];
 for (const e of src) {
   const out = {
     type: 'exercise', schema: 1, id: e.id, version: VERSIONS[e.id] || BASE_VERSION,
-    name: e.name, short: e.short, equipment: EQUIPMENT[e.id] || '', unit: 'lb', step: e.step, perSide: e.perSide, rest: REST[e.id] || 120,
+    name: e.name, short: e.short, equipment: EQUIPMENT[e.id] || '', equip: EQUIP_KEY[e.id] || 'other', unit: 'lb', step: e.step, perSide: e.perSide,
+    rest: REST[e.id] || 120, lo: e.lo, hi: e.hi, level: 'beginner', mechanic: ISOLATION.has(e.id) ? 'isolation' : 'compound', reviewed: true, source: 'weekly-pile',
     credit: e.credit, cues: e.cues, safety: e.safety, refs: e.refs,
     figure: { svg: FIG.render(e.id) },
   };
@@ -48,14 +62,20 @@ for (const e of src) {
 const byId = Object.fromEntries(src.map(e => [e.id, e]));
 if (ORDER.length !== src.length || ORDER.some(id => !byId[id])) throw new Error('ORDER does not match the exercise list');
 const plan = {
-  type: 'plan', schema: 1, id: 'pile-2026-10-27', version: 1, name: 'Weekly pile 1', created: '2026-10-27', muscleTarget: 15,
-  muscles: Object.fromEntries(MUSCLES),
+  type: 'plan', schema: 2, id: 'pile-2026-10-27', version: 2, name: 'Weekly pile', created: '2026-10-27', muscleTarget: 15,
+  muscles: Object.fromEntries(MUSCLES), targets: TARGETS, focus: FOCUS,
+  // items: the original fixed list, kept so app version 1.1 still works until it updates
   items: ORDER.map(id => ({ ex: id, sets: byId[id].sets, lo: byId[id].lo, hi: byId[id].hi })),
 };
 fs.writeFileSync(path.join(root, 'content', 'plan.json'), JSON.stringify(plan, null, 1) + '\n');
-fs.writeFileSync(path.join(root, 'content', 'index.json'), JSON.stringify({ type: 'library-index', schema: 1, plan: 'plan.json', exercises: index }, null, 1) + '\n');
+// library.json comes from tools/import-fedb.js; raise LIBRARY_VERSION whenever it is regenerated
+const LIBRARY_VERSION = 1;
+const libCount = fs.existsSync(path.join(root, 'content', 'library.json')) ? JSON.parse(fs.readFileSync(path.join(root, 'content', 'library.json'), 'utf8')).exercises.length : 0;
+fs.writeFileSync(path.join(root, 'content', 'index.json'), JSON.stringify({ type: 'library-index', schema: 1, plan: 'plan.json', exercises: index,
+  library: { file: 'library.json', version: LIBRARY_VERSION, count: libCount } }, null, 1) + '\n');
 
 // sanity: effective sets per muscle at 100%
 const tot = Object.fromEntries(MUSCLES.map(([k]) => [k, 0]));
+console.log('library', libCount);
 for (const it of plan.items) for (const [m, c] of Object.entries(byId[it.ex].credit)) tot[m] += c * it.sets;
 console.log('sets', plan.items.reduce((a, i) => a + i.sets, 0), JSON.stringify(tot));
