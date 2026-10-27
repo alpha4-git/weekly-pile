@@ -1,7 +1,7 @@
 /* Weekly Pile core. All data lives in this browser's IndexedDB on the phone:
    exercises (library add-ons), plans (ordered set lists), logs (one record per set), meta (settings). */
 'use strict';
-const APP_VERSION = '1.3.3';
+const APP_VERSION = '1.3.4';
 
 // ---------------------------------------------------------------- utilities
 const $ = s => document.querySelector(s);
@@ -848,8 +848,8 @@ function renderDetail(slot, anim) {
         ${prLine}
         <div class="info">${info.join('')}</div>
       </div>
-      ${altHTML}
       <div class="works"><span class="k">Works</span>${works}</div>
+      ${altHTML}
       <ol class="cues">${e.cues.map((c, i) => `<li data-n="${i + 1}">${esc(c)}</li>`).join('')}</ol>
       ${e.safety ? `<p class="safety">${esc(e.safety)}</p>` : ''}
       ${e.refs.length ? `<div class="refs">Reference: ${e.refs.map(r => `<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title)}</a>`).join(' · ')}</div>` : ''}

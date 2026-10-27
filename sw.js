@@ -1,7 +1,7 @@
 /* Weekly Pile service worker: keeps the app working offline.
    New versions download in the background, but pages keep getting the approved
    version's files until the user taps "Install update" (message {type:'approve'}). */
-const VERSION = '1.3.3';
+const VERSION = '1.3.4';
 const CORE = ['./', 'index.html', 'app.js', 'app.css', 'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png'];
 const META = 'wp-meta';
 // Exercise photos from a fixed commit of the free-exercise-db: cached on first view, kept across app versions.
