@@ -1,7 +1,7 @@
 /* Weekly Pile core. All data lives in this browser's IndexedDB on the phone:
    exercises (library add-ons), plans (ordered set lists), logs (one record per set), meta (settings). */
 'use strict';
-const APP_VERSION = '1.2.4';
+const APP_VERSION = '1.2.5';
 
 // ---------------------------------------------------------------- utilities
 const $ = s => document.querySelector(s);
@@ -77,6 +77,7 @@ function validExercise(o) {
   };
 }
 const MONTH = 30.44, DAY = 864e5;
+const WSTEP = 5;   // the weight +/- buttons always move 5 lb (smaller plates and dumbbell jumps are rare in practice)
 function muscleMap(o, lo, hi) {
   const m = {};
   for (const [k, v] of Object.entries(o || {})) if (ID_RE.test(k) && Number.isFinite(+v)) m[k] = clamp(+v, lo, hi);
@@ -796,7 +797,7 @@ function renderDetail(slot, anim) {
   if (prevSets.length) {
     info.push(`<div>Last time (${esc(fmtDay(new Date(prevSets[0].t)))}): <span class="num">${prevSets.map(l => `${fmtW(l.w)}×${l.r}`).join(', ')}</span></div>`);
     if (!today.length) {
-      if (prevSets.every(l => l.r >= it.hi)) info.push(`<div class="hint up">Every set hit ${it.hi} reps last time. Add weight today (+${fmtW(e.step)} ${esc(e.unit)}).</div>`);
+      if (prevSets.every(l => l.r >= it.hi)) info.push(`<div class="hint up">Every set hit ${it.hi} reps last time. Add weight today (+${WSTEP} ${esc(e.unit)}).</div>`);
       else if (prevSets.some(l => l.r < it.lo)) info.push(`<div class="hint down">Reps fell below ${it.lo} last time. Use a little less weight so every set lands in ${it.lo}–${it.hi}.</div>`);
       if (prevDay === yk) info.push('<div class="hint cap">You did this yesterday. If it was hard or you\'re still sore, pick one of the other ways below.</div>');
     }
@@ -1237,7 +1238,7 @@ function wire() {
     if (a.dataset.eq) { const k = a.dataset.eq; if (S.pool.equip[k] === false) delete S.pool.equip[k]; else S.pool.equip[k] = false; setMeta('pool', S.pool); changed(); renderPlan(); renderHeader(); return; }
     const cur = S.cur && S.ex.get(S.cur), it = cur && itFor(cur);
     switch (a.dataset.a) {
-      case 'w-': case 'w+': if (!it) break; { const inp = inputsFor(it); inp.w = Math.max(0, +(inp.w + (a.dataset.a === 'w+' ? 1 : -1) * cur.step).toFixed(2)); $('#inW').value = fmtW(inp.w); } break;
+      case 'w-': case 'w+': if (!it) break; { const inp = inputsFor(it); inp.w = Math.max(0, +(inp.w + (a.dataset.a === 'w+' ? 1 : -1) * WSTEP).toFixed(2)); $('#inW').value = fmtW(inp.w); } break;
       case 'r-': case 'r+': if (!it) break; { const inp = inputsFor(it); inp.r = Math.max(0, inp.r + (a.dataset.a === 'r+' ? 1 : -1)); $('#inR').value = inp.r; } break;
       case 'log': if (it) await logSet(it); break;
       case 'skiprest': if (it) { stopRest(it.ex); renderWorkout(); toast('Rest skipped'); } break;
