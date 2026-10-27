@@ -1,7 +1,7 @@
 /* Weekly Pile core. All data lives in this browser's IndexedDB on the phone:
    exercises (library add-ons), plans (ordered set lists), logs (one record per set), meta (settings). */
 'use strict';
-const APP_VERSION = '1.3.0';
+const APP_VERSION = '1.3.1';
 
 // ---------------------------------------------------------------- utilities
 const $ = s => document.querySelector(s);
@@ -572,9 +572,9 @@ function beep() {
     o.type = 'sine'; o.frequency.value = 880;
     g.gain.setValueAtTime(0.0001, t);
     g.gain.exponentialRampToValueAtTime(0.25, t + 0.02);
-    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.35);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.7);
     o.connect(g); g.connect(actx.destination);
-    o.start(t); o.stop(t + 0.4);
+    o.start(t); o.stop(t + 0.75);
   } catch (e) {}
 }
 function tickRest() {
