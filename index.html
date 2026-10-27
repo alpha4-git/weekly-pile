@@ -40,9 +40,17 @@
 
 <nav class="pager" id="pager" aria-label="Exercise navigation">
   <button type="button" id="prevBtn" aria-label="Previous exercise">‹</button>
-  <button type="button" id="listBtn" class="jump">Up next</button>
+  <button type="button" id="jumpBtn" class="jump">–</button>
   <button type="button" id="nextBtn" aria-label="Next exercise">›</button>
 </nav>
+
+<dialog id="jumpDlg" aria-labelledby="jumpTitle">
+  <form method="dialog" class="dlg">
+    <div class="dhead"><h2 id="jumpTitle">Top priorities</h2><button value="close" class="x" aria-label="Close">×</button></div>
+    <p class="muted sm" style="margin:0">Best first. Colors show how much each muscle still needs.</p>
+    <ol id="jumpList" class="jlist"></ol>
+  </form>
+</dialog>
 
 <dialog id="editDlg" aria-labelledby="editTitle">
   <form class="dlg" id="editForm">

@@ -14,13 +14,16 @@ Use **Data → Export everything** now and then for a backup zip.
 
 ## Tabs
 
-- **Workout**: the *Up next* list, ranked live. Tap an exercise to log sets; the arrows and swipes walk the list, and the back gesture returns to it.
+- **Workout**: one exercise per page, starting with the top priority. Arrows and swipes walk the top 10 in ranked order (the
+  ranking re-sorts after every set; the page you're on stays put). The middle button lists the top 10 to jump to.
 - **Log**: every set, editable.
-- **Goals**: rolling sets-per-week (7-day, 30-day, year) overall and per muscle, plus each muscle's share of focused sets.
-- **Plan**: per-muscle targets (sets per month), the minimum *focused* share per muscle, the target scale, and filters for the exercise pool.
+- **Goals**: *Priorities* (the muscles furthest below target), every muscle's sets per week and focused share, and rolling
+  sets-per-week charts (7-day, 30-day, year) overall and per muscle.
+- **Plan**: a card per muscle with its target (sets per month) and minimum *focused* share; tap a card to edit. Also the target
+  scale and filters for the exercise pool.
 - **Data**: get the latest plan and library, import, export, search the library, app updates.
 
-## How Up next ranks exercises
+## How exercises are ranked
 
 Each logged set credits muscles: **1** for a full set of the main mover, **½** for a genuine synergist (presses → triceps, front delts; rows → biceps, rear delts).
 For each muscle the app tracks, over the last 30 days:
