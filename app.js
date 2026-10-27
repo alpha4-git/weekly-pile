@@ -1,7 +1,7 @@
 /* Weekly Pile core. All data lives in this browser's IndexedDB on the phone:
    exercises (library add-ons), plans (ordered set lists), logs (one record per set), meta (settings). */
 'use strict';
-const APP_VERSION = '1.3.1';
+const APP_VERSION = '1.3.2';
 
 // ---------------------------------------------------------------- utilities
 const $ = s => document.querySelector(s);
@@ -233,6 +233,7 @@ const setMeta = (k, v) => DB.put('meta', { k, v }).catch(e => console.warn(e));
 const daysBack = n => { const d = new Date(); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() - (n - 1)); return d.getTime(); };
 const countSince = t => { let n = 0; for (let i = S.logs.length - 1; i >= 0 && S.logs[i].t >= t; i--) n++; return n; };
 // Header counter: sets in the last 7 days against the weekly set estimate, and how many sets today would bring
+//   d: today's sets up to the daily share of the weekly target (target ÷ 7)
 //   x: the last 7 days up to the weekly target
 //   y: the 30-day average (the same window as the Goals 30-day line, so shorter until you have a month of history) up to it
 function setTotals() {
@@ -241,7 +242,9 @@ function setTotals() {
   const first = S.logs.length ? new Date(S.logs[0].t).setHours(0, 0, 0, 0) : Date.now();
   const span = Math.max(7, Math.min(30, Math.round((daysBack(1) - first) / DAY) + 1));
   const sumSpan = countSince(daysBack(span));
-  return { W, sum7, span, sumSpan, x: Math.max(0, Math.ceil(W - sum7)), y: Math.max(0, Math.ceil(W / 7 * span - sumSpan)) };
+  const today = countSince(startOfToday());
+  return { W, sum7, span, sumSpan, today, d: Math.max(0, Math.ceil(W / 7 - today)),
+    x: Math.max(0, Math.ceil(W - sum7)), y: Math.max(0, Math.ceil(W / 7 * span - sumSpan)) };
 }
 const startOfToday = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d.getTime(); };
 const countToday = exId => { const t0 = startOfToday(); let n = 0; for (let i = S.logs.length - 1; i >= 0 && S.logs[i].t >= t0; i--) n += S.logs[i].ex === exId; return n; };
@@ -749,8 +752,8 @@ function renderJump() {
 function renderHeader() {
   $('#weekLabel').textContent = 'Sets in the last 7 days' + (S.ramp < 1 ? ` · targets at ${S.ramp * 100}%` : '');
   const T = setTotals();
-  $('#tot').innerHTML = `${T.sum7}<small> / ${T.W}</small>`;
-  $('#need').textContent = !T.W ? '' : !T.x && !T.y ? 'On target' : T.x === T.y ? `${T.x} needed today` : `${T.x}–${T.y} needed today`;
+  const n = v => `<b class="nv${v ? '' : ' z'}">${v}</b>`, sl = '<i>/</i>';
+  $('#need').innerHTML = !T.W ? '' : n(T.d) + sl + n(T.x) + sl + n(T.y) + '<span>DY</span>' + sl + '<span>WK</span>' + sl + '<span>MO</span>';
   $('#totBar').style.width = (T.W ? Math.min(100, T.sum7 / T.W * 100) : 0) + '%';
   const detail = S.view === 'workout' && S.plan && S.slot && S.cur && S.ex.has(S.cur);
   $('#pager').hidden = !detail;
@@ -1199,7 +1202,9 @@ function wire() {
   $('#totBox').addEventListener('click', () => {
     if (!S.plan) return;
     const T = setTotals();
-    toast(`${T.sum7} sets in the last 7 days; target ${T.W} a week. ${T.x} more today reaches it for the last 7 days; ${T.y} more brings the ${T.span}-day average up to it.`, 6000);
+    const more = v => v ? `${v} more` : 'met', r1 = v => fmtW(Math.round(v * 10) / 10);
+    toast(`Sets needed today. DY: ${more(T.d)} (today ${T.today} of ${r1(T.W / 7)} a day). WK: ${more(T.x)} (last 7 days ${T.sum7} of ${T.W}). `
+      + `MO: ${more(T.y)} (${T.span}-day average ${r1(T.sumSpan / T.span * 7)} of ${T.W} a week).`, 8000);
   });
   $('#edClose').addEventListener('click', () => $('#editDlg').close());
   $('#edCancel').addEventListener('click', () => $('#editDlg').close());
