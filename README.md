@@ -18,6 +18,8 @@ Use **Data → Export everything** now and then for a backup zip.
   for that muscle (with its figure or photos and the logger) and up to three other ways to work it, each with a different
   emphasis. Arrows and swipes walk the top 10 muscles; the middle button lists them. The order re-sorts after every set,
   and the page you're on stays put. An exercise you pick or log for a muscle stays its choice for the rest of the day.
+- **Header counter**: sets in the last 7 days against the weekly set target (the Plan estimate), and "x–y needed today":
+  x more sets today bring the last 7 days up to the target, y more bring the 30-day average up to it (tap it for details).
 - **Log**: every set, editable.
 - **Goals**: *Priorities* (the muscles furthest below target), every muscle's sets per week and focused share, and rolling
   sets-per-week charts (7-day, 30-day, year) overall and per muscle.

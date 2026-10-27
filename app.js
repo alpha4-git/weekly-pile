@@ -1,7 +1,7 @@
 /* Weekly Pile core. All data lives in this browser's IndexedDB on the phone:
    exercises (library add-ons), plans (ordered set lists), logs (one record per set), meta (settings). */
 'use strict';
-const APP_VERSION = '1.2.2';
+const APP_VERSION = '1.2.3';
 
 // ---------------------------------------------------------------- utilities
 const $ = s => document.querySelector(s);
@@ -227,8 +227,20 @@ function setPick(m, id) { S.picks[m] = id; setMeta('picks', { day: dayKey(new Da
 const setMeta = (k, v) => DB.put('meta', { k, v }).catch(e => console.warn(e));
 
 // week window
-function weekRange() { const s = weekStart(new Date()); const e = new Date(s); e.setDate(e.getDate() + 7); return [s.getTime(), e.getTime(), s]; }
-function weekLogs() { const [a, b] = weekRange(); return S.logs.filter(l => l.t >= a && l.t < b); }
+// rolling windows of whole days, today included
+const daysBack = n => { const d = new Date(); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() - (n - 1)); return d.getTime(); };
+const countSince = t => { let n = 0; for (let i = S.logs.length - 1; i >= 0 && S.logs[i].t >= t; i--) n++; return n; };
+// Header counter: sets in the last 7 days against the weekly set estimate, and how many sets today would bring
+//   x: the last 7 days up to the weekly target
+//   y: the 30-day average (the same window as the Goals 30-day line, so shorter until you have a month of history) up to it
+function setTotals() {
+  const W = S.plan ? estimate().sets : 0;
+  const sum7 = countSince(daysBack(7));
+  const first = S.logs.length ? new Date(S.logs[0].t).setHours(0, 0, 0, 0) : Date.now();
+  const span = Math.max(7, Math.min(30, Math.round((daysBack(1) - first) / DAY) + 1));
+  const sumSpan = countSince(daysBack(span));
+  return { W, sum7, span, sumSpan, x: Math.max(0, Math.ceil(W - sum7)), y: Math.max(0, Math.ceil(W / 7 * span - sumSpan)) };
+}
 const startOfToday = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d.getTime(); };
 const countToday = exId => { const t0 = startOfToday(); let n = 0; for (let i = S.logs.length - 1; i >= 0 && S.logs[i].t >= t0; i--) n += S.logs[i].ex === exId; return n; };
 
@@ -698,11 +710,11 @@ function renderJump() {
 
 // ---------------------------------------------------------------- rendering
 function renderHeader() {
-  const [, , ws] = weekRange();
-  $('#weekLabel').textContent = 'Week of ' + fmtDay(ws) + (S.ramp < 1 ? ` · targets at ${S.ramp * 100}%` : '');
-  const done = weekLogs().length, est = S.plan ? estimate().sets : 0;
-  $('#tot').innerHTML = `${done}<small> / ≈${est} sets</small>`;
-  $('#totBar').style.width = (est ? Math.min(100, done / est * 100) : 0) + '%';
+  $('#weekLabel').textContent = 'Sets in the last 7 days' + (S.ramp < 1 ? ` · targets at ${S.ramp * 100}%` : '');
+  const T = setTotals();
+  $('#tot').innerHTML = `${T.sum7}<small> / ${T.W}</small>`;
+  $('#need').textContent = !T.W ? '' : !T.x && !T.y ? 'On target' : T.x === T.y ? `${T.x} needed today` : `${T.x}–${T.y} needed today`;
+  $('#totBar').style.width = (T.W ? Math.min(100, T.sum7 / T.W * 100) : 0) + '%';
   const detail = S.view === 'workout' && S.plan && S.slot && S.cur && S.ex.has(S.cur);
   $('#pager').hidden = !detail;
   if (detail) {
@@ -826,14 +838,14 @@ function onboardingHTML() {
 function renderLog() {
   const v = $('#v-log');
   const all = S.logShowAll;
-  const [a, b] = weekRange();
-  const list = (all ? S.logs : S.logs.filter(l => l.t >= a && l.t < b)).slice().reverse();
+  const since = daysBack(7);
+  const list = (all ? S.logs : S.logs.filter(l => l.t >= since)).slice().reverse();
   const { flags } = prScan();
   const days = new Map();
   for (const l of list) { const k = dayKey(new Date(l.t)); if (!days.has(k)) days.set(k, []); days.get(k).push(l); }
-  let h = `<div class="lhead"><div class="seg" role="group" aria-label="Range"><button data-range="week" aria-pressed="${!all}">This week</button><button data-range="all" aria-pressed="${!!all}">All</button></div>
+  let h = `<div class="lhead"><div class="seg" role="group" aria-label="Range"><button data-range="week" aria-pressed="${!all}">Last 7 days</button><button data-range="all" aria-pressed="${!!all}">All</button></div>
     <button type="button" class="btn" data-a="add">+ Add a set</button></div>`;
-  if (!list.length) h += `<div class="empty">No sets logged ${all ? 'yet' : 'this week'}. Sets you log on the Workout tab show up here, where you can fix or delete them.</div>`;
+  if (!list.length) h += `<div class="empty">No sets logged ${all ? 'yet' : 'in the last 7 days'}. Sets you log on the Workout tab show up here, where you can fix or delete them.</div>`;
   for (const [, ls] of days) {
     const d = new Date(ls[0].t);
     h += `<div class="day"><h3>${esc(fmtDay(d))} · ${ls.length} set${ls.length > 1 ? 's' : ''}</h3><div class="rows">` +
@@ -1142,6 +1154,11 @@ function wire() {
   $('#jumpBtn').addEventListener('click', () => { renderJump(); $('#jumpDlg').showModal(); });
   $('#jumpList').addEventListener('click', e => { const b = e.target.closest('[data-jump]'); if (!b) return; e.preventDefault(); $('#jumpDlg').close(); showSlot(b.dataset.jump, null); });
   $('#updBtn').addEventListener('click', installUpdate);
+  $('#totBox').addEventListener('click', () => {
+    if (!S.plan) return;
+    const T = setTotals();
+    toast(`${T.sum7} sets in the last 7 days; target ${T.W} a week. ${T.x} more today reaches it for the last 7 days; ${T.y} more brings the ${T.span}-day average up to it.`, 6000);
+  });
   $('#edClose').addEventListener('click', () => $('#editDlg').close());
   $('#edCancel').addEventListener('click', () => $('#editDlg').close());
   $('#edDel').addEventListener('click', deleteEditing);
