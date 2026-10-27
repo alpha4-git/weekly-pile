@@ -1,0 +1,31 @@
+{
+ "type": "exercise",
+ "schema": 1,
+ "id": "oh_triceps",
+ "version": 1,
+ "name": "Overhead cable triceps extension",
+ "short": "Triceps",
+ "equipment": "Cable station, low pulley, rope",
+ "unit": "lb",
+ "step": 5,
+ "perSide": false,
+ "credit": {
+  "triceps": 1
+ },
+ "cues": [
+  "Rope on the low pulley. Face away from the machine with the rope over your head, one foot in front.",
+  "Upper arms next to your ears. Elbows stay where they are, the same width apart. Only your forearms move.",
+  "Lean slightly forward from the hips, back straight, ribs down. Don't arch your lower back.",
+  "Straighten your arms fully without locking, then lower back into the stretch behind your head."
+ ],
+ "safety": "Safe to take close to failure.",
+ "refs": [
+  {
+   "title": "StrengthLog: Overhead cable triceps extension",
+   "url": "https://www.strengthlog.com/overhead-cable-triceps-extension/"
+  }
+ ],
+ "figure": {
+  "svg": "<svg viewBox=\"0 0 313 235\" class=\"fig\" style=\"max-width:297px\" role=\"img\" aria-label=\"oh triceps: Stretch and Extend positions\"><text x=\"74.8\" y=\"11\" class=\"fl\" text-anchor=\"middle\">Stretch</text><line x1=\"7.3\" y1=\"227.6\" x2=\"142.3\" y2=\"227.6\" stroke-width=\"2.5\" class=\"s-floor\"/><circle cx=\"20.3\" cy=\"219.6\" r=\"5\" class=\"c-frame\"/><polygon points=\"9.3,227.6 9.3,167.6 15.3,167.6 15.3,227.6\" class=\"f-frame\"/><line x1=\"89.2\" y1=\"81.9\" x2=\"20.3\" y2=\"219.6\" stroke-width=\"1.6\" class=\"s-cable\"/><line x1=\"79.3\" y1=\"137.6\" x2=\"73.5\" y2=\"181.3\" stroke-width=\"10.5\" class=\"s-far\"/><line x1=\"73.5\" y1=\"181.3\" x2=\"56.3\" y2=\"220.6\" stroke-width=\"8.5\" class=\"s-far\"/><line x1=\"51.3\" y1=\"225.6\" x2=\"74.3\" y2=\"225.6\" stroke-width=\"6\" class=\"s-far\"/><polyline points=\"79.3,137.6 87.5,115.1 97.0,88.8\" stroke-width=\"13\" class=\"s-body\" fill=\"none\"/><line x1=\"97.0\" y1=\"88.8\" x2=\"98.6\" y2=\"83.0\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"100.9\" cy=\"74.3\" r=\"10.5\" class=\"c-head\"/><line x1=\"96.8\" y1=\"178.0\" x2=\"102.3\" y2=\"220.6\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"79.3\" y1=\"137.6\" x2=\"96.8\" y2=\"178.0\" stroke-width=\"10.5\" class=\"s-body\"/><line x1=\"96.8\" y1=\"178.0\" x2=\"102.3\" y2=\"220.6\" stroke-width=\"8.5\" class=\"s-body\"/><line x1=\"97.3\" y1=\"225.6\" x2=\"120.3\" y2=\"225.6\" stroke-width=\"6\" class=\"s-body\"/><circle cx=\"89.2\" cy=\"81.9\" r=\"4.5\" class=\"c-load\"/><line x1=\"97.0\" y1=\"88.8\" x2=\"99.3\" y2=\"56.9\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"99.3\" y1=\"56.9\" x2=\"89.2\" y2=\"81.9\" stroke-width=\"10\" class=\"s-halo\"/><line x1=\"97.0\" y1=\"88.8\" x2=\"99.3\" y2=\"56.9\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"99.3\" y1=\"56.9\" x2=\"89.2\" y2=\"81.9\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"89.2\" cy=\"81.9\" r=\"3.6\" class=\"c-body\"/><line x1=\"20.3\" y1=\"219.6\" x2=\"34.3\" y2=\"207.6\" class=\"mk-l\"/><circle cx=\"34.3\" cy=\"207.6\" r=\"7.5\" class=\"mk-c\"/><text x=\"34.3\" y=\"211.2\" class=\"mk-t\" text-anchor=\"middle\">1</text><line x1=\"99.3\" y1=\"56.9\" x2=\"115.3\" y2=\"52.9\" class=\"mk-l\"/><circle cx=\"115.3\" cy=\"52.9\" r=\"7.5\" class=\"mk-c\"/><text x=\"115.3\" y=\"56.5\" class=\"mk-t\" text-anchor=\"middle\">2</text><line x1=\"87.5\" y1=\"115.1\" x2=\"103.5\" y2=\"121.1\" class=\"mk-l\"/><circle cx=\"103.5\" cy=\"121.1\" r=\"7.5\" class=\"mk-c\"/><text x=\"103.5\" y=\"124.7\" class=\"mk-t\" text-anchor=\"middle\">3</text><text x=\"238.3\" y=\"11\" class=\"fl\" text-anchor=\"middle\">Extend</text><line x1=\"170.8\" y1=\"227.6\" x2=\"305.8\" y2=\"227.6\" stroke-width=\"2.5\" class=\"s-floor\"/><circle cx=\"183.8\" cy=\"219.6\" r=\"5\" class=\"c-frame\"/><polygon points=\"172.8,227.6 172.8,167.6 178.8,167.6 178.8,227.6\" class=\"f-frame\"/><line x1=\"265.6\" y1=\"30.0\" x2=\"183.8\" y2=\"219.6\" stroke-width=\"1.6\" class=\"s-cable\"/><line x1=\"242.8\" y1=\"137.6\" x2=\"237.0\" y2=\"181.3\" stroke-width=\"10.5\" class=\"s-far\"/><line x1=\"237.0\" y1=\"181.3\" x2=\"219.8\" y2=\"220.6\" stroke-width=\"8.5\" class=\"s-far\"/><line x1=\"214.8\" y1=\"225.6\" x2=\"237.8\" y2=\"225.6\" stroke-width=\"6\" class=\"s-far\"/><polyline points=\"242.8,137.6 251.0,115.1 260.5,88.8\" stroke-width=\"13\" class=\"s-body\" fill=\"none\"/><line x1=\"260.5\" y1=\"88.8\" x2=\"262.1\" y2=\"83.0\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"264.4\" cy=\"74.3\" r=\"10.5\" class=\"c-head\"/><line x1=\"260.3\" y1=\"178.0\" x2=\"265.8\" y2=\"220.6\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"242.8\" y1=\"137.6\" x2=\"260.3\" y2=\"178.0\" stroke-width=\"10.5\" class=\"s-body\"/><line x1=\"260.3\" y1=\"178.0\" x2=\"265.8\" y2=\"220.6\" stroke-width=\"8.5\" class=\"s-body\"/><line x1=\"260.8\" y1=\"225.6\" x2=\"283.8\" y2=\"225.6\" stroke-width=\"6\" class=\"s-body\"/><circle cx=\"265.6\" cy=\"30.0\" r=\"4.5\" class=\"c-load\"/><line x1=\"260.5\" y1=\"88.8\" x2=\"262.8\" y2=\"56.9\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"262.8\" y1=\"56.9\" x2=\"265.6\" y2=\"30.0\" stroke-width=\"10\" class=\"s-halo\"/><line x1=\"260.5\" y1=\"88.8\" x2=\"262.8\" y2=\"56.9\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"262.8\" y1=\"56.9\" x2=\"265.6\" y2=\"30.0\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"265.6\" cy=\"30.0\" r=\"3.6\" class=\"c-body\"/><line x1=\"265.6\" y1=\"30.0\" x2=\"281.6\" y2=\"30.0\" class=\"mk-l\"/><circle cx=\"281.6\" cy=\"30.0\" r=\"7.5\" class=\"mk-c\"/><text x=\"281.6\" y=\"33.6\" class=\"mk-t\" text-anchor=\"middle\">4</text><path d=\"M152.5 117.4 l6 0 m-3 -3 l3 3 l-3 3\" class=\"arr\"/></svg>"
+ }
+}

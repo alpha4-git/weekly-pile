@@ -1,0 +1,31 @@
+{
+ "type": "exercise",
+ "schema": 1,
+ "id": "adduction",
+ "version": 1,
+ "name": "Hip adduction machine",
+ "short": "Adduction",
+ "equipment": "Hip adduction machine",
+ "unit": "lb",
+ "step": 5,
+ "perSide": false,
+ "credit": {
+  "adductors": 1
+ },
+ "cues": [
+  "Pads against the inside of your knees.",
+  "Set the starting width to a comfortable stretch, not a painful one.",
+  "Squeeze your legs together, then let them open slowly.",
+  "Sit tall with your back on the pad and hold the handles."
+ ],
+ "safety": "Safe to take close to failure.",
+ "refs": [
+  {
+   "title": "StrengthLog: Hip adduction machine",
+   "url": "https://www.strengthlog.com/hip-adduction-machine/"
+  }
+ ],
+ "figure": {
+  "svg": "<svg viewBox=\"0 0 323 168\" class=\"fig\" style=\"max-width:307px\" role=\"img\" aria-label=\"adduction: Open and Squeeze positions\"><text x=\"77.3\" y=\"11\" class=\"fl\" text-anchor=\"middle\">Open</text><polygon points=\"43.3,120.5 111.3,120.5 111.3,112.5 43.3,112.5\" class=\"f-pad\"/><polygon points=\"53.3,110.5 101.3,110.5 101.3,42.5 53.3,42.5\" class=\"f-padback\"/><line x1=\"86.3\" y1=\"104.5\" x2=\"117.3\" y2=\"108.5\" stroke-width=\"11\" class=\"s-body\"/><line x1=\"117.3\" y1=\"108.5\" x2=\"119.3\" y2=\"146.5\" stroke-width=\"9\" class=\"s-body\"/><line x1=\"119.3\" y1=\"146.5\" x2=\"128.3\" y2=\"150.5\" stroke-width=\"6\" class=\"s-body\"/><line x1=\"68.3\" y1=\"104.5\" x2=\"37.3\" y2=\"108.5\" stroke-width=\"11\" class=\"s-body\"/><line x1=\"37.3\" y1=\"108.5\" x2=\"35.3\" y2=\"146.5\" stroke-width=\"9\" class=\"s-body\"/><line x1=\"35.3\" y1=\"146.5\" x2=\"26.3\" y2=\"150.5\" stroke-width=\"6\" class=\"s-body\"/><polygon points=\"98.3,52.5 56.3,52.5 64.3,102.5 90.3,102.5\" class=\"f-bodyfill\"/><line x1=\"77.3\" y1=\"54.5\" x2=\"77.3\" y2=\"44.5\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"77.3\" cy=\"32.5\" r=\"10.5\" class=\"c-head\"/><line x1=\"96.3\" y1=\"54.5\" x2=\"97.4\" y2=\"86.5\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"97.4\" y1=\"86.5\" x2=\"110.9\" y2=\"109.9\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"110.9\" cy=\"109.9\" r=\"3.6\" class=\"c-body\"/><line x1=\"58.3\" y1=\"54.5\" x2=\"57.1\" y2=\"86.5\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"57.1\" y1=\"86.5\" x2=\"43.6\" y2=\"109.9\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"43.6\" cy=\"109.9\" r=\"3.6\" class=\"c-body\"/><polygon points=\"107.3,120.5 107.3,100.5 113.3,100.5 113.3,120.5\" class=\"f-padhi\"/><polygon points=\"41.3,120.5 41.3,100.5 47.3,100.5 47.3,120.5\" class=\"f-padhi\"/><line x1=\"7.3\" y1=\"160.5\" x2=\"147.3\" y2=\"160.5\" stroke-width=\"2.5\" class=\"s-floor\"/><line x1=\"110.3\" y1=\"108.5\" x2=\"96.3\" y2=\"92.5\" class=\"mk-l\"/><circle cx=\"96.3\" cy=\"92.5\" r=\"7.5\" class=\"mk-c\"/><text x=\"96.3\" y=\"96.1\" class=\"mk-t\" text-anchor=\"middle\">1</text><line x1=\"37.3\" y1=\"108.5\" x2=\"31.3\" y2=\"90.5\" class=\"mk-l\"/><circle cx=\"31.3\" cy=\"90.5\" r=\"7.5\" class=\"mk-c\"/><text x=\"31.3\" y=\"94.1\" class=\"mk-t\" text-anchor=\"middle\">2</text><text x=\"245.8\" y=\"11\" class=\"fl\" text-anchor=\"middle\">Squeeze</text><polygon points=\"211.8,120.5 279.8,120.5 279.8,112.5 211.8,112.5\" class=\"f-pad\"/><polygon points=\"221.8,110.5 269.8,110.5 269.8,42.5 221.8,42.5\" class=\"f-padback\"/><line x1=\"254.8\" y1=\"104.5\" x2=\"257.8\" y2=\"108.5\" stroke-width=\"11\" class=\"s-body\"/><line x1=\"257.8\" y1=\"108.5\" x2=\"259.8\" y2=\"146.5\" stroke-width=\"9\" class=\"s-body\"/><line x1=\"259.8\" y1=\"146.5\" x2=\"268.8\" y2=\"150.5\" stroke-width=\"6\" class=\"s-body\"/><line x1=\"236.8\" y1=\"104.5\" x2=\"233.8\" y2=\"108.5\" stroke-width=\"11\" class=\"s-body\"/><line x1=\"233.8\" y1=\"108.5\" x2=\"231.8\" y2=\"146.5\" stroke-width=\"9\" class=\"s-body\"/><line x1=\"231.8\" y1=\"146.5\" x2=\"222.8\" y2=\"150.5\" stroke-width=\"6\" class=\"s-body\"/><polygon points=\"266.8,52.5 224.8,52.5 232.8,102.5 258.8,102.5\" class=\"f-bodyfill\"/><line x1=\"245.8\" y1=\"54.5\" x2=\"245.8\" y2=\"44.5\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"245.8\" cy=\"32.5\" r=\"10.5\" class=\"c-head\"/><line x1=\"264.8\" y1=\"54.5\" x2=\"265.9\" y2=\"86.5\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"265.9\" y1=\"86.5\" x2=\"279.4\" y2=\"109.9\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"279.4\" cy=\"109.9\" r=\"3.6\" class=\"c-body\"/><line x1=\"226.8\" y1=\"54.5\" x2=\"225.6\" y2=\"86.5\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"225.6\" y1=\"86.5\" x2=\"212.1\" y2=\"109.9\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"212.1\" cy=\"109.9\" r=\"3.6\" class=\"c-body\"/><polygon points=\"247.8,120.5 247.8,100.5 253.8,100.5 253.8,120.5\" class=\"f-padhi\"/><polygon points=\"237.8,120.5 237.8,100.5 243.8,100.5 243.8,120.5\" class=\"f-padhi\"/><line x1=\"175.8\" y1=\"160.5\" x2=\"315.8\" y2=\"160.5\" stroke-width=\"2.5\" class=\"s-floor\"/><line x1=\"245.8\" y1=\"110.5\" x2=\"245.8\" y2=\"130.5\" class=\"mk-l\"/><circle cx=\"245.8\" cy=\"130.5\" r=\"7.5\" class=\"mk-c\"/><text x=\"245.8\" y=\"134.1\" class=\"mk-t\" text-anchor=\"middle\">3</text><line x1=\"245.8\" y1=\"70.5\" x2=\"275.8\" y2=\"64.5\" class=\"mk-l\"/><circle cx=\"275.8\" cy=\"64.5\" r=\"7.5\" class=\"mk-c\"/><text x=\"275.8\" y=\"68.1\" class=\"mk-t\" text-anchor=\"middle\">4</text><path d=\"M157.5 83.9 l6 0 m-3 -3 l3 3 l-3 3\" class=\"arr\"/></svg>"
+ }
+}

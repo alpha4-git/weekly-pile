@@ -1,0 +1,122 @@
+{
+ "type": "plan",
+ "schema": 1,
+ "id": "pile-2026-10-27",
+ "version": 1,
+ "name": "Weekly pile 1",
+ "created": "2026-10-27",
+ "muscleTarget": 15,
+ "muscles": {
+  "chest": "Chest",
+  "back": "Back (lats & upper back)",
+  "fdelt": "Front delts",
+  "sdelt": "Side delts",
+  "rdelt": "Rear delts",
+  "biceps": "Biceps",
+  "triceps": "Triceps",
+  "quads": "Quads",
+  "glutes": "Glutes",
+  "adductors": "Adductors",
+  "hams": "Hamstrings",
+  "calves": "Calves",
+  "abs": "Abs"
+ },
+ "items": [
+  {
+   "ex": "leg_press",
+   "sets": 8,
+   "lo": 6,
+   "hi": 10
+  },
+  {
+   "ex": "lat_pulldown",
+   "sets": 8,
+   "lo": 6,
+   "hi": 10
+  },
+  {
+   "ex": "incline_db_press",
+   "sets": 8,
+   "lo": 6,
+   "hi": 10
+  },
+  {
+   "ex": "rdl",
+   "sets": 8,
+   "lo": 6,
+   "hi": 10
+  },
+  {
+   "ex": "cable_row",
+   "sets": 7,
+   "lo": 6,
+   "hi": 10
+  },
+  {
+   "ex": "shoulder_press",
+   "sets": 8,
+   "lo": 6,
+   "hi": 10
+  },
+  {
+   "ex": "split_squat",
+   "sets": 7,
+   "lo": 8,
+   "hi": 12
+  },
+  {
+   "ex": "chest_press",
+   "sets": 7,
+   "lo": 6,
+   "hi": 10
+  },
+  {
+   "ex": "leg_curl",
+   "sets": 7,
+   "lo": 8,
+   "hi": 12
+  },
+  {
+   "ex": "lateral_raise",
+   "sets": 11,
+   "lo": 10,
+   "hi": 15
+  },
+  {
+   "ex": "reverse_fly",
+   "sets": 8,
+   "lo": 10,
+   "hi": 15
+  },
+  {
+   "ex": "machine_curl",
+   "sets": 8,
+   "lo": 8,
+   "hi": 12
+  },
+  {
+   "ex": "oh_triceps",
+   "sets": 4,
+   "lo": 10,
+   "hi": 15
+  },
+  {
+   "ex": "adduction",
+   "sets": 4,
+   "lo": 10,
+   "hi": 15
+  },
+  {
+   "ex": "calf_raise",
+   "sets": 15,
+   "lo": 10,
+   "hi": 15
+  },
+  {
+   "ex": "cable_crunch",
+   "sets": 15,
+   "lo": 10,
+   "hi": 15
+  }
+ ]
+}

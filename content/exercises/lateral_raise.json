@@ -1,0 +1,31 @@
+{
+ "type": "exercise",
+ "schema": 1,
+ "id": "lateral_raise",
+ "version": 1,
+ "name": "Dumbbell lateral raise",
+ "short": "Lateral raise",
+ "equipment": "Two dumbbells",
+ "unit": "lb",
+ "step": 2.5,
+ "perSide": false,
+ "credit": {
+  "sdelt": 1
+ },
+ "cues": [
+  "Keep a slight bend in your elbows. Your elbows lead the way up.",
+  "Raise out to the sides until your arms are about shoulder height. No higher. Near the top, keep your thumbs level or slightly up; don't tip your pinkies up.",
+  "Shoulders down and back. Don't shrug.",
+  "Stand tall with abs braced. No swinging. Lower slowly."
+ ],
+ "safety": "Safe to take close to failure. Good one to do in rest periods.",
+ "refs": [
+  {
+   "title": "ACE: Lateral raise",
+   "url": "https://www.acefitness.org/resources/everyone/exercise-library/26/lateral-raise/"
+  }
+ ],
+ "figure": {
+  "svg": "<svg viewBox=\"0 0 392 202\" class=\"fig\" style=\"max-width:372px\" role=\"img\" aria-label=\"lateral raise: Start and Top positions\"><text x=\"94.4\" y=\"11\" class=\"fl\" text-anchor=\"middle\">Start</text><line x1=\"10.9\" y1=\"194.5\" x2=\"170.9\" y2=\"194.5\" stroke-width=\"2.5\" class=\"s-floor\"/><line x1=\"99.9\" y1=\"102.5\" x2=\"100.9\" y2=\"144.5\" stroke-width=\"11\" class=\"s-body\"/><line x1=\"100.9\" y1=\"144.5\" x2=\"101.9\" y2=\"187.5\" stroke-width=\"9\" class=\"s-body\"/><line x1=\"101.9\" y1=\"187.5\" x2=\"110.9\" y2=\"191.5\" stroke-width=\"6\" class=\"s-body\"/><line x1=\"81.9\" y1=\"102.5\" x2=\"80.9\" y2=\"144.5\" stroke-width=\"11\" class=\"s-body\"/><line x1=\"80.9\" y1=\"144.5\" x2=\"79.9\" y2=\"187.5\" stroke-width=\"9\" class=\"s-body\"/><line x1=\"79.9\" y1=\"187.5\" x2=\"70.9\" y2=\"191.5\" stroke-width=\"6\" class=\"s-body\"/><polygon points=\"111.9,52.5 69.9,52.5 77.9,100.5 103.9,100.5\" class=\"f-bodyfill\"/><line x1=\"90.9\" y1=\"54.5\" x2=\"90.9\" y2=\"44.5\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"90.9\" cy=\"32.5\" r=\"10.5\" class=\"c-head\"/><line x1=\"109.9\" y1=\"54.5\" x2=\"106.0\" y2=\"86.3\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"106.0\" y1=\"86.3\" x2=\"105.0\" y2=\"113.2\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"105.0\" cy=\"113.2\" r=\"3.6\" class=\"c-body\"/><line x1=\"71.9\" y1=\"54.5\" x2=\"75.8\" y2=\"86.3\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"75.8\" y1=\"86.3\" x2=\"76.7\" y2=\"113.2\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"76.7\" cy=\"113.2\" r=\"3.6\" class=\"c-body\"/><circle cx=\"105.0\" cy=\"113.2\" r=\"7\" class=\"c-load\"/><circle cx=\"105.0\" cy=\"113.2\" r=\"2.66\" class=\"c-loadhub\"/><circle cx=\"76.7\" cy=\"113.2\" r=\"7\" class=\"c-load\"/><circle cx=\"76.7\" cy=\"113.2\" r=\"2.66\" class=\"c-loadhub\"/><line x1=\"90.9\" y1=\"74.5\" x2=\"116.9\" y2=\"76.5\" class=\"mk-l\"/><circle cx=\"116.9\" cy=\"76.5\" r=\"7.5\" class=\"mk-c\"/><text x=\"116.9\" y=\"80.1\" class=\"mk-t\" text-anchor=\"middle\">4</text><text x=\"297.2\" y=\"11\" class=\"fl\" text-anchor=\"middle\">Top</text><line x1=\"213.7\" y1=\"194.5\" x2=\"373.7\" y2=\"194.5\" stroke-width=\"2.5\" class=\"s-floor\"/><line x1=\"302.7\" y1=\"102.5\" x2=\"303.7\" y2=\"144.5\" stroke-width=\"11\" class=\"s-body\"/><line x1=\"303.7\" y1=\"144.5\" x2=\"304.7\" y2=\"187.5\" stroke-width=\"9\" class=\"s-body\"/><line x1=\"304.7\" y1=\"187.5\" x2=\"313.7\" y2=\"191.5\" stroke-width=\"6\" class=\"s-body\"/><line x1=\"284.7\" y1=\"102.5\" x2=\"283.7\" y2=\"144.5\" stroke-width=\"11\" class=\"s-body\"/><line x1=\"283.7\" y1=\"144.5\" x2=\"282.7\" y2=\"187.5\" stroke-width=\"9\" class=\"s-body\"/><line x1=\"282.7\" y1=\"187.5\" x2=\"273.7\" y2=\"191.5\" stroke-width=\"6\" class=\"s-body\"/><polygon points=\"314.7,52.5 272.7,52.5 280.7,100.5 306.7,100.5\" class=\"f-bodyfill\"/><line x1=\"293.7\" y1=\"54.5\" x2=\"293.7\" y2=\"44.5\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"293.7\" cy=\"32.5\" r=\"10.5\" class=\"c-head\"/><line x1=\"312.7\" y1=\"54.5\" x2=\"344.6\" y2=\"52.8\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"344.6\" y1=\"52.8\" x2=\"371.6\" y2=\"54.7\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"371.6\" cy=\"54.7\" r=\"3.6\" class=\"c-body\"/><line x1=\"274.7\" y1=\"54.5\" x2=\"242.7\" y2=\"52.8\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"242.7\" y1=\"52.8\" x2=\"215.8\" y2=\"54.7\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"215.8\" cy=\"54.7\" r=\"3.6\" class=\"c-body\"/><circle cx=\"371.6\" cy=\"54.7\" r=\"7\" class=\"c-load\"/><circle cx=\"371.6\" cy=\"54.7\" r=\"2.66\" class=\"c-loadhub\"/><circle cx=\"215.8\" cy=\"54.7\" r=\"7\" class=\"c-load\"/><circle cx=\"215.8\" cy=\"54.7\" r=\"2.66\" class=\"c-loadhub\"/><line x1=\"344.6\" y1=\"52.8\" x2=\"344.6\" y2=\"36.8\" class=\"mk-l\"/><circle cx=\"344.6\" cy=\"36.8\" r=\"7.5\" class=\"mk-c\"/><text x=\"344.6\" y=\"40.4\" class=\"mk-t\" text-anchor=\"middle\">1</text><line x1=\"371.6\" y1=\"54.7\" x2=\"377.6\" y2=\"70.7\" class=\"mk-l\"/><circle cx=\"377.6\" cy=\"70.7\" r=\"7.5\" class=\"mk-c\"/><text x=\"377.6\" y=\"74.3\" class=\"mk-t\" text-anchor=\"middle\">2</text><line x1=\"305.7\" y1=\"48.5\" x2=\"311.7\" y2=\"30.5\" class=\"mk-l\"/><circle cx=\"311.7\" cy=\"30.5\" r=\"7.5\" class=\"mk-c\"/><text x=\"311.7\" y=\"34.1\" class=\"mk-t\" text-anchor=\"middle\">3</text><path d=\"M191.8 100.9 l6 0 m-3 -3 l3 3 l-3 3\" class=\"arr\"/></svg>"
+ }
+}

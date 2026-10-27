@@ -1,0 +1,32 @@
+{
+ "type": "exercise",
+ "schema": 1,
+ "id": "shoulder_press",
+ "version": 1,
+ "name": "Machine shoulder press",
+ "short": "Shoulder press",
+ "equipment": "Shoulder press machine",
+ "unit": "lb",
+ "step": 5,
+ "perSide": false,
+ "credit": {
+  "fdelt": 1,
+  "sdelt": 0.5,
+  "triceps": 0.5
+ },
+ "cues": [
+  "Set the seat so the handles start level with or a little above your shoulders, elbows slightly in front of your sides.",
+  "Back against the pad, abs braced. Don't arch your lower back.",
+  "Press until your elbows are nearly straight, not locked. Lower under control to the start."
+ ],
+ "safety": "Safe to take close to failure.",
+ "refs": [
+  {
+   "title": "ACE: Seated shoulder press",
+   "url": "https://www.acefitness.org/resources/everyone/exercise-library/186/seated-shoulder-press/"
+  }
+ ],
+ "figure": {
+  "svg": "<svg viewBox=\"0 0 283 200\" class=\"fig\" style=\"max-width:269px\" role=\"img\" aria-label=\"shoulder press: Start and Press positions\"><text x=\"67.3\" y=\"11\" class=\"fl\" text-anchor=\"middle\">Start</text><line x1=\"7.3\" y1=\"191.8\" x2=\"127.3\" y2=\"191.8\" stroke-width=\"2.5\" class=\"s-floor\"/><polygon points=\"31.3,145.8 71.3,145.8 71.3,151.8 31.3,151.8\" class=\"f-pad\"/><polygon points=\"24.5,68.1 31.3,145.8 25.3,146.3 18.5,68.6\" class=\"f-pad\"/><line x1=\"51.3\" y1=\"151.8\" x2=\"51.3\" y2=\"191.8\" stroke-width=\"4\" class=\"s-frame\"/><line x1=\"25.3\" y1=\"191.8\" x2=\"77.3\" y2=\"191.8\" stroke-width=\"4\" class=\"s-frame\"/><polyline points=\"43.3,136.8 41.2,112.9 38.7,85.0\" stroke-width=\"13\" class=\"s-body\" fill=\"none\"/><line x1=\"38.7\" y1=\"85.0\" x2=\"38.2\" y2=\"79.0\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"37.4\" cy=\"70.1\" r=\"10.5\" class=\"c-head\"/><line x1=\"86.9\" y1=\"142.0\" x2=\"91.3\" y2=\"184.8\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"43.3\" y1=\"136.8\" x2=\"86.9\" y2=\"142.0\" stroke-width=\"10.5\" class=\"s-body\"/><line x1=\"86.9\" y1=\"142.0\" x2=\"91.3\" y2=\"184.8\" stroke-width=\"8.5\" class=\"s-body\"/><line x1=\"86.3\" y1=\"189.8\" x2=\"109.3\" y2=\"189.8\" stroke-width=\"6\" class=\"s-body\"/><polygon points=\"47.7,87.0 47.7,73.0 53.7,73.0 53.7,87.0\" class=\"f-load\"/><line x1=\"38.7\" y1=\"85.0\" x2=\"50.6\" y2=\"107.0\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"50.6\" y1=\"107.0\" x2=\"50.7\" y2=\"80.0\" stroke-width=\"10\" class=\"s-halo\"/><line x1=\"38.7\" y1=\"85.0\" x2=\"50.6\" y2=\"107.0\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"50.6\" y1=\"107.0\" x2=\"50.7\" y2=\"80.0\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"50.7\" cy=\"80.0\" r=\"3.6\" class=\"c-body\"/><line x1=\"50.7\" y1=\"80.0\" x2=\"66.7\" y2=\"76.0\" class=\"mk-l\"/><circle cx=\"66.7\" cy=\"76.0\" r=\"7.5\" class=\"mk-c\"/><text x=\"66.7\" y=\"79.6\" class=\"mk-t\" text-anchor=\"middle\">1</text><line x1=\"41.2\" y1=\"112.9\" x2=\"23.2\" y2=\"112.9\" class=\"mk-l\"/><circle cx=\"23.2\" cy=\"112.9\" r=\"7.5\" class=\"mk-c\"/><text x=\"23.2\" y=\"116.5\" class=\"mk-t\" text-anchor=\"middle\">2</text><text x=\"215.8\" y=\"11\" class=\"fl\" text-anchor=\"middle\">Press</text><line x1=\"155.8\" y1=\"191.8\" x2=\"275.8\" y2=\"191.8\" stroke-width=\"2.5\" class=\"s-floor\"/><polygon points=\"179.8,145.8 219.8,145.8 219.8,151.8 179.8,151.8\" class=\"f-pad\"/><polygon points=\"173.0,68.1 179.8,145.8 173.8,146.3 167.0,68.6\" class=\"f-pad\"/><line x1=\"199.8\" y1=\"151.8\" x2=\"199.8\" y2=\"191.8\" stroke-width=\"4\" class=\"s-frame\"/><line x1=\"173.8\" y1=\"191.8\" x2=\"225.8\" y2=\"191.8\" stroke-width=\"4\" class=\"s-frame\"/><polyline points=\"191.8,136.8 189.7,112.9 187.2,85.0\" stroke-width=\"13\" class=\"s-body\" fill=\"none\"/><line x1=\"187.2\" y1=\"85.0\" x2=\"186.7\" y2=\"79.0\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"185.9\" cy=\"70.1\" r=\"10.5\" class=\"c-head\"/><line x1=\"235.4\" y1=\"142.0\" x2=\"239.8\" y2=\"184.8\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"191.8\" y1=\"136.8\" x2=\"235.4\" y2=\"142.0\" stroke-width=\"10.5\" class=\"s-body\"/><line x1=\"235.4\" y1=\"142.0\" x2=\"239.8\" y2=\"184.8\" stroke-width=\"8.5\" class=\"s-body\"/><line x1=\"234.8\" y1=\"189.8\" x2=\"257.8\" y2=\"189.8\" stroke-width=\"6\" class=\"s-body\"/><polygon points=\"188.2,37.0 188.2,23.0 194.2,23.0 194.2,37.0\" class=\"f-load\"/><line x1=\"187.2\" y1=\"85.0\" x2=\"199.8\" y2=\"55.6\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"199.8\" y1=\"55.6\" x2=\"191.2\" y2=\"30.0\" stroke-width=\"10\" class=\"s-halo\"/><line x1=\"187.2\" y1=\"85.0\" x2=\"199.8\" y2=\"55.6\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"199.8\" y1=\"55.6\" x2=\"191.2\" y2=\"30.0\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"191.2\" cy=\"30.0\" r=\"3.6\" class=\"c-body\"/><line x1=\"199.8\" y1=\"55.6\" x2=\"215.8\" y2=\"57.6\" class=\"mk-l\"/><circle cx=\"215.8\" cy=\"57.6\" r=\"7.5\" class=\"mk-c\"/><text x=\"215.8\" y=\"61.2\" class=\"mk-t\" text-anchor=\"middle\">3</text><path d=\"M137.5 99.9 l6 0 m-3 -3 l3 3 l-3 3\" class=\"arr\"/></svg>"
+ }
+}

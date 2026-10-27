@@ -1,0 +1,449 @@
+[
+ {
+  "id": "incline_db_press",
+  "name": "Incline dumbbell press",
+  "short": "Incline press",
+  "sets": 8,
+  "lo": 6,
+  "hi": 10,
+  "step": 5,
+  "perSide": false,
+  "credit": {
+   "chest": 1,
+   "fdelt": 0.5,
+   "triceps": 0.5
+  },
+  "cues": [
+   "Set the bench to about 30°. Steeper angles shift the work to the front of the shoulders.",
+   "Shoulder blades pulled down and back. Head, upper back and hips stay on the bench.",
+   "Feet planted on the floor. Don't arch your lower back.",
+   "Lower slowly to the sides of your upper chest. No bouncing.",
+   "Forearms vertical, elbows under the wrists. Press up until your arms are straight over your shoulders."
+  ],
+  "safety": "No spotter: stop 1–2 reps short. To finish, bring the dumbbells to your chest and sit up with them resting on your thighs.",
+  "refs": [
+   {
+    "title": "ACE: Incline chest press",
+    "url": "https://www.acefitness.org/resources/everyone/exercise-library/25/incline-chest-press/"
+   },
+   {
+    "title": "Bench angle study",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7579505/"
+   }
+  ]
+ },
+ {
+  "id": "chest_press",
+  "name": "Machine chest press",
+  "short": "Chest press",
+  "sets": 7,
+  "lo": 6,
+  "hi": 10,
+  "step": 5,
+  "perSide": false,
+  "credit": {
+   "chest": 1,
+   "fdelt": 0.5,
+   "triceps": 0.5
+  },
+  "cues": [
+   "Set the seat so the handles line up with the middle of your chest.",
+   "Back against the pad with its natural curve; don't flatten or arch it. Shoulder blades down and back, and keep them on the pad.",
+   "Press until your elbows are straight but not locked. Return slowly.",
+   "Don't arch your lower back or let your shoulders roll forward off the pad."
+  ],
+  "safety": "Safe to take close to failure.",
+  "refs": [
+   {
+    "title": "ACE: Seated chest press",
+    "url": "https://www.acefitness.org/resources/everyone/exercise-library/188/seated-chest-press/"
+   }
+  ]
+ },
+ {
+  "id": "shoulder_press",
+  "name": "Machine shoulder press",
+  "short": "Shoulder press",
+  "sets": 8,
+  "lo": 6,
+  "hi": 10,
+  "step": 5,
+  "perSide": false,
+  "credit": {
+   "fdelt": 1,
+   "sdelt": 0.5,
+   "triceps": 0.5
+  },
+  "cues": [
+   "Set the seat so the handles start level with or a little above your shoulders, elbows slightly in front of your sides.",
+   "Back against the pad, abs braced. Don't arch your lower back.",
+   "Press until your elbows are nearly straight, not locked. Lower under control to the start."
+  ],
+  "safety": "Safe to take close to failure.",
+  "refs": [
+   {
+    "title": "ACE: Seated shoulder press",
+    "url": "https://www.acefitness.org/resources/everyone/exercise-library/186/seated-shoulder-press/"
+   }
+  ]
+ },
+ {
+  "id": "lat_pulldown",
+  "name": "Lat pulldown",
+  "short": "Pulldown",
+  "sets": 8,
+  "lo": 6,
+  "hi": 10,
+  "step": 5,
+  "perSide": false,
+  "credit": {
+   "back": 1,
+   "biceps": 0.5,
+   "rdelt": 0.5
+  },
+  "cues": [
+   "Lock your thighs under the pad.",
+   "Lean back slightly, no more than about 30°, and hold that angle. Don't swing.",
+   "Pull the bar to your upper chest.",
+   "Drive your elbows down toward your sides. Stop when they stop moving down, then let the bar rise all the way up under control."
+  ],
+  "safety": "Safe to take close to failure.",
+  "refs": [
+   {
+    "title": "ACE: Seated lat pulldown",
+    "url": "https://www.acefitness.org/resources/everyone/exercise-library/158/seated-lat-pulldown/"
+   }
+  ]
+ },
+ {
+  "id": "cable_row",
+  "name": "Seated cable row",
+  "short": "Cable row",
+  "sets": 7,
+  "lo": 6,
+  "hi": 10,
+  "step": 5,
+  "perSide": false,
+  "credit": {
+   "back": 1,
+   "biceps": 0.5,
+   "rdelt": 0.5
+  },
+  "cues": [
+   "Feet on the platform, knees slightly bent.",
+   "Sit tall, chest up. Keep your back straight the whole set.",
+   "Pull the handle to your stomach with your elbows close to your ribs. Pause for a second.",
+   "Don't lean back to finish the rep. Straighten your arms slowly on the way back."
+  ],
+  "safety": "Safe to take close to failure.",
+  "refs": [
+   {
+    "title": "ACE: Seated row (cable)",
+    "url": "https://www.acefitness.org/resources/everyone/exercise-library/48/seated-row/"
+   }
+  ]
+ },
+ {
+  "id": "leg_press",
+  "name": "Leg press",
+  "short": "Leg press",
+  "sets": 8,
+  "lo": 6,
+  "hi": 10,
+  "step": 10,
+  "perSide": false,
+  "credit": {
+   "quads": 1,
+   "glutes": 0.5,
+   "adductors": 0.5
+  },
+  "cues": [
+   "Back and tailbone flat on the pad the whole set. Stop lowering before your hips lift or your lower back rounds.",
+   "Feet flat on the platform, toes forward, heels down.",
+   "Lower until your knees are bent to about 90°. Don't let your thighs press into your ribs. Knees point the same way as your toes.",
+   "Push through your whole foot until your legs are straight but not locked."
+  ],
+  "safety": "Never lock your knees at the top. Machine is safe to take close to failure.",
+  "refs": [
+   {
+    "title": "ACE: Seated leg press",
+    "url": "https://www.acefitness.org/resources/everyone/exercise-library/154/seated-leg-press/"
+   }
+  ]
+ },
+ {
+  "id": "split_squat",
+  "name": "Bulgarian split squat",
+  "short": "Split squat",
+  "sets": 7,
+  "lo": 8,
+  "hi": 12,
+  "step": 5,
+  "perSide": true,
+  "credit": {
+   "quads": 1,
+   "glutes": 1,
+   "adductors": 0.5
+  },
+  "cues": [
+   "Rest the top of your back foot on a bench about knee height.",
+   "Stand far enough forward that your front heel stays flat at the bottom.",
+   "Lower straight down until your back knee is just off the floor. Don't let it touch.",
+   "Hold one dumbbell upright at your chest, elbows in, back straight. Push through your front foot to stand."
+  ],
+  "safety": "One set = all reps on one leg, then the other. Balance is the limit at first: start light and stay 2 reps short of failure.",
+  "refs": [
+   {
+    "title": "ACE: Bulgarian split squat",
+    "url": "https://www.acefitness.org/resources/everyone/exercise-library/366/bulgarian-split-squat/"
+   }
+  ]
+ },
+ {
+  "id": "rdl",
+  "name": "Dumbbell Romanian deadlift",
+  "short": "RDL",
+  "sets": 8,
+  "lo": 6,
+  "hi": 10,
+  "step": 5,
+  "perSide": false,
+  "credit": {
+   "hams": 1,
+   "glutes": 1,
+   "adductors": 0.5
+  },
+  "cues": [
+   "Feet hip-width, a slight bend in the knees. Keep that same bend the whole rep.",
+   "Push your hips straight back to lower the weights.",
+   "Back flat and long, chin slightly tucked, eyes on the floor.",
+   "Slide the dumbbells down close to your legs. Stop at a strong hamstring stretch (about knee to mid-shin), then drive your hips forward to stand."
+  ],
+  "safety": "If your lower back starts to round, you've gone too low or too heavy. Stay 2 reps short of failure.",
+  "refs": [
+   {
+    "title": "ACE: Romanian deadlift technique",
+    "url": "https://www.acefitness.org/continuing-education/prosource/january-2016/5767/ace-technique-series-romanian-deadlift/"
+   }
+  ]
+ },
+ {
+  "id": "leg_curl",
+  "name": "Seated leg curl",
+  "short": "Leg curl",
+  "sets": 7,
+  "lo": 8,
+  "hi": 12,
+  "step": 5,
+  "perSide": false,
+  "credit": {
+   "hams": 1
+  },
+  "cues": [
+   "Line your knees up with the machine's pivot. This is the most important setting.",
+   "Lower the thigh pad so it holds your thighs snugly.",
+   "Set the lower pad on your lower calves, a few inches above your heels. Not on the heel or the Achilles tendon.",
+   "Back flat against the pad. Curl as far as you can, then return slowly. No momentum."
+  ],
+  "safety": "Safe to take close to failure.",
+  "refs": [
+   {
+    "title": "StrengthLog: Seated leg curl",
+    "url": "https://www.strengthlog.com/seated-leg-curl/"
+   },
+   {
+    "title": "ACE: Lying leg curl (same setup)",
+    "url": "https://www.acefitness.org/resources/everyone/exercise-library/153/lying-hamstrings-curl/"
+   }
+  ]
+ },
+ {
+  "id": "machine_curl",
+  "name": "Machine biceps curl",
+  "short": "Biceps curl",
+  "sets": 8,
+  "lo": 8,
+  "hi": 12,
+  "step": 5,
+  "perSide": false,
+  "credit": {
+   "biceps": 1
+  },
+  "cues": [
+   "Set the seat so your elbows line up with the machine's pivot, upper arms flat on the pad.",
+   "Lower until your arms are nearly straight, under control. Don't let the weight stack touch down.",
+   "Curl as far as you can without moving your torso."
+  ],
+  "safety": "Safe to take close to failure.",
+  "refs": [
+   {
+    "title": "ACE: Seated biceps curl",
+    "url": "https://www.acefitness.org/resources/everyone/exercise-library/184/seated-biceps-curl/"
+   },
+   {
+    "title": "StrengthLog: Machine biceps curl",
+    "url": "https://www.strengthlog.com/machine-bicep-curl/"
+   }
+  ]
+ },
+ {
+  "id": "oh_triceps",
+  "name": "Overhead cable triceps extension",
+  "short": "Triceps",
+  "sets": 4,
+  "lo": 10,
+  "hi": 15,
+  "step": 5,
+  "perSide": false,
+  "credit": {
+   "triceps": 1
+  },
+  "cues": [
+   "Rope on the low pulley. Face away from the machine with the rope over your head, one foot in front.",
+   "Upper arms next to your ears. Elbows stay where they are, the same width apart. Only your forearms move.",
+   "Lean slightly forward from the hips, back straight, ribs down. Don't arch your lower back.",
+   "Straighten your arms fully without locking, then lower back into the stretch behind your head."
+  ],
+  "safety": "Safe to take close to failure.",
+  "refs": [
+   {
+    "title": "StrengthLog: Overhead cable triceps extension",
+    "url": "https://www.strengthlog.com/overhead-cable-triceps-extension/"
+   }
+  ]
+ },
+ {
+  "id": "lateral_raise",
+  "name": "Dumbbell lateral raise",
+  "short": "Lateral raise",
+  "sets": 11,
+  "lo": 10,
+  "hi": 15,
+  "step": 2.5,
+  "perSide": false,
+  "credit": {
+   "sdelt": 1
+  },
+  "cues": [
+   "Keep a slight bend in your elbows. Your elbows lead the way up.",
+   "Raise out to the sides until your arms are about shoulder height. No higher. Near the top, keep your thumbs level or slightly up; don't tip your pinkies up.",
+   "Shoulders down and back. Don't shrug.",
+   "Stand tall with abs braced. No swinging. Lower slowly."
+  ],
+  "safety": "Safe to take close to failure. Good one to do in rest periods.",
+  "refs": [
+   {
+    "title": "ACE: Lateral raise",
+    "url": "https://www.acefitness.org/resources/everyone/exercise-library/26/lateral-raise/"
+   }
+  ]
+ },
+ {
+  "id": "reverse_fly",
+  "name": "Reverse machine fly",
+  "short": "Reverse fly",
+  "sets": 8,
+  "lo": 10,
+  "hi": 15,
+  "step": 5,
+  "perSide": false,
+  "credit": {
+   "rdelt": 1
+  },
+  "cues": [
+   "Sit facing the pad with your chest against it. Set it so the handles are at shoulder height.",
+   "Keep a slight bend in your elbows the whole time.",
+   "Sweep your arms out and back to your sides.",
+   "Let the handles come back slowly all the way to the start."
+  ],
+  "safety": "Safe to take close to failure. The pictures are seen from above.",
+  "refs": [
+   {
+    "title": "StrengthLog: Reverse machine fly",
+    "url": "https://www.strengthlog.com/reverse-machine-fly/"
+   }
+  ]
+ },
+ {
+  "id": "adduction",
+  "name": "Hip adduction machine",
+  "short": "Adduction",
+  "sets": 4,
+  "lo": 10,
+  "hi": 15,
+  "step": 5,
+  "perSide": false,
+  "credit": {
+   "adductors": 1
+  },
+  "cues": [
+   "Pads against the inside of your knees.",
+   "Set the starting width to a comfortable stretch, not a painful one.",
+   "Squeeze your legs together, then let them open slowly.",
+   "Sit tall with your back on the pad and hold the handles."
+  ],
+  "safety": "Safe to take close to failure.",
+  "refs": [
+   {
+    "title": "StrengthLog: Hip adduction machine",
+    "url": "https://www.strengthlog.com/hip-adduction-machine/"
+   }
+  ]
+ },
+ {
+  "id": "calf_raise",
+  "name": "Standing calf raise",
+  "short": "Calf raise",
+  "sets": 15,
+  "lo": 10,
+  "hi": 15,
+  "step": 5,
+  "perSide": false,
+  "credit": {
+   "calves": 1
+  },
+  "cues": [
+   "Balls of your feet on the edge of the step, heels hanging off.",
+   "Lower your heels slowly to a full stretch and pause.",
+   "Rise as high as you can and pause at the top.",
+   "Knees slightly bent and still. Your ankles do all the moving."
+  ],
+  "safety": "Safe to take close to failure. Good one to do in rest periods.",
+  "refs": [
+   {
+    "title": "Muscle & Strength: Standing machine calf raise",
+    "url": "https://www.muscleandstrength.com/exercises/standing-machine-calf-raise"
+   },
+   {
+    "title": "StrengthLog: Standing calf raise",
+    "url": "https://www.strengthlog.com/standing-calf-raise/"
+   }
+  ]
+ },
+ {
+  "id": "cable_crunch",
+  "name": "Cable crunch",
+  "short": "Cable crunch",
+  "sets": 15,
+  "lo": 10,
+  "hi": 15,
+  "step": 5,
+  "perSide": false,
+  "credit": {
+   "abs": 1
+  },
+  "cues": [
+   "Rope on the high pulley. Kneel facing it and hold the rope beside your head the whole time.",
+   "Crunch by curling your ribs toward your hips, rounding your spine.",
+   "Keep your hips still. Don't just bend at the hips or sit back.",
+   "Return slowly to the stretch."
+  ],
+  "safety": "Safe to take close to failure. Good one to do in rest periods.",
+  "refs": [
+   {
+    "title": "StrengthLog: Cable crunch",
+    "url": "https://www.strengthlog.com/cable-crunch/"
+   }
+  ]
+ }
+]

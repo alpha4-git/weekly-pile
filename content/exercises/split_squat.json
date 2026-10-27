@@ -1,0 +1,33 @@
+{
+ "type": "exercise",
+ "schema": 1,
+ "id": "split_squat",
+ "version": 1,
+ "name": "Bulgarian split squat",
+ "short": "Split squat",
+ "equipment": "Bench, one dumbbell",
+ "unit": "lb",
+ "step": 5,
+ "perSide": true,
+ "credit": {
+  "quads": 1,
+  "glutes": 1,
+  "adductors": 0.5
+ },
+ "cues": [
+  "Rest the top of your back foot on a bench about knee height.",
+  "Stand far enough forward that your front heel stays flat at the bottom.",
+  "Lower straight down until your back knee is just off the floor. Don't let it touch.",
+  "Hold one dumbbell upright at your chest, elbows in, back straight. Push through your front foot to stand."
+ ],
+ "safety": "One set = all reps on one leg, then the other. Balance is the limit at first: start light and stay 2 reps short of failure.",
+ "refs": [
+  {
+   "title": "ACE: Bulgarian split squat",
+   "url": "https://www.acefitness.org/resources/everyone/exercise-library/366/bulgarian-split-squat/"
+  }
+ ],
+ "figure": {
+  "svg": "<svg viewBox=\"0 0 383 196\" class=\"fig\" style=\"max-width:364px\" role=\"img\" aria-label=\"split squat: Top and Bottom positions\"><text x=\"92.3\" y=\"11\" class=\"fl\" text-anchor=\"middle\">Top</text><line x1=\"7.3\" y1=\"187.8\" x2=\"177.3\" y2=\"187.8\" stroke-width=\"2.5\" class=\"s-floor\"/><polygon points=\"15.3,141.8 77.3,141.8 77.3,148.8 15.3,148.8\" class=\"f-pad\"/><line x1=\"47.3\" y1=\"148.8\" x2=\"47.3\" y2=\"187.8\" stroke-width=\"4\" class=\"s-frame\"/><line x1=\"25.3\" y1=\"187.8\" x2=\"69.3\" y2=\"187.8\" stroke-width=\"4\" class=\"s-frame\"/><line x1=\"115.3\" y1=\"98.8\" x2=\"113.5\" y2=\"142.8\" stroke-width=\"10.5\" class=\"s-far\"/><line x1=\"113.5\" y1=\"142.8\" x2=\"71.3\" y2=\"134.8\" stroke-width=\"8.5\" class=\"s-far\"/><line x1=\"76.1\" y1=\"135.9\" x2=\"53.6\" y2=\"131.1\" stroke-width=\"6\" class=\"s-far\"/><polyline points=\"115.3,98.8 118.6,75.1 122.5,47.4\" stroke-width=\"13\" class=\"s-body\" fill=\"none\"/><line x1=\"122.5\" y1=\"47.4\" x2=\"123.3\" y2=\"41.4\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"124.6\" cy=\"32.5\" r=\"10.5\" class=\"c-head\"/><line x1=\"135.6\" y1=\"137.9\" x2=\"137.3\" y2=\"180.8\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"115.3\" y1=\"98.8\" x2=\"135.6\" y2=\"137.9\" stroke-width=\"10.5\" class=\"s-body\"/><line x1=\"135.6\" y1=\"137.9\" x2=\"137.3\" y2=\"180.8\" stroke-width=\"8.5\" class=\"s-body\"/><line x1=\"132.3\" y1=\"185.8\" x2=\"155.3\" y2=\"185.8\" stroke-width=\"6\" class=\"s-body\"/><line x1=\"137.3\" y1=\"69.4\" x2=\"137.3\" y2=\"53.4\" stroke-width=\"3\" class=\"s-loadhub\"/><polygon points=\"129.8,73.4 129.8,66.4 144.8,66.4 144.8,73.4\" class=\"f-load\"/><polygon points=\"129.8,56.4 129.8,49.4 144.8,49.4 144.8,56.4\" class=\"f-load\"/><line x1=\"122.5\" y1=\"47.4\" x2=\"116.7\" y2=\"78.8\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"116.7\" y1=\"78.8\" x2=\"137.3\" y2=\"61.4\" stroke-width=\"10\" class=\"s-halo\"/><line x1=\"122.5\" y1=\"47.4\" x2=\"116.7\" y2=\"78.8\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"116.7\" y1=\"78.8\" x2=\"137.3\" y2=\"61.4\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"137.3\" cy=\"61.4\" r=\"3.6\" class=\"c-body\"/><line x1=\"71.3\" y1=\"134.8\" x2=\"67.3\" y2=\"118.8\" class=\"mk-l\"/><circle cx=\"67.3\" cy=\"118.8\" r=\"7.5\" class=\"mk-c\"/><text x=\"67.3\" y=\"122.4\" class=\"mk-t\" text-anchor=\"middle\">1</text><line x1=\"132.3\" y1=\"185.8\" x2=\"120.3\" y2=\"171.8\" class=\"mk-l\"/><circle cx=\"120.3\" cy=\"171.8\" r=\"7.5\" class=\"mk-c\"/><text x=\"120.3\" y=\"175.4\" class=\"mk-t\" text-anchor=\"middle\">2</text><text x=\"290.8\" y=\"11\" class=\"fl\" text-anchor=\"middle\">Bottom</text><line x1=\"205.8\" y1=\"187.8\" x2=\"375.8\" y2=\"187.8\" stroke-width=\"2.5\" class=\"s-floor\"/><polygon points=\"213.8,141.8 275.8,141.8 275.8,148.8 213.8,148.8\" class=\"f-pad\"/><line x1=\"245.8\" y1=\"148.8\" x2=\"245.8\" y2=\"187.8\" stroke-width=\"4\" class=\"s-frame\"/><line x1=\"223.8\" y1=\"187.8\" x2=\"267.8\" y2=\"187.8\" stroke-width=\"4\" class=\"s-frame\"/><line x1=\"305.8\" y1=\"134.8\" x2=\"286.5\" y2=\"174.4\" stroke-width=\"10.5\" class=\"s-far\"/><line x1=\"286.5\" y1=\"174.4\" x2=\"269.8\" y2=\"134.8\" stroke-width=\"8.5\" class=\"s-far\"/><line x1=\"274.6\" y1=\"135.9\" x2=\"252.1\" y2=\"131.1\" stroke-width=\"6\" class=\"s-far\"/><polyline points=\"305.8,134.8 311.6,111.6 318.3,84.4\" stroke-width=\"13\" class=\"s-body\" fill=\"none\"/><line x1=\"318.3\" y1=\"84.4\" x2=\"319.8\" y2=\"78.6\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"322.0\" cy=\"69.8\" r=\"10.5\" class=\"c-head\"/><line x1=\"349.4\" y1=\"140.1\" x2=\"335.8\" y2=\"180.8\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"305.8\" y1=\"134.8\" x2=\"349.4\" y2=\"140.1\" stroke-width=\"10.5\" class=\"s-body\"/><line x1=\"349.4\" y1=\"140.1\" x2=\"335.8\" y2=\"180.8\" stroke-width=\"8.5\" class=\"s-body\"/><line x1=\"330.8\" y1=\"185.8\" x2=\"353.8\" y2=\"185.8\" stroke-width=\"6\" class=\"s-body\"/><line x1=\"332.9\" y1=\"108.0\" x2=\"332.9\" y2=\"92.0\" stroke-width=\"3\" class=\"s-loadhub\"/><polygon points=\"325.4,112.0 325.4,105.0 340.4,105.0 340.4,112.0\" class=\"f-load\"/><polygon points=\"325.4,95.0 325.4,88.0 340.4,88.0 340.4,95.0\" class=\"f-load\"/><line x1=\"318.3\" y1=\"84.4\" x2=\"310.7\" y2=\"115.5\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"310.7\" y1=\"115.5\" x2=\"332.9\" y2=\"100.0\" stroke-width=\"10\" class=\"s-halo\"/><line x1=\"318.3\" y1=\"84.4\" x2=\"310.7\" y2=\"115.5\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"310.7\" y1=\"115.5\" x2=\"332.9\" y2=\"100.0\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"332.9\" cy=\"100.0\" r=\"3.6\" class=\"c-body\"/><line x1=\"286.5\" y1=\"174.4\" x2=\"270.5\" y2=\"164.4\" class=\"mk-l\"/><circle cx=\"270.5\" cy=\"164.4\" r=\"7.5\" class=\"mk-c\"/><text x=\"270.5\" y=\"168.0\" class=\"mk-t\" text-anchor=\"middle\">3</text><line x1=\"332.9\" y1=\"100.0\" x2=\"350.9\" y2=\"94.0\" class=\"mk-l\"/><circle cx=\"350.9\" cy=\"94.0\" r=\"7.5\" class=\"mk-c\"/><text x=\"350.9\" y=\"97.6\" class=\"mk-t\" text-anchor=\"middle\">4</text><path d=\"M187.5 97.9 l6 0 m-3 -3 l3 3 l-3 3\" class=\"arr\"/></svg>"
+ }
+}

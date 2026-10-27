@@ -1,0 +1,33 @@
+{
+ "type": "exercise",
+ "schema": 1,
+ "id": "leg_press",
+ "version": 1,
+ "name": "Leg press",
+ "short": "Leg press",
+ "equipment": "Seated leg press machine",
+ "unit": "lb",
+ "step": 10,
+ "perSide": false,
+ "credit": {
+  "quads": 1,
+  "glutes": 0.5,
+  "adductors": 0.5
+ },
+ "cues": [
+  "Back and tailbone flat on the pad the whole set. Stop lowering before your hips lift or your lower back rounds.",
+  "Feet flat on the platform, toes forward, heels down.",
+  "Lower until your knees are bent to about 90°. Don't let your thighs press into your ribs. Knees point the same way as your toes.",
+  "Push through your whole foot until your legs are straight but not locked."
+ ],
+ "safety": "Never lock your knees at the top. Machine is safe to take close to failure.",
+ "refs": [
+  {
+   "title": "ACE: Seated leg press",
+   "url": "https://www.acefitness.org/resources/everyone/exercise-library/154/seated-leg-press/"
+  }
+ ],
+ "figure": {
+  "svg": "<svg viewBox=\"0 0 386 146\" class=\"fig\" style=\"max-width:367px\" role=\"img\" aria-label=\"leg press: Bottom and Top positions\"><text x=\"93.0\" y=\"11\" class=\"fl\" text-anchor=\"middle\">Bottom</text><line x1=\"8.0\" y1=\"138.0\" x2=\"178.0\" y2=\"138.0\" stroke-width=\"2.5\" class=\"s-floor\"/><polygon points=\"44.0,98.0 86.0,98.0 86.0,104.0 44.0,104.0\" class=\"f-pad\"/><polygon points=\"13.0,33.9 50.0,98.0 44.8,101.0 7.8,36.9\" class=\"f-pad\"/><line x1=\"64.0\" y1=\"104.0\" x2=\"64.0\" y2=\"138.0\" stroke-width=\"4\" class=\"s-frame\"/><line x1=\"8.0\" y1=\"138.0\" x2=\"178.0\" y2=\"138.0\" stroke-width=\"4\" class=\"s-frame\"/><polygon points=\"117.0,104.0 117.0,38.0 123.0,38.0 123.0,104.0\" class=\"f-frame\"/><line x1=\"123.0\" y1=\"78.0\" x2=\"172.0\" y2=\"78.0\" stroke-width=\"3\" class=\"s-frame\"/><polyline points=\"58.0,90.0 46.0,69.2 32.0,44.9\" stroke-width=\"13\" class=\"s-body\" fill=\"none\"/><line x1=\"32.0\" y1=\"44.9\" x2=\"28.6\" y2=\"40.0\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"23.6\" cy=\"32.5\" r=\"10.5\" class=\"c-head\"/><line x1=\"76.9\" y1=\"50.2\" x2=\"114.0\" y2=\"72.0\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"58.0\" y1=\"90.0\" x2=\"76.9\" y2=\"50.2\" stroke-width=\"10.5\" class=\"s-body\"/><line x1=\"76.9\" y1=\"50.2\" x2=\"114.0\" y2=\"72.0\" stroke-width=\"8.5\" class=\"s-body\"/><line x1=\"114.0\" y1=\"77.0\" x2=\"114.0\" y2=\"54.0\" stroke-width=\"6\" class=\"s-body\"/><line x1=\"32.0\" y1=\"44.9\" x2=\"52.8\" y2=\"69.2\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"52.8\" y1=\"69.2\" x2=\"70.4\" y2=\"89.7\" stroke-width=\"10\" class=\"s-halo\"/><line x1=\"32.0\" y1=\"44.9\" x2=\"52.8\" y2=\"69.2\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"52.8\" y1=\"69.2\" x2=\"70.4\" y2=\"89.7\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"70.4\" cy=\"89.7\" r=\"3.6\" class=\"c-body\"/><line x1=\"58.0\" y1=\"90.0\" x2=\"52.0\" y2=\"106.0\" class=\"mk-l\"/><circle cx=\"52.0\" cy=\"106.0\" r=\"7.5\" class=\"mk-c\"/><text x=\"52.0\" y=\"109.6\" class=\"mk-t\" text-anchor=\"middle\">1</text><line x1=\"114.0\" y1=\"54.0\" x2=\"130.0\" y2=\"48.0\" class=\"mk-l\"/><circle cx=\"130.0\" cy=\"48.0\" r=\"7.5\" class=\"mk-c\"/><text x=\"130.0\" y=\"51.6\" class=\"mk-t\" text-anchor=\"middle\">2</text><line x1=\"76.9\" y1=\"50.2\" x2=\"76.9\" y2=\"34.2\" class=\"mk-l\"/><circle cx=\"76.9\" cy=\"34.2\" r=\"7.5\" class=\"mk-c\"/><text x=\"76.9\" y=\"37.8\" class=\"mk-t\" text-anchor=\"middle\">3</text><text x=\"293.0\" y=\"11\" class=\"fl\" text-anchor=\"middle\">Top</text><line x1=\"208.0\" y1=\"138.0\" x2=\"378.0\" y2=\"138.0\" stroke-width=\"2.5\" class=\"s-floor\"/><polygon points=\"244.0,98.0 286.0,98.0 286.0,104.0 244.0,104.0\" class=\"f-pad\"/><polygon points=\"213.0,33.9 250.0,98.0 244.8,101.0 207.8,36.9\" class=\"f-pad\"/><line x1=\"264.0\" y1=\"104.0\" x2=\"264.0\" y2=\"138.0\" stroke-width=\"4\" class=\"s-frame\"/><line x1=\"208.0\" y1=\"138.0\" x2=\"378.0\" y2=\"138.0\" stroke-width=\"4\" class=\"s-frame\"/><polygon points=\"345.6,104.0 345.6,38.0 351.6,38.0 351.6,104.0\" class=\"f-frame\"/><line x1=\"351.6\" y1=\"78.0\" x2=\"372.0\" y2=\"78.0\" stroke-width=\"3\" class=\"s-frame\"/><polyline points=\"258.0,90.0 246.0,69.2 232.0,44.9\" stroke-width=\"13\" class=\"s-body\" fill=\"none\"/><line x1=\"232.0\" y1=\"44.9\" x2=\"228.6\" y2=\"40.0\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"223.6\" cy=\"32.5\" r=\"10.5\" class=\"c-head\"/><line x1=\"299.8\" y1=\"76.3\" x2=\"342.6\" y2=\"72.0\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"258.0\" y1=\"90.0\" x2=\"299.8\" y2=\"76.3\" stroke-width=\"10.5\" class=\"s-body\"/><line x1=\"299.8\" y1=\"76.3\" x2=\"342.6\" y2=\"72.0\" stroke-width=\"8.5\" class=\"s-body\"/><line x1=\"342.6\" y1=\"77.0\" x2=\"342.6\" y2=\"54.0\" stroke-width=\"6\" class=\"s-body\"/><line x1=\"232.0\" y1=\"44.9\" x2=\"252.8\" y2=\"69.2\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"252.8\" y1=\"69.2\" x2=\"270.4\" y2=\"89.7\" stroke-width=\"10\" class=\"s-halo\"/><line x1=\"232.0\" y1=\"44.9\" x2=\"252.8\" y2=\"69.2\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"252.8\" y1=\"69.2\" x2=\"270.4\" y2=\"89.7\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"270.4\" cy=\"89.7\" r=\"3.6\" class=\"c-body\"/><line x1=\"299.8\" y1=\"76.3\" x2=\"299.8\" y2=\"60.3\" class=\"mk-l\"/><circle cx=\"299.8\" cy=\"60.3\" r=\"7.5\" class=\"mk-c\"/><text x=\"299.8\" y=\"63.9\" class=\"mk-t\" text-anchor=\"middle\">4</text><path d=\"M189.0 73.0 l6 0 m-3 -3 l3 3 l-3 3\" class=\"arr\"/></svg>"
+ }
+}

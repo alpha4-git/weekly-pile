@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1a2221">
+<meta name="color-scheme" content="light dark">
+<title>Weekly Pile</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="app.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <div class="hrow">
+    <div><h1>Weekly Pile</h1><div class="week" id="weekLabel"></div></div>
+    <div class="tot num" id="tot"></div>
+  </div>
+  <div class="bar" aria-hidden="true"><i id="totBar"></i></div>
+  <nav class="tabs" role="tablist" aria-label="Views">
+    <button role="tab" data-view="workout">Workout</button>
+    <button role="tab" data-view="log">Log</button>
+    <button role="tab" data-view="muscles">Muscles</button>
+    <button role="tab" data-view="data">Data</button>
+  </nav>
+</header>
+
+<div class="banner" id="updBanner" hidden><span id="updText">An update is ready.</span><button type="button" id="updBtn">Update</button></div>
+
+<main id="main">
+  <section id="v-workout" class="view"><div id="page" class="page"></div></section>
+  <section id="v-log" class="view" hidden></section>
+  <section id="v-muscles" class="view" hidden></section>
+  <section id="v-data" class="view" hidden></section>
+</main>
+
+<nav class="pager" id="pager" aria-label="Exercise navigation">
+  <button type="button" id="prevBtn" aria-label="Previous exercise">‹</button>
+  <button type="button" id="jumpBtn" class="jump">–</button>
+  <button type="button" id="nextBtn" aria-label="Next exercise">›</button>
+</nav>
+
+<dialog id="jumpDlg" aria-labelledby="jumpTitle">
+  <form method="dialog" class="dlg">
+    <div class="dhead"><h2 id="jumpTitle">Exercises in order</h2><button value="close" class="x" aria-label="Close">×</button></div>
+    <label class="tog"><input type="checkbox" id="skipDone"> Skip finished exercises when swiping</label>
+    <ol id="jumpList" class="jlist"></ol>
+  </form>
+</dialog>
+
+<dialog id="editDlg" aria-labelledby="editTitle">
+  <form class="dlg" id="editForm">
+    <div class="dhead"><h2 id="editTitle">Edit set</h2><button type="button" class="x" id="edClose" aria-label="Close">×</button></div>
+    <label class="fld">Exercise<select id="edEx"></select></label>
+    <div class="row2">
+      <label class="fld">Weight (lb)<input id="edW" type="number" inputmode="decimal" min="0" step="any" required></label>
+      <label class="fld">Reps<input id="edR" type="number" inputmode="numeric" min="0" step="1" required></label>
+    </div>
+    <div class="row2">
+      <label class="fld">Date<input id="edDate" type="date" required></label>
+      <label class="fld">Time<input id="edTime" type="time" required></label>
+    </div>
+    <div class="dact">
+      <button type="button" class="ghost danger" id="edDel">Delete</button>
+      <span class="sp"></span>
+      <button type="button" class="ghost" id="edCancel">Cancel</button>
+      <button type="submit" class="primary" id="edSave">Save</button>
+    </div>
+  </form>
+</dialog>
+
+<input type="file" id="fileIn" accept=".json,.zip,application/json,application/zip" multiple hidden>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+ "type": "exercise",
+ "schema": 1,
+ "id": "machine_curl",
+ "version": 1,
+ "name": "Machine biceps curl",
+ "short": "Biceps curl",
+ "equipment": "Biceps curl machine (preacher pad)",
+ "unit": "lb",
+ "step": 5,
+ "perSide": false,
+ "credit": {
+  "biceps": 1
+ },
+ "cues": [
+  "Set the seat so your elbows line up with the machine's pivot, upper arms flat on the pad.",
+  "Lower until your arms are nearly straight, under control. Don't let the weight stack touch down.",
+  "Curl as far as you can without moving your torso."
+ ],
+ "safety": "Safe to take close to failure.",
+ "refs": [
+  {
+   "title": "ACE: Seated biceps curl",
+   "url": "https://www.acefitness.org/resources/everyone/exercise-library/184/seated-biceps-curl/"
+  },
+  {
+   "title": "StrengthLog: Machine biceps curl",
+   "url": "https://www.strengthlog.com/machine-bicep-curl/"
+  }
+ ],
+ "figure": {
+  "svg": "<svg viewBox=\"0 0 283 162\" class=\"fig\" style=\"max-width:269px\" role=\"img\" aria-label=\"machine curl: Bottom and Top positions\"><text x=\"67.3\" y=\"11\" class=\"fl\" text-anchor=\"middle\">Bottom</text><line x1=\"7.3\" y1=\"154.2\" x2=\"127.3\" y2=\"154.2\" stroke-width=\"2.5\" class=\"s-floor\"/><polygon points=\"21.3,108.2 59.3,108.2 59.3,114.2 21.3,114.2\" class=\"f-pad\"/><line x1=\"40.3\" y1=\"114.2\" x2=\"40.3\" y2=\"154.2\" stroke-width=\"4\" class=\"s-frame\"/><line x1=\"17.3\" y1=\"154.2\" x2=\"91.3\" y2=\"154.2\" stroke-width=\"4\" class=\"s-frame\"/><polygon points=\"41.8,55.9 65.8,80.0 60.2,85.6 36.1,61.6\" class=\"f-pad\"/><circle cx=\"64.4\" cy=\"70.1\" r=\"4\" class=\"c-pivot\"/><polyline points=\"37.3,99.2 39.3,75.3 41.8,47.4\" stroke-width=\"13\" class=\"s-body\" fill=\"none\"/><line x1=\"41.8\" y1=\"47.4\" x2=\"42.3\" y2=\"41.5\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"43.1\" cy=\"32.5\" r=\"10.5\" class=\"c-head\"/><line x1=\"81.0\" y1=\"104.2\" x2=\"81.3\" y2=\"147.2\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"37.3\" y1=\"99.2\" x2=\"81.0\" y2=\"104.2\" stroke-width=\"10.5\" class=\"s-body\"/><line x1=\"81.0\" y1=\"104.2\" x2=\"81.3\" y2=\"147.2\" stroke-width=\"8.5\" class=\"s-body\"/><line x1=\"76.3\" y1=\"152.2\" x2=\"99.3\" y2=\"152.2\" stroke-width=\"6\" class=\"s-body\"/><circle cx=\"87.3\" cy=\"84.4\" r=\"4.5\" class=\"c-load\"/><line x1=\"41.8\" y1=\"47.4\" x2=\"64.4\" y2=\"70.1\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"64.4\" y1=\"70.1\" x2=\"87.3\" y2=\"84.4\" stroke-width=\"10\" class=\"s-halo\"/><line x1=\"41.8\" y1=\"47.4\" x2=\"64.4\" y2=\"70.1\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"64.4\" y1=\"70.1\" x2=\"87.3\" y2=\"84.4\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"87.3\" cy=\"84.4\" r=\"3.6\" class=\"c-body\"/><line x1=\"64.4\" y1=\"70.1\" x2=\"78.4\" y2=\"58.1\" class=\"mk-l\"/><circle cx=\"78.4\" cy=\"58.1\" r=\"7.5\" class=\"mk-c\"/><text x=\"78.4\" y=\"61.7\" class=\"mk-t\" text-anchor=\"middle\">1</text><line x1=\"87.3\" y1=\"84.4\" x2=\"101.3\" y2=\"78.4\" class=\"mk-l\"/><circle cx=\"101.3\" cy=\"78.4\" r=\"7.5\" class=\"mk-c\"/><text x=\"101.3\" y=\"82.0\" class=\"mk-t\" text-anchor=\"middle\">2</text><text x=\"215.8\" y=\"11\" class=\"fl\" text-anchor=\"middle\">Top</text><line x1=\"155.8\" y1=\"154.2\" x2=\"275.8\" y2=\"154.2\" stroke-width=\"2.5\" class=\"s-floor\"/><polygon points=\"169.8,108.2 207.8,108.2 207.8,114.2 169.8,114.2\" class=\"f-pad\"/><line x1=\"188.8\" y1=\"114.2\" x2=\"188.8\" y2=\"154.2\" stroke-width=\"4\" class=\"s-frame\"/><line x1=\"165.8\" y1=\"154.2\" x2=\"239.8\" y2=\"154.2\" stroke-width=\"4\" class=\"s-frame\"/><polygon points=\"190.3,55.9 214.3,80.0 208.7,85.6 184.6,61.6\" class=\"f-pad\"/><circle cx=\"212.9\" cy=\"70.1\" r=\"4\" class=\"c-pivot\"/><polyline points=\"185.8,99.2 187.8,75.3 190.3,47.4\" stroke-width=\"13\" class=\"s-body\" fill=\"none\"/><line x1=\"190.3\" y1=\"47.4\" x2=\"190.8\" y2=\"41.5\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"191.6\" cy=\"32.5\" r=\"10.5\" class=\"c-head\"/><line x1=\"229.5\" y1=\"104.2\" x2=\"229.8\" y2=\"147.2\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"185.8\" y1=\"99.2\" x2=\"229.5\" y2=\"104.2\" stroke-width=\"10.5\" class=\"s-body\"/><line x1=\"229.5\" y1=\"104.2\" x2=\"229.8\" y2=\"147.2\" stroke-width=\"8.5\" class=\"s-body\"/><line x1=\"224.8\" y1=\"152.2\" x2=\"247.8\" y2=\"152.2\" stroke-width=\"6\" class=\"s-body\"/><circle cx=\"210.6\" cy=\"43.2\" r=\"4.5\" class=\"c-load\"/><line x1=\"190.3\" y1=\"47.4\" x2=\"212.9\" y2=\"70.1\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"212.9\" y1=\"70.1\" x2=\"210.6\" y2=\"43.2\" stroke-width=\"10\" class=\"s-halo\"/><line x1=\"190.3\" y1=\"47.4\" x2=\"212.9\" y2=\"70.1\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"212.9\" y1=\"70.1\" x2=\"210.6\" y2=\"43.2\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"210.6\" cy=\"43.2\" r=\"3.6\" class=\"c-body\"/><line x1=\"190.3\" y1=\"47.4\" x2=\"172.3\" y2=\"43.4\" class=\"mk-l\"/><circle cx=\"172.3\" cy=\"43.4\" r=\"7.5\" class=\"mk-c\"/><text x=\"172.3\" y=\"47.0\" class=\"mk-t\" text-anchor=\"middle\">3</text><path d=\"M137.5 81.1 l6 0 m-3 -3 l3 3 l-3 3\" class=\"arr\"/></svg>"
+ }
+}

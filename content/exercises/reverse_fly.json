@@ -1,0 +1,31 @@
+{
+ "type": "exercise",
+ "schema": 1,
+ "id": "reverse_fly",
+ "version": 1,
+ "name": "Reverse machine fly",
+ "short": "Reverse fly",
+ "equipment": "Rear delt / pec deck machine",
+ "unit": "lb",
+ "step": 5,
+ "perSide": false,
+ "credit": {
+  "rdelt": 1
+ },
+ "cues": [
+  "Sit facing the pad with your chest against it. Set it so the handles are at shoulder height.",
+  "Keep a slight bend in your elbows the whole time.",
+  "Sweep your arms out and back to your sides.",
+  "Let the handles come back slowly all the way to the start."
+ ],
+ "safety": "Safe to take close to failure. The pictures are seen from above.",
+ "refs": [
+  {
+   "title": "StrengthLog: Reverse machine fly",
+   "url": "https://www.strengthlog.com/reverse-machine-fly/"
+  }
+ ],
+ "figure": {
+  "svg": "<svg viewBox=\"0 0 377 125\" class=\"fig\" style=\"max-width:358px\" role=\"img\" aria-label=\"reverse fly: Start (from above) and Finish positions\"><text x=\"90.7\" y=\"11\" class=\"fl\" text-anchor=\"middle\">Start (from above)</text><polygon points=\"70.9,77.3 106.9,77.3 106.9,69.3 70.9,69.3\" class=\"f-pad\"/><polygon points=\"66.9,85.3 110.9,85.3 112.9,97.3 64.9,97.3\" class=\"f-bodyfill\"/><circle cx=\"88.9\" cy=\"90.3\" r=\"10.5\" class=\"c-head\"/><line x1=\"88.9\" y1=\"82.3\" x2=\"88.9\" y2=\"78.3\" stroke-width=\"3\" class=\"s-body\"/><line x1=\"108.9\" y1=\"91.3\" x2=\"106.0\" y2=\"59.4\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"106.0\" y1=\"59.4\" x2=\"96.9\" y2=\"34.0\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"96.9\" cy=\"34.0\" r=\"4.5\" class=\"c-load\"/><line x1=\"68.9\" y1=\"91.3\" x2=\"71.8\" y2=\"59.4\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"71.8\" y1=\"59.4\" x2=\"80.9\" y2=\"34.0\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"80.9\" cy=\"34.0\" r=\"4.5\" class=\"c-load\"/><line x1=\"74.9\" y1=\"73.3\" x2=\"60.9\" y2=\"61.3\" class=\"mk-l\"/><circle cx=\"60.9\" cy=\"61.3\" r=\"7.5\" class=\"mk-c\"/><text x=\"60.9\" y=\"64.9\" class=\"mk-t\" text-anchor=\"middle\">1</text><line x1=\"96.9\" y1=\"34.0\" x2=\"112.9\" y2=\"30.0\" class=\"mk-l\"/><circle cx=\"112.9\" cy=\"30.0\" r=\"7.5\" class=\"mk-c\"/><text x=\"112.9\" y=\"33.6\" class=\"mk-t\" text-anchor=\"middle\">4</text><text x=\"286.0\" y=\"11\" class=\"fl\" text-anchor=\"middle\">Finish</text><polygon points=\"266.2,77.3 302.2,77.3 302.2,69.3 266.2,69.3\" class=\"f-pad\"/><polygon points=\"262.2,85.3 306.2,85.3 308.2,97.3 260.2,97.3\" class=\"f-bodyfill\"/><circle cx=\"284.2\" cy=\"90.3\" r=\"10.5\" class=\"c-head\"/><line x1=\"284.2\" y1=\"82.3\" x2=\"284.2\" y2=\"78.3\" stroke-width=\"3\" class=\"s-body\"/><line x1=\"304.2\" y1=\"91.3\" x2=\"335.7\" y2=\"97.1\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"335.7\" y1=\"97.1\" x2=\"362.6\" y2=\"95.3\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"362.6\" cy=\"95.3\" r=\"4.5\" class=\"c-load\"/><line x1=\"264.2\" y1=\"91.3\" x2=\"232.7\" y2=\"97.1\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"232.7\" y1=\"97.1\" x2=\"205.8\" y2=\"95.3\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"205.8\" cy=\"95.3\" r=\"4.5\" class=\"c-load\"/><line x1=\"335.7\" y1=\"97.1\" x2=\"335.7\" y2=\"81.1\" class=\"mk-l\"/><circle cx=\"335.7\" cy=\"81.1\" r=\"7.5\" class=\"mk-c\"/><text x=\"335.7\" y=\"84.7\" class=\"mk-t\" text-anchor=\"middle\">2</text><line x1=\"362.6\" y1=\"95.3\" x2=\"362.6\" y2=\"111.3\" class=\"mk-l\"/><circle cx=\"362.6\" cy=\"111.3\" r=\"7.5\" class=\"mk-c\"/><text x=\"362.6\" y=\"114.9\" class=\"mk-t\" text-anchor=\"middle\">3</text><path d=\"M184.3 62.6 l6 0 m-3 -3 l3 3 l-3 3\" class=\"arr\"/></svg>"
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "type": "exercise",
+ "schema": 1,
+ "id": "incline_db_press",
+ "version": 1,
+ "name": "Incline dumbbell press",
+ "short": "Incline press",
+ "equipment": "Adjustable bench, two dumbbells",
+ "unit": "lb",
+ "step": 5,
+ "perSide": false,
+ "credit": {
+  "chest": 1,
+  "fdelt": 0.5,
+  "triceps": 0.5
+ },
+ "cues": [
+  "Set the bench to about 30°. Steeper angles shift the work to the front of the shoulders.",
+  "Shoulder blades pulled down and back. Head, upper back and hips stay on the bench.",
+  "Feet planted on the floor. Don't arch your lower back.",
+  "Lower slowly to the sides of your upper chest. No bouncing.",
+  "Forearms vertical, elbows under the wrists. Press up until your arms are straight over your shoulders."
+ ],
+ "safety": "No spotter: stop 1–2 reps short. To finish, bring the dumbbells to your chest and sit up with them resting on your thighs.",
+ "refs": [
+  {
+   "title": "ACE: Incline chest press",
+   "url": "https://www.acefitness.org/resources/everyone/exercise-library/25/incline-chest-press/"
+  },
+  {
+   "title": "Bench angle study",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7579505/"
+  }
+ ],
+ "figure": {
+  "svg": "<svg viewBox=\"0 0 384 178\" class=\"fig\" style=\"max-width:365px\" role=\"img\" aria-label=\"incline db press: Top and Bottom positions\"><text x=\"92.5\" y=\"11\" class=\"fl\" text-anchor=\"middle\">Top</text><line x1=\"21.0\" y1=\"169.6\" x2=\"171.0\" y2=\"169.6\" stroke-width=\"2.5\" class=\"s-floor\"/><polygon points=\"77.0,123.6 115.0,123.6 115.0,129.6 77.0,129.6\" class=\"f-pad\"/><polygon points=\"10.0,82.6 81.0,123.6 78.0,128.8 7.0,87.8\" class=\"f-pad\"/><line x1=\"95.0\" y1=\"129.6\" x2=\"95.0\" y2=\"169.6\" stroke-width=\"4\" class=\"s-frame\"/><line x1=\"33.4\" y1=\"96.1\" x2=\"33.4\" y2=\"169.6\" stroke-width=\"4\" class=\"s-frame\"/><line x1=\"35.0\" y1=\"169.6\" x2=\"121.0\" y2=\"169.6\" stroke-width=\"4\" class=\"s-frame\"/><polyline points=\"89.0,114.6 68.2,102.6 44.0,88.6\" stroke-width=\"13\" class=\"s-body\" fill=\"none\"/><line x1=\"44.0\" y1=\"88.6\" x2=\"38.7\" y2=\"85.8\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"30.7\" cy=\"81.6\" r=\"10.5\" class=\"c-head\"/><line x1=\"132.5\" y1=\"121.5\" x2=\"145.0\" y2=\"162.6\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"89.0\" y1=\"114.6\" x2=\"132.5\" y2=\"121.5\" stroke-width=\"10.5\" class=\"s-body\"/><line x1=\"132.5\" y1=\"121.5\" x2=\"145.0\" y2=\"162.6\" stroke-width=\"8.5\" class=\"s-body\"/><line x1=\"140.0\" y1=\"167.6\" x2=\"163.0\" y2=\"167.6\" stroke-width=\"6\" class=\"s-body\"/><circle cx=\"47.0\" cy=\"30.0\" r=\"8\" class=\"c-load\"/><circle cx=\"47.0\" cy=\"30.0\" r=\"3.04\" class=\"c-loadhub\"/><line x1=\"44.0\" y1=\"88.6\" x2=\"48.7\" y2=\"56.9\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"48.7\" y1=\"56.9\" x2=\"47.0\" y2=\"30.0\" stroke-width=\"10\" class=\"s-halo\"/><line x1=\"44.0\" y1=\"88.6\" x2=\"48.7\" y2=\"56.9\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"48.7\" y1=\"56.9\" x2=\"47.0\" y2=\"30.0\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"47.0\" cy=\"30.0\" r=\"3.6\" class=\"c-body\"/><line x1=\"63.7\" y1=\"113.6\" x2=\"59.7\" y2=\"135.6\" class=\"mk-l\"/><circle cx=\"59.7\" cy=\"135.6\" r=\"7.5\" class=\"mk-c\"/><text x=\"59.7\" y=\"139.2\" class=\"mk-t\" text-anchor=\"middle\">1</text><line x1=\"44.0\" y1=\"88.6\" x2=\"40.0\" y2=\"108.6\" class=\"mk-l\"/><circle cx=\"40.0\" cy=\"108.6\" r=\"7.5\" class=\"mk-c\"/><text x=\"40.0\" y=\"112.2\" class=\"mk-t\" text-anchor=\"middle\">2</text><line x1=\"163.0\" y1=\"167.6\" x2=\"171.0\" y2=\"155.6\" class=\"mk-l\"/><circle cx=\"171.0\" cy=\"155.6\" r=\"7.5\" class=\"mk-c\"/><text x=\"171.0\" y=\"159.2\" class=\"mk-t\" text-anchor=\"middle\">3</text><text x=\"291.5\" y=\"11\" class=\"fl\" text-anchor=\"middle\">Bottom</text><line x1=\"220.0\" y1=\"169.6\" x2=\"370.0\" y2=\"169.6\" stroke-width=\"2.5\" class=\"s-floor\"/><polygon points=\"276.0,123.6 314.0,123.6 314.0,129.6 276.0,129.6\" class=\"f-pad\"/><polygon points=\"209.0,82.6 280.0,123.6 277.0,128.8 206.0,87.8\" class=\"f-pad\"/><line x1=\"294.0\" y1=\"129.6\" x2=\"294.0\" y2=\"169.6\" stroke-width=\"4\" class=\"s-frame\"/><line x1=\"232.4\" y1=\"96.1\" x2=\"232.4\" y2=\"169.6\" stroke-width=\"4\" class=\"s-frame\"/><line x1=\"234.0\" y1=\"169.6\" x2=\"320.0\" y2=\"169.6\" stroke-width=\"4\" class=\"s-frame\"/><polyline points=\"288.0,114.6 267.2,102.6 243.0,88.6\" stroke-width=\"13\" class=\"s-body\" fill=\"none\"/><line x1=\"243.0\" y1=\"88.6\" x2=\"237.7\" y2=\"85.8\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"229.8\" cy=\"81.6\" r=\"10.5\" class=\"c-head\"/><line x1=\"331.5\" y1=\"121.5\" x2=\"344.0\" y2=\"162.6\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"288.0\" y1=\"114.6\" x2=\"331.5\" y2=\"121.5\" stroke-width=\"10.5\" class=\"s-body\"/><line x1=\"331.5\" y1=\"121.5\" x2=\"344.0\" y2=\"162.6\" stroke-width=\"8.5\" class=\"s-body\"/><line x1=\"339.0\" y1=\"167.6\" x2=\"362.0\" y2=\"167.6\" stroke-width=\"6\" class=\"s-body\"/><circle cx=\"254.0\" cy=\"81.6\" r=\"8\" class=\"c-load\"/><circle cx=\"254.0\" cy=\"81.6\" r=\"3.04\" class=\"c-loadhub\"/><line x1=\"243.0\" y1=\"88.6\" x2=\"254.4\" y2=\"108.6\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"254.4\" y1=\"108.6\" x2=\"254.0\" y2=\"81.6\" stroke-width=\"10\" class=\"s-halo\"/><line x1=\"243.0\" y1=\"88.6\" x2=\"254.4\" y2=\"108.6\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"254.4\" y1=\"108.6\" x2=\"254.0\" y2=\"81.6\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"254.0\" cy=\"81.6\" r=\"3.6\" class=\"c-body\"/><line x1=\"254.0\" y1=\"81.6\" x2=\"272.0\" y2=\"71.6\" class=\"mk-l\"/><circle cx=\"272.0\" cy=\"71.6\" r=\"7.5\" class=\"mk-c\"/><text x=\"272.0\" y=\"75.2\" class=\"mk-t\" text-anchor=\"middle\">4</text><line x1=\"254.4\" y1=\"108.6\" x2=\"272.4\" y2=\"114.6\" class=\"mk-l\"/><circle cx=\"272.4\" cy=\"114.6\" r=\"7.5\" class=\"mk-c\"/><text x=\"272.4\" y=\"118.2\" class=\"mk-t\" text-anchor=\"middle\">5</text><path d=\"M188.0 88.8 l6 0 m-3 -3 l3 3 l-3 3\" class=\"arr\"/></svg>"
+ }
+}

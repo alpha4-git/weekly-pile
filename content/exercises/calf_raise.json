@@ -1,0 +1,35 @@
+{
+ "type": "exercise",
+ "schema": 1,
+ "id": "calf_raise",
+ "version": 1,
+ "name": "Standing calf raise",
+ "short": "Calf raise",
+ "equipment": "Standing calf raise machine",
+ "unit": "lb",
+ "step": 5,
+ "perSide": false,
+ "credit": {
+  "calves": 1
+ },
+ "cues": [
+  "Balls of your feet on the edge of the step, heels hanging off.",
+  "Lower your heels slowly to a full stretch and pause.",
+  "Rise as high as you can and pause at the top.",
+  "Knees slightly bent and still. Your ankles do all the moving."
+ ],
+ "safety": "Safe to take close to failure. Good one to do in rest periods.",
+ "refs": [
+  {
+   "title": "Muscle & Strength: Standing machine calf raise",
+   "url": "https://www.muscleandstrength.com/exercises/standing-machine-calf-raise"
+  },
+  {
+   "title": "StrengthLog: Standing calf raise",
+   "url": "https://www.strengthlog.com/standing-calf-raise/"
+  }
+ ],
+ "figure": {
+  "svg": "<svg viewBox=\"0 0 263 230\" class=\"fig\" style=\"max-width:250px\" role=\"img\" aria-label=\"calf raise: Stretch and Up positions\"><text x=\"62.3\" y=\"11\" class=\"fl\" text-anchor=\"middle\">Stretch</text><line x1=\"7.3\" y1=\"214.5\" x2=\"117.3\" y2=\"214.5\" stroke-width=\"2.5\" class=\"s-floor\"/><polygon points=\"55.3,214.5 97.3,214.5 97.3,202.5 55.3,202.5\" class=\"f-frame\"/><polygon points=\"14.3,214.5 14.3,41.2 20.3,41.2 20.3,214.5\" class=\"f-frame\"/><line x1=\"43.1\" y1=\"61.2\" x2=\"71.4\" y2=\"76.1\" stroke-width=\"8\" class=\"s-far\"/><line x1=\"71.4\" y1=\"76.1\" x2=\"57.1\" y2=\"53.2\" stroke-width=\"7\" class=\"s-far\"/><circle cx=\"57.1\" cy=\"53.2\" r=\"3.6\" class=\"c-far\"/><line x1=\"17.3\" y1=\"43.2\" x2=\"37.1\" y2=\"43.2\" stroke-width=\"4\" class=\"s-frame\"/><polygon points=\"31.1,48.7 57.1,48.7 57.1,55.7 31.1,55.7\" class=\"f-pad\"/><polyline points=\"43.1,113.2 43.1,89.2 43.1,61.2\" stroke-width=\"13\" class=\"s-body\" fill=\"none\"/><line x1=\"43.1\" y1=\"61.2\" x2=\"43.1\" y2=\"55.2\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"43.1\" cy=\"46.2\" r=\"10.5\" class=\"c-head\"/><line x1=\"46.1\" y1=\"157.1\" x2=\"43.1\" y2=\"200.0\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"43.1\" y1=\"113.2\" x2=\"46.1\" y2=\"157.1\" stroke-width=\"10.5\" class=\"s-body\"/><line x1=\"46.1\" y1=\"157.1\" x2=\"43.1\" y2=\"200.0\" stroke-width=\"8.5\" class=\"s-body\"/><line x1=\"40.7\" y1=\"210.4\" x2=\"70.3\" y2=\"200.5\" stroke-width=\"6\" class=\"s-body\"/><line x1=\"59.3\" y1=\"200.5\" x2=\"73.3\" y2=\"212.5\" class=\"mk-l\"/><circle cx=\"73.3\" cy=\"212.5\" r=\"7.5\" class=\"mk-c\"/><text x=\"73.3\" y=\"216.1\" class=\"mk-t\" text-anchor=\"middle\">1</text><line x1=\"40.7\" y1=\"210.4\" x2=\"24.7\" y2=\"216.4\" class=\"mk-l\"/><circle cx=\"24.7\" cy=\"216.4\" r=\"7.5\" class=\"mk-c\"/><text x=\"24.7\" y=\"220.0\" class=\"mk-t\" text-anchor=\"middle\">2</text><text x=\"200.8\" y=\"11\" class=\"fl\" text-anchor=\"middle\">Up</text><line x1=\"145.8\" y1=\"214.5\" x2=\"255.8\" y2=\"214.5\" stroke-width=\"2.5\" class=\"s-floor\"/><polygon points=\"193.8,214.5 235.8,214.5 235.8,202.5 193.8,202.5\" class=\"f-frame\"/><polygon points=\"152.8,214.5 152.8,27.5 158.8,27.5 158.8,214.5\" class=\"f-frame\"/><line x1=\"190.0\" y1=\"47.5\" x2=\"218.4\" y2=\"62.4\" stroke-width=\"8\" class=\"s-far\"/><line x1=\"218.4\" y1=\"62.4\" x2=\"204.0\" y2=\"39.5\" stroke-width=\"7\" class=\"s-far\"/><circle cx=\"204.0\" cy=\"39.5\" r=\"3.6\" class=\"c-far\"/><line x1=\"155.8\" y1=\"29.5\" x2=\"184.0\" y2=\"29.5\" stroke-width=\"4\" class=\"s-frame\"/><polygon points=\"178.0,35.0 204.0,35.0 204.0,42.0 178.0,42.0\" class=\"f-pad\"/><polyline points=\"190.0,99.5 190.0,75.5 190.0,47.5\" stroke-width=\"13\" class=\"s-body\" fill=\"none\"/><line x1=\"190.0\" y1=\"47.5\" x2=\"190.0\" y2=\"41.5\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"190.0\" cy=\"32.5\" r=\"10.5\" class=\"c-head\"/><line x1=\"193.1\" y1=\"143.4\" x2=\"190.1\" y2=\"186.3\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"190.0\" y1=\"99.5\" x2=\"193.1\" y2=\"143.4\" stroke-width=\"10.5\" class=\"s-body\"/><line x1=\"193.1\" y1=\"143.4\" x2=\"190.1\" y2=\"186.3\" stroke-width=\"8.5\" class=\"s-body\"/><line x1=\"179.9\" y1=\"189.4\" x2=\"208.8\" y2=\"200.5\" stroke-width=\"6\" class=\"s-body\"/><line x1=\"179.9\" y1=\"189.4\" x2=\"163.9\" y2=\"187.4\" class=\"mk-l\"/><circle cx=\"163.9\" cy=\"187.4\" r=\"7.5\" class=\"mk-c\"/><text x=\"163.9\" y=\"191.0\" class=\"mk-t\" text-anchor=\"middle\">3</text><line x1=\"193.1\" y1=\"143.4\" x2=\"209.1\" y2=\"141.4\" class=\"mk-l\"/><circle cx=\"209.1\" cy=\"141.4\" r=\"7.5\" class=\"mk-c\"/><text x=\"209.1\" y=\"145.0\" class=\"mk-t\" text-anchor=\"middle\">4</text><path d=\"M127.5 115.2 l6 0 m-3 -3 l3 3 l-3 3\" class=\"arr\"/></svg>"
+ }
+}

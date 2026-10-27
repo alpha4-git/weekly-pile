@@ -1,0 +1,33 @@
+{
+ "type": "exercise",
+ "schema": 1,
+ "id": "cable_row",
+ "version": 1,
+ "name": "Seated cable row",
+ "short": "Cable row",
+ "equipment": "Seated cable row",
+ "unit": "lb",
+ "step": 5,
+ "perSide": false,
+ "credit": {
+  "back": 1,
+  "biceps": 0.5,
+  "rdelt": 0.5
+ },
+ "cues": [
+  "Feet on the platform, knees slightly bent.",
+  "Sit tall, chest up. Keep your back straight the whole set.",
+  "Pull the handle to your stomach with your elbows close to your ribs. Pause for a second.",
+  "Don't lean back to finish the rep. Straighten your arms slowly on the way back."
+ ],
+ "safety": "Safe to take close to failure.",
+ "refs": [
+  {
+   "title": "ACE: Seated row (cable)",
+   "url": "https://www.acefitness.org/resources/everyone/exercise-library/48/seated-row/"
+  }
+ ],
+ "figure": {
+  "svg": "<svg viewBox=\"0 0 343 157\" class=\"fig\" style=\"max-width:326px\" role=\"img\" aria-label=\"cable row: Reach and Pull positions\"><text x=\"82.3\" y=\"11\" class=\"fl\" text-anchor=\"middle\">Reach</text><line x1=\"7.3\" y1=\"148.5\" x2=\"157.3\" y2=\"148.5\" stroke-width=\"2.5\" class=\"s-floor\"/><polygon points=\"23.3,108.5 67.3,108.5 67.3,114.5 23.3,114.5\" class=\"f-pad\"/><line x1=\"45.3\" y1=\"114.5\" x2=\"45.3\" y2=\"148.5\" stroke-width=\"4\" class=\"s-frame\"/><line x1=\"17.3\" y1=\"148.5\" x2=\"143.3\" y2=\"148.5\" stroke-width=\"4\" class=\"s-frame\"/><polygon points=\"126.8,134.5 126.8,98.5 131.8,98.5 131.8,134.5\" class=\"f-frame\"/><circle cx=\"135.3\" cy=\"108.5\" r=\"5\" class=\"c-frame\"/><line x1=\"98.8\" y1=\"76.2\" x2=\"135.3\" y2=\"108.5\" stroke-width=\"1.6\" class=\"s-cable\"/><polyline points=\"47.3,99.5 47.3,75.5 47.3,47.5\" stroke-width=\"13\" class=\"s-body\" fill=\"none\"/><line x1=\"47.3\" y1=\"47.5\" x2=\"47.3\" y2=\"41.5\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"47.3\" cy=\"32.5\" r=\"10.5\" class=\"c-head\"/><line x1=\"90.0\" y1=\"89.2\" x2=\"123.3\" y2=\"116.5\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"47.3\" y1=\"99.5\" x2=\"90.0\" y2=\"89.2\" stroke-width=\"10.5\" class=\"s-body\"/><line x1=\"90.0\" y1=\"89.2\" x2=\"123.3\" y2=\"116.5\" stroke-width=\"8.5\" class=\"s-body\"/><line x1=\"123.3\" y1=\"121.5\" x2=\"123.3\" y2=\"98.5\" stroke-width=\"6\" class=\"s-body\"/><circle cx=\"98.8\" cy=\"76.2\" r=\"4.5\" class=\"c-load\"/><line x1=\"47.3\" y1=\"47.5\" x2=\"75.2\" y2=\"63.1\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"75.2\" y1=\"63.1\" x2=\"98.8\" y2=\"76.2\" stroke-width=\"10\" class=\"s-halo\"/><line x1=\"47.3\" y1=\"47.5\" x2=\"75.2\" y2=\"63.1\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"75.2\" y1=\"63.1\" x2=\"98.8\" y2=\"76.2\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"98.8\" cy=\"76.2\" r=\"3.6\" class=\"c-body\"/><line x1=\"90.0\" y1=\"89.2\" x2=\"92.0\" y2=\"73.2\" class=\"mk-l\"/><circle cx=\"92.0\" cy=\"73.2\" r=\"7.5\" class=\"mk-c\"/><text x=\"92.0\" y=\"76.8\" class=\"mk-t\" text-anchor=\"middle\">1</text><line x1=\"47.3\" y1=\"75.5\" x2=\"29.3\" y2=\"75.5\" class=\"mk-l\"/><circle cx=\"29.3\" cy=\"75.5\" r=\"7.5\" class=\"mk-c\"/><text x=\"29.3\" y=\"79.1\" class=\"mk-t\" text-anchor=\"middle\">4</text><text x=\"260.8\" y=\"11\" class=\"fl\" text-anchor=\"middle\">Pull</text><line x1=\"185.8\" y1=\"148.5\" x2=\"335.8\" y2=\"148.5\" stroke-width=\"2.5\" class=\"s-floor\"/><polygon points=\"201.8,108.5 245.8,108.5 245.8,114.5 201.8,114.5\" class=\"f-pad\"/><line x1=\"223.8\" y1=\"114.5\" x2=\"223.8\" y2=\"148.5\" stroke-width=\"4\" class=\"s-frame\"/><line x1=\"195.8\" y1=\"148.5\" x2=\"321.8\" y2=\"148.5\" stroke-width=\"4\" class=\"s-frame\"/><polygon points=\"305.3,134.5 305.3,98.5 310.3,98.5 310.3,134.5\" class=\"f-frame\"/><circle cx=\"313.8\" cy=\"108.5\" r=\"5\" class=\"c-frame\"/><line x1=\"240.8\" y1=\"72.5\" x2=\"313.8\" y2=\"108.5\" stroke-width=\"1.6\" class=\"s-cable\"/><polyline points=\"225.8,99.5 225.8,75.5 225.8,47.5\" stroke-width=\"13\" class=\"s-body\" fill=\"none\"/><line x1=\"225.8\" y1=\"47.5\" x2=\"225.8\" y2=\"41.5\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"225.8\" cy=\"32.5\" r=\"10.5\" class=\"c-head\"/><line x1=\"268.5\" y1=\"89.2\" x2=\"301.8\" y2=\"116.5\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"225.8\" y1=\"99.5\" x2=\"268.5\" y2=\"89.2\" stroke-width=\"10.5\" class=\"s-body\"/><line x1=\"268.5\" y1=\"89.2\" x2=\"301.8\" y2=\"116.5\" stroke-width=\"8.5\" class=\"s-body\"/><line x1=\"301.8\" y1=\"121.5\" x2=\"301.8\" y2=\"98.5\" stroke-width=\"6\" class=\"s-body\"/><circle cx=\"240.8\" cy=\"72.5\" r=\"4.5\" class=\"c-load\"/><line x1=\"225.8\" y1=\"47.5\" x2=\"214.2\" y2=\"77.3\" stroke-width=\"11\" class=\"s-halo\"/><line x1=\"214.2\" y1=\"77.3\" x2=\"240.8\" y2=\"72.5\" stroke-width=\"10\" class=\"s-halo\"/><line x1=\"225.8\" y1=\"47.5\" x2=\"214.2\" y2=\"77.3\" stroke-width=\"8\" class=\"s-body\"/><line x1=\"214.2\" y1=\"77.3\" x2=\"240.8\" y2=\"72.5\" stroke-width=\"7\" class=\"s-body\"/><circle cx=\"240.8\" cy=\"72.5\" r=\"3.6\" class=\"c-body\"/><line x1=\"225.8\" y1=\"47.5\" x2=\"207.8\" y2=\"41.5\" class=\"mk-l\"/><circle cx=\"207.8\" cy=\"41.5\" r=\"7.5\" class=\"mk-c\"/><text x=\"207.8\" y=\"45.1\" class=\"mk-t\" text-anchor=\"middle\">2</text><line x1=\"214.2\" y1=\"77.3\" x2=\"210.2\" y2=\"95.3\" class=\"mk-l\"/><circle cx=\"210.2\" cy=\"95.3\" r=\"7.5\" class=\"mk-c\"/><text x=\"210.2\" y=\"98.9\" class=\"mk-t\" text-anchor=\"middle\">3</text><path d=\"M167.5 78.3 l6 0 m-3 -3 l3 3 l-3 3\" class=\"arr\"/></svg>"
+ }
+}
