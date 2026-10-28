@@ -186,4 +186,11 @@ module.exports = [
     cues: ['Kneel facing a flat bench and rest your forearms on it, wrists over the edge, barbell held underhand.', 'Lower your hands toward the floor and let the bar roll out into your fingers.', 'Close your grip and bend your wrists upward.'],
     safety: 'Use a light weight and a slow, full range.', ref: SL(['Barbell wrist curl', 'barbell-wrist-curl']),
   },
+  {
+    id: 'Landmine_180s', name: 'Landmine rotation', short: 'Landmine rotation', variant: 'Obliques',
+    credit: { abs: 1, fdelt: 0.5 }, lo: 10, hi: 16, rest: 60, level: 'beginner',
+    cues: ['Set a barbell in a landmine (or wedge the end securely in a corner). Stand facing it, feet slightly wider than shoulder-width.', 'Hold the end of the bar with both hands, arms straight in front of you at about shoulder height.', 'Brace your core and, keeping your arms straight, turn your hips and torso together to sweep the bar down toward the outside of one hip.', 'Rotate back across and down to the other side. Alternate sides with control and do the same number each way.'],
+    safety: 'Start light. Turn your hips and torso together and keep the movement controlled; no jerking at the turn.',
+    ref: SL(['Landmine rotation', 'landmine-rotation']),
+  },
 ];

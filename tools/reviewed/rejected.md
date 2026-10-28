@@ -59,3 +59,16 @@ Database exercises that were reviewed but not added, with the reason. Database n
 - Elevated Cable Rows — near-duplicate of the seated cable row.
 - Low Pulley Row To Neck — no reference page.
 - Shotgun Row — no reference page.
+- Barbell Shoulder Press — duplicate of the seated barbell shoulder press already in the library.
+- Standing Palms-In Dumbbell Press — near-duplicate of the standing dumbbell press; no reference page covers the palms-in grip, and the database start position is confusing.
+- One-Arm Kettlebell Military Press To The Side — needs a kettlebell clean to get into position.
+- One-Arm Kettlebell Para Press — needs a kettlebell clean to get into position.
+- Kettlebell Seesaw Press — needs a clean of two kettlebells to get into position.
+- Standing Front Barbell Raise Over Head — photos raise the bar overhead; the reference stops at shoulder height.
+- Single Dumbbell Raise — holds one dumbbell by its plates and raises it overhead; no reference page.
+- Dumbbell Raise — duplicate of the dumbbell upright row already in the library.
+- Alternating Deltoid Raise — alternates front and lateral raises, both already in the library; no reference page.
+- Lying Rear Delt Raise — near-duplicate of the incline-bench reverse fly; no reference page for the flat-bench version.
+- Back Flyes - With Bands — no reference page; the photos don't make the anchor direction clear (the band appears to come from behind, which would make it a chest fly).
+- Bent Over Low-Pulley Side Lateral — no reference page for the bent-over low-pulley version; the database cue (arm in line with the ear) doesn't match a rear-delt raise.
+- Front Two-Dumbbell Raise — duplicate of the dumbbell front raise; the photo also raises above the head.

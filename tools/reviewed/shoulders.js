@@ -263,4 +263,11 @@ module.exports = [
     safety: LIGHT + ' The reference raises both arms; one at a time, each arm moves the same way. One set = both arms.',
     ref: SL(['Dumbbell lateral raise', 'dumbbell-lateral-raise']),
   },
+  {
+    id: 'Bent_Over_Dumbbell_Rear_Delt_Raise_With_Head_On_Bench', name: 'Bent-over reverse fly (head on bench)', short: 'Rear fly (head rest)', variant: 'Rear fly',
+    credit: { rdelt: 1 }, lo: 12, hi: 20, rest: 60, level: 'beginner',
+    cues: ['Stand behind an incline bench, feet about hip-width, a dumbbell in each hand.', 'Hinge forward with a straight back until your forehead rests on the top of the bench; let your arms hang toward the floor, palms facing in.', 'With just a slight bend at the elbows, raise your arms out to the sides until they are about level with your body.', 'Lower them back slowly.'],
+    safety: 'Use a light weight, no swinging or shrugging. The reference describes it standing bent over without a bench; resting your forehead only steadies your torso, the arms move the same way.',
+    ref: SL(['Reverse dumbbell flyes', 'reverse-dumbbell-flyes']),
+  },
 ];
