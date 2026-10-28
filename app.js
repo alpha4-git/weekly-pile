@@ -1,7 +1,7 @@
 /* Weekly Pile core. All data lives in this browser's IndexedDB on the phone:
    exercises (library add-ons), plans (ordered set lists), logs (one record per set), meta (settings). */
 'use strict';
-const APP_VERSION = '1.3.8';
+const APP_VERSION = '1.3.9';
 
 // ---------------------------------------------------------------- utilities
 const $ = s => document.querySelector(s);
@@ -569,10 +569,12 @@ async function holdScreen(on) {
     if (!on && wake) { const w = wake; wake = null; await w.release(); }
   } catch (e) { wake = null; }
 }
-// One beep when a rest ends: a short sine tone with a gentle fade in and out, peaking at 75% of full scale (−2.5 dB).
+// One beep when a rest ends: an 880 Hz tone with harmonics 2–5 at 1/n strength (a brighter, harder edge than a
+// pure sine), quick fade in, 0.7 s fade out. The browser scales the wave so its peak is exactly 1, and the gain
+// peaks at 1.0, so the beep hits full scale without clipping.
 // It plays through headphones when they're connected. Browsers only allow sound after a tap, so the audio is
 // unlocked on the first tap (and on every Log tap); a page in the background can't play it.
-let actx = null;
+let actx = null, beepWave = null;
 function audioUnlock() {
   try {
     if (!actx) { const AC = window.AudioContext || window.webkitAudioContext; if (AC) actx = new AC(); }
@@ -584,9 +586,10 @@ function beep() {
   try {
     if (actx.state === 'suspended') actx.resume();
     const t = actx.currentTime + 0.03, o = actx.createOscillator(), g = actx.createGain();
-    o.type = 'sine'; o.frequency.value = 880;
+    if (!beepWave || beepWave.ctx !== actx) beepWave = { ctx: actx, w: actx.createPeriodicWave(new Float32Array(6), Float32Array.from([0, 1, 1 / 2, 1 / 3, 1 / 4, 1 / 5])) };
+    o.setPeriodicWave(beepWave.w); o.frequency.value = 880;
     g.gain.setValueAtTime(0.0001, t);
-    g.gain.exponentialRampToValueAtTime(0.75, t + 0.02);
+    g.gain.exponentialRampToValueAtTime(1, t + 0.02);
     g.gain.exponentialRampToValueAtTime(0.0001, t + 0.7);
     o.connect(g); g.connect(actx.destination);
     o.start(t); o.stop(t + 0.75);
