@@ -81,7 +81,7 @@ module.exports = [
     credit: { fdelt: 1 }, lo: 10, hi: 15, rest: 90, level: 'beginner',
     cues: [
       'Stand tall holding the dumbbells on straight arms in front of your hips.',
-      'With control, raise them forward with straight arms to shoulder height.',
+      'With control, raise them forward with straight arms to shoulder height (the second photo goes higher than needed).',
       'Lower under control. No swinging from the hips.',
     ],
     safety: LIGHT, ref: SL(['Dumbbell front raise', 'dumbbell-front-raise']),

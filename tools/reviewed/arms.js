@@ -78,12 +78,6 @@ module.exports = [
     safety: 'Hard to cheat on, so keep the weight modest. One set = both arms.', ref: SL(['Concentration curl', 'concentration-curl']),
   },
   {
-    id: 'Spider_Curl', name: 'Spider curl', short: 'Spider curl', variant: FRONT,
-    credit: { biceps: 1 }, lo: 10, hi: 15, rest: 90, level: 'beginner',
-    cues: ['Lie with your chest and stomach on a 45° bench, dumbbells in an underhand grip, upper arms hanging vertical.', 'Curl the dumbbells up with control; don\'t let your upper arms move back or forward.', 'Lower back to the start.'],
-    safety: 'Expect to use light weights; no swinging.', ref: TYPES,
-  },
-  {
     id: 'Standing_Biceps_Cable_Curl', name: 'Cable curl', short: 'Cable curl', variant: STD,
     credit: { biceps: 1 }, lo: 10, hi: 15, rest: 90, level: 'beginner',
     cues: ['Attach a straight bar to the low pulley, grip underhand about shoulder-width, and step back.', 'Curl the bar up by bending your elbows; upper arms still or slightly forward.', 'Lower with control.'],
@@ -217,5 +211,17 @@ module.exports = [
     credit: { triceps: 1 }, lo: 8, hi: 15, rest: 60, level: 'beginner',
     cues: ['Set a bar in a rack, grip it overhand about shoulder-width and step back so you lean on it with straight arms, body straight like a standing plank.', 'Bend your elbows, bringing your torso forward and your head below the bar, slowly and under control.', 'Straighten your arms to return.'],
     safety: 'A higher bar makes it easier; a lower bar harder.', ref: SL(['Triceps bodyweight extension', 'triceps-bodyweight-extension']),
+  },
+  {
+    id: 'Dumbbell_Prone_Incline_Curl', name: 'Spider curl', short: 'Spider curl', variant: FRONT, swap: true,
+    credit: { biceps: 1 }, lo: 10, hi: 15, rest: 60, level: 'beginner',
+    cues: ['Lie with your chest and stomach on a 45° bench, a dumbbell in each hand, underhand grip, upper arms hanging vertical.', 'Curl the dumbbells up with control.', 'Don\'t let your upper arms move back or forward.', 'Lower back to the start, keeping tension at the bottom.'],
+    safety: 'Expect to use light dumbbells.', ref: SL(['Spider curl', 'spider-curl']),
+  },
+  {
+    id: 'Standing_One-Arm_Dumbbell_Curl_Over_Incline_Bench', name: 'One-arm preacher curl over a bench', short: '1-arm bench preacher', variant: FRONT, perSide: true,
+    credit: { biceps: 1 }, lo: 8, hi: 12, rest: 60, level: 'beginner',
+    cues: ['Tilt a bench backrest back slightly. Stand behind it with a dumbbell and rest your upper arm on the backrest.', 'Lower the dumbbell as far as you can with control.', 'Curl it back up. Finish the reps, then switch arms.'],
+    safety: 'If full extension feels uncomfortable, reverse a little earlier. One set = both arms.', ref: SL(['Dumbbell preacher curl', 'dumbbell-preacher-curl']),
   },
 ];

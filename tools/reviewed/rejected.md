@@ -30,3 +30,17 @@ Database exercises that were reviewed but not added, with the reason. Database n
 - Hanging Pike — no reference for the inverted pike to the bar.
 - Chair Squat — StrengthLog's chair squat is bodyweight to a chair; the photos show a barbell squat without a chair.
 - Alternating Renegade Row — the photos show a bent-over stance, not the push-up position the reference describes.
+- Spider Curl — replaced: its photos show an EZ bar on the vertical side of a preacher pad; StrengthLog's spider curl uses dumbbells on a 45° bench, which matches "Dumbbell Prone Incline Curl".
+- Barbell Curls Lying Against An Incline — near-duplicate of the spider curl (barbell instead of dumbbells).
+- Alternate Hammer Curl — near-duplicate of the hammer curl.
+- Cross Body Hammer Curl — no reference for curling across the body.
+- Close-Grip EZ Bar Curl — near-duplicate of the EZ-bar curl.
+- Close-Grip Standing Barbell Curl — near-duplicate of the barbell curl.
+- Wide-Grip Standing Barbell Curl — near-duplicate of the barbell curl.
+- Preacher Hammer Dumbbell Curl — no reference page.
+- Reverse Barbell Preacher Curls — no reference page.
+- Zottman Preacher Curl — no reference page.
+- Standing Concentration Curl — no reference; StrengthLog's concentration curl is seated with the elbow braced on the thigh.
+- Seated Close-Grip Concentration Barbell Curl — no reference page.
+- Lying Supine Dumbbell Curl — no reference page.
+- Alternate Incline Dumbbell Curl — near-duplicate of the incline dumbbell curl.

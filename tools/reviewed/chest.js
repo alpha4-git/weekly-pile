@@ -166,16 +166,16 @@ module.exports = [
     ref: [SL(['Dumbbell chest fly', 'dumbbell-chest-fly']), SL(['Upper chest exercises', 'upper-chest-exercises'])],
   },
   {
-    id: 'Butterfly', name: 'Pec deck', short: 'Pec deck', variant: 'Fly', swap: true,
+    id: 'Butterfly', name: 'Machine chest fly', short: 'Machine fly', variant: 'Fly', swap: true,
     credit: { chest: 1, fdelt: 0.5 }, lo: 10, hi: 15, rest: 90, step: 5, level: 'beginner',
     cues: [
-      'Adjust the back support and handles so your upper arms are horizontal with your elbows against the pads (or hands on the handles).',
-      'Sit with your back against the pad.',
-      'Push the pads forward until they meet in front of your body.',
-      'Let them go back to the starting position with control.',
+      'Adjust the back support and handles so you grip them at shoulder height with a full range of motion; the machine\'s pivot should line up with your shoulders.',
+      'Chest up, core braced, back against the backrest the whole time.',
+      'With a slight, fixed bend in your arms, push the handles forward until they meet in front of your body.',
+      'Let them go back to the start slowly and under control.',
     ],
-    safety: 'If the start position pulls your arms behind your body, move the handles forward a notch.',
-    ref: SL(['Pec deck', 'pec-deck']),
+    safety: 'A seat set too high or too low strains the shoulders. No momentum to start a rep.',
+    ref: SL(['Machine chest fly', 'machine-chest-fly']),
   },
   {
     id: 'Cable_Crossover', name: 'Cable crossover (high to low)', short: 'Cable crossover', variant: 'High-to-low fly · lower chest',

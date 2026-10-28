@@ -7,7 +7,7 @@ module.exports = [
   {
     id: 'Crunches', name: 'Crunch', short: 'Crunch', variant: 'Crunch',
     credit: { abs: 1 }, lo: 12, hi: 20, rest: 60, level: 'beginner',
-    cues: ['Lie on your back, knees bent to about 90°, hands in front of your chest.', 'Lift your upper body by contracting your abs and bending forward.', 'Bend as far forward as you can while your lower back stays on the floor, then return to the start.'],
+    cues: ['Lie on your back, knees bent to about 90°, hands in front of your chest (the photos show them behind the head).', 'Lift your upper body by contracting your abs and bending forward.', 'Bend as far forward as you can while your lower back stays on the floor, then return to the start.'],
     safety: 'Hold a weight against your chest to make it harder.', ref: SL(['Crunches', 'crunch']),
   },
   {
@@ -73,7 +73,7 @@ module.exports = [
   {
     id: 'Oblique_Crunches', name: 'Oblique crunch', short: 'Oblique crunch', variant: 'Obliques',
     credit: { abs: 1 }, lo: 10, hi: 20, rest: 60, level: 'beginner',
-    cues: ['Lie on your back, knees bent, feet flat and hip-width apart, hands at the sides of your head.', 'Lift your shoulders and twist so one elbow moves diagonally toward the opposite knee; pause.', 'Lower without fully relaxing, then repeat or alternate sides.'],
+    cues: ['Lie on your back, knees bent, feet flat and hip-width apart, hands at the sides of your head (the photos rest the calves on a bench instead).', 'Lift your shoulders and twist so one elbow moves diagonally toward the opposite knee; pause.', 'Lower without fully relaxing, then repeat or alternate sides.'],
     safety: 'Don\'t pull on your neck with your hands. When you can do more reps than planned, hold a plate or dumbbell to your chest.', ref: OBL,
   },
   {
