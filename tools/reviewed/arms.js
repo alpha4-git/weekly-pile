@@ -238,4 +238,11 @@ module.exports = [
     safety: CURL + ' The reference uses a bar with both hands; one arm at a time with a handle, the elbow moves the same way. One set = both arms.',
     ref: SL(['Cable curl with bar', 'cable-curl-with-bar']),
   },
+  {
+    id: 'Seated_Triceps_Press', name: 'Seated overhead dumbbell triceps extension', short: 'Seated OH DB ext', variant: 'Overhead · long head',
+    credit: { triceps: 1 }, lo: 10, hi: 15, rest: 90, level: 'beginner',
+    cues: ['Sit upright on a bench with a back support, feet flat.', 'Hold one dumbbell with both hands by the top plate and press it to straight arms overhead.', 'Keep your upper arms still and vertical, close to your head, and lower the dumbbell behind your head as far as is comfortable.', 'Extend back to straight arms.'],
+    safety: EXT + ' The reference describes it standing; seated with your back supported, the arms move the same way.',
+    ref: SL(['Dumbbell standing triceps extension', 'dumbbell-standing-triceps-extension']),
+  },
 ];

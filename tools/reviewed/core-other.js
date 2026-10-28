@@ -235,4 +235,11 @@ module.exports = [
     safety: 'Don\'t let your lower back sag, and don\'t swing the straps. The second photo lifts the hips higher than the reference: stop with your knees under your hips. ACE rates it advanced.',
     ref: { title: 'ACE: TRX suspended knee tucks', url: 'https://www.acefitness.org/resources/everyone/exercise-library/87/trx-reg-suspended-knee-tucks/' },
   },
+  {
+    id: 'Seated_Head_Harness_Neck_Resistance', name: 'Neck harness extension', short: 'Harness neck ext', variant: 'Extension',
+    credit: { neck: 1 }, lo: 12, hi: 15, rest: 60, level: 'intermediate',
+    cues: ['Load a light weight on a neck harness. Sit on the end of a bench, feet wide, and fit the harness securely on your head.', 'Hinge forward slightly, hands on your knees, with the weight hanging in front of you.', 'Let the weight slowly lower your chin toward your chest, stopping just short of a full stretch.', 'Raise your head back up under control. No jerky movements.'],
+    safety: 'Start with very light weights, controlled movements and no pushing for end ranges. The reference hinges forward only slightly; the photos lean further forward. If you\'ve had neck or cervical spine problems, see a doctor or physio first.',
+    ref: SL(['Neck exercises', 'neck-muscles-exercises-workout']),
+  },
 ];

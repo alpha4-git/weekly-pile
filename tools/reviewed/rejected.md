@@ -211,3 +211,60 @@ Database exercises that were reviewed but not added, with the reason. Database n
 - Cable Seated Crunch — near-duplicate of the cable crunch.
 - Crunch - Legs On Exercise Ball — near-duplicate of the crunch.
 - Flat Bench Leg Pull-In — near-duplicate of the reverse crunch and lying leg raise.
+- Kneeling Cable Crunch With Alternating Oblique Twists — near-duplicate of the cable crunch.
+- Leg Lift — standing leg lift behind you holding a chair; no reference page.
+- Leg Pull-In — near-duplicate of the reverse crunch.
+- One-Arm High-Pulley Cable Side Bends — no reference page.
+- Pallof Press With Rotation — near-duplicate of the Pallof press; the photos show a plain Pallof press.
+- Plate Twist — duplicate of the Russian twist.
+- Seated Barbell Twist — twisting with a bar on the shoulders; no reference page.
+- Seated Flat Bench Leg Pull-In — no reference page.
+- Seated Leg Tucks — same exercise and text as the seated flat-bench leg pull-in; no reference page.
+- Standing Rope Crunch — near-duplicate of the cable crunch.
+- Suspended Fallout — ACE's TRX rollout is done kneeling with bent arms, not standing with straight arms overhead; no matching reference.
+- Weighted Ball Side Bend — no reference page.
+- Weighted Sit-Ups - With Bands — no reference page.
+- Physioball Hip Bridge — ACE's ball bridge puts the feet on the ball, not the upper back; no matching reference.
+- Hip Lift with Band — band pegged over the hips; no reference covers this setup (the barbell glute bridge is in the library).
+- Barbell Shrug Behind The Back — bar held behind the back changes how the load is held; no reference page.
+- Cable Shrugs — near-duplicate of the barbell shrug; no reference page for the cable version.
+- Calf-Machine Shoulder Shrug — load on the shoulders through calf-machine pads; no reference page.
+- Leverage Shrug — no reference page; the instructions are a machine deadlift.
+- Middle Back Shrug — no reference page.
+- Smith Machine Behind the Back Shrug — bar held behind the back; no reference page.
+- Bent Over Two-Dumbbell Row With Palms In — duplicate of the bent-over dumbbell row.
+- One-Arm Long Bar Row — one-arm landmine row; no reference page.
+- Straight Bar Bench Mid Rows — standing on a bench to row a bar resting on it; no reference page.
+- Gironda Sternum Chins — no reference page.
+- Mixed Grip Chin — no reference page.
+- One Arm Chin-Up — one hand on a towel; no reference page.
+- Weighted Pull Ups — near-duplicate of the pull-up with a dip belt.
+- Wide-Grip Rear Pull-Up — pulls behind the neck; no reference page.
+- Suspended Row — duplicate of the ring or strap row.
+- Cable Preacher Curl — needs someone to hand over the bar; no reference page.
+- Close-Grip EZ-Bar Curl with Band — band added to the bar; no reference page.
+- Flexor Incline Dumbbell Curls — the photos show an upright seat, not an incline bench; near-duplicate of the incline curl.
+- Incline Inner Biceps Curl — the photos show an upright seat, not an incline bench; no reference page for the outward curl.
+- Lying High Bench Barbell Curl — near-duplicate of the spider curl already in the library.
+- Reverse Cable Curl — near-duplicate of the reverse barbell curl.
+- Reverse Plate Curls — plate pinched by its rim changes how the load is held; no reference page.
+- Seated Dumbbell Inner Biceps Curl — outward curl; no reference page.
+- Standing Inner-Biceps Curl — outward curl; no reference page.
+- Seated Bent-Over One-Arm Dumbbell Triceps Extension — kickback variant; StrengthLog calls the kickback a poor choice (little resistance through most of the range).
+- Seated Bent-Over Two-Arm Dumbbell Triceps Extension — kickback variant; StrengthLog calls the kickback a poor choice (little resistance through most of the range).
+- Standing Bent-Over One-Arm Dumbbell Triceps Extension — kickback variant; StrengthLog calls the kickback a poor choice (little resistance through most of the range).
+- Standing Bent-Over Two-Arm Dumbbell Triceps Extension — kickback variant; StrengthLog calls the kickback a poor choice (little resistance through most of the range).
+- Standing Towel Triceps Extension — needs a partner to pull the towel.
+- Calf Raise On A Dumbbell — standing on a rolling dumbbell handle on purpose; unstable and no reference page.
+- Calf Raises - With Bands — no reference page.
+- Rocking Standing Calf Raise — near-duplicate of the barbell standing calf raise; no reference page for the rocking version.
+- Smith Machine Reverse Calf Raises — toe raise with a loaded bar on the back; no reference page.
+- Cable Wrist Curl — near-duplicate of the barbell wrist curl; no reference page for the cable version.
+- Seated Two-Arm Palms-Up Low-Pulley Wrist Curl — duplicate of the cable wrist curl; no reference page.
+- Dumbbell Lying Pronation — no reference page.
+- Dumbbell Lying Supination — no reference page.
+- Finger Curls — no reference page.
+- Wrist Rotations with Straight Bar — no reference page.
+- Standing Olympic Plate Hand Squeeze — near-duplicate of the plate pinch.
+- Isometric Neck Exercise - Front And Back — no reference page (StrengthLog's neck guide covers harness and lying versions only).
+- Isometric Neck Exercise - Sides — no reference page.

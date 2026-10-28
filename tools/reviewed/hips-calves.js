@@ -133,4 +133,11 @@ module.exports = [
     safety: CALF + ' The reference uses a free barbell; the Smith rails only guide the bar.',
     ref: SL(['Barbell standing calf raise', 'barbell-standing-calf-raise']),
   },
+  {
+    id: 'Dumbbell_Seated_One-Leg_Calf_Raise', name: 'Seated one-leg dumbbell calf raise', short: '1-leg seated calf', variant: 'Bent knee · soleus', perSide: true,
+    credit: { calves: 1 }, lo: 12, hi: 20, rest: 45, level: 'beginner',
+    cues: ['Sit on a bench with the ball of one foot on a block or plate, heel hanging off.', 'Hold a dumbbell upright on that thigh, just above the knee.', 'Lift your heel as high as you can, then lower it to a full stretch. Finish the reps, then switch legs.'],
+    safety: CALF + ' The reference uses a barbell across both thighs; one leg at a time with a dumbbell, the ankle moves the same way. One set = both legs.',
+    ref: SL(['Barbell seated calf raise', 'barbell-seated-calf-raise']),
+  },
 ];

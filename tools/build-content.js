@@ -76,7 +76,7 @@ const plan = {
 };
 fs.writeFileSync(path.join(root, 'content', 'plan.json'), JSON.stringify(plan, null, 1) + '\n');
 // library.json comes from tools/import-fedb.js; raise LIBRARY_VERSION whenever it is regenerated
-const LIBRARY_VERSION = 13;   // 2: reviewed-only library; 3: re-verified, 5 entries dropped, 7 added
+const LIBRARY_VERSION = 14;   // 2: reviewed-only library; 3: re-verified, 5 entries dropped, 7 added
 const libCount = fs.existsSync(path.join(root, 'content', 'library.json')) ? JSON.parse(fs.readFileSync(path.join(root, 'content', 'library.json'), 'utf8')).exercises.length : 0;
 fs.writeFileSync(path.join(root, 'content', 'index.json'), JSON.stringify({ type: 'library-index', schema: 1, plan: 'plan.json', exercises: index,
   library: { file: 'library.json', version: LIBRARY_VERSION, count: libCount } }, null, 1) + '\n');
