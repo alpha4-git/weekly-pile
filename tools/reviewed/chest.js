@@ -86,18 +86,6 @@ module.exports = [
     ref: SL(['Smith machine incline bench press', 'smith-machine-incline-bench-press']),
   },
   {
-    id: 'Cable_Chest_Press', name: 'Cable chest press', short: 'Cable chest press', variant: 'Flat press',
-    credit: PRESS, lo: 8, hi: 12, rest: 120, step: 5, level: 'beginner',
-    cues: [
-      'Attach a handle to each top pulley of a cable crossover. Grip them, step forward and lean slightly forward.',
-      'Start with the handles beside your chest.',
-      'Push the handles forward until they meet in front of your body.',
-      'Let them go back to the start with control.',
-    ],
-    safety: 'Keep your stance steady; if you have to lurch to finish a rep, the weight is too heavy.',
-    ref: SL(['Cable chest press', 'cable-chest-press']),
-  },
-  {
     id: 'Leverage_Incline_Chest_Press', name: 'Incline chest press machine', short: 'Incline machine press', variant: 'Incline press · upper chest',
     credit: PRESS, lo: 8, hi: 12, rest: 120, step: 10, level: 'beginner',
     cues: [
@@ -250,5 +238,18 @@ module.exports = [
     cues: ['Lie on the floor with a kettlebell at your chest, upper arm on the floor.', 'Press it to a straight arm, then bend your knees and put your feet flat.', 'Lower it slowly until your upper arm touches the floor, then press again.', 'Finish the reps, then switch arms; set the kettlebell down gently at the end.'],
     safety: 'The reference uses a kettlebell in each hand; one at a time, each arm moves the same way. One set = both arms.',
     ref: SL(['Kettlebell floor press', 'kettlebell-floor-press']),
+  },
+  {
+    id: 'Single-Arm_Cable_Crossover', name: 'One-arm cable crossover', short: '1-arm crossover', variant: 'High-to-low fly · lower chest', perSide: true,
+    credit: { chest: 1, fdelt: 0.5 }, lo: 10, hi: 15, rest: 60, step: 5, level: 'beginner',
+    cues: ['Set both pulleys high and take a handle in each hand. Step forward, lean slightly forward and brace, hands together in front of you.', 'Keep one arm in place and let the other open out to the side with a slight, fixed elbow bend.', 'Bring it back in until the hands meet. Finish the reps, then switch arms.'],
+    safety: 'Move slowly and don\'t swing your body. The reference describes both arms together; one at a time, each arm moves the same way. One set = both arms.',
+    ref: SL(['Standing cable chest fly', 'standing-cable-chest-fly']),
+  },
+  {
+    id: 'Pin_Presses', name: 'Pin bench press', short: 'Pin press', variant: 'Flat press',
+    credit: PRESS, lo: 4, hi: 8, rest: 150, step: 5, level: 'intermediate',
+    cues: ['Set the rack\'s safety pins so the bar stops just above your chest.', 'Lie on the bench, shoulder blades together and down, grip slightly wider than your shoulders.', 'Breathe in, brace and unrack. Lower with control until the bar touches the pins.', 'Press back up, keeping your body tight even at the bottom.'],
+    safety: 'Mostly a strength tool for the top of the bench press.', ref: SL(['Pin bench press', 'pin-bench-press']),
   },
 ];

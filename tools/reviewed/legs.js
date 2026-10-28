@@ -237,4 +237,10 @@ module.exports = [
     safety: 'Very demanding on balance and strength. The reference describes it with arms forward; the photos hold a kettlebell in front. One set = both legs.',
     ref: SL(['Pistol squat', 'pistol-squat']),
   },
+  {
+    id: 'Barbell_Step_Ups', name: 'Barbell step-up', short: 'BB step-up', variant: SINGLE, perSide: true,
+    credit: LUNGE, lo: 6, hi: 12, rest: 120, level: 'intermediate',
+    cues: ['Bar on your upper back. Stand in front of a sturdy box or bench and put one whole foot on it.', 'Brace lightly and step up until that leg is straight.', 'Lower yourself with control, keeping that foot on the box.', 'Finish the reps, then switch legs.'],
+    safety: 'Balance is harder with a bar than with dumbbells; start light and use a low box. One set = both legs.', ref: SL(['Step-up', 'step-up']),
+  },
 ];

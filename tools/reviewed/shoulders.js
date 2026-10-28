@@ -237,4 +237,17 @@ module.exports = [
     safety: 'The reference covers the free-barbell upright row; the rails only guide the bar. Same rules: light weights, few sets, and reverse earlier if your shoulders hurt.',
     ref: SL(['Barbell upright row', 'barbell-upright-row']),
   },
+  {
+    id: 'Upright_Cable_Row', name: 'Cable upright row', short: 'Cable upright row', variant: 'Upright row · + traps', swap: true,
+    credit: { sdelt: 1, traps: 0.5, fdelt: 0.5 }, lo: 10, hi: 15, rest: 90, level: 'intermediate',
+    cues: ['Attach a straight bar to the low pulley. Stand close, gripping it overhand with your hands closer than shoulder-width.', 'Pull the bar straight up toward your chin, close to your body, elbows out to the sides.', 'Stop before your upper arms go above shoulder height.', 'Lower with control.'],
+    safety: 'The reference suggests the cable version if the barbell upright row is hard on your shoulders. Still: light weights, few sets, and reverse earlier if your shoulders hurt.',
+    ref: SL(['Barbell upright row (cable variation)', 'barbell-upright-row']),
+  },
+  {
+    id: 'Handstand_Push-Ups', name: 'Handstand push-up (wall)', short: 'Handstand push-up', variant: 'Overhead press',
+    credit: OHP, lo: 3, hi: 8, rest: 150, level: 'expert',
+    cues: ['Hands shoulder-width on the floor, fingers forward, close to a wall.', 'Kick up into a handstand against the wall; your heels can rest lightly on it.', 'Brace your core and lower your head toward the floor with control.', 'Press back up by straightening your elbows.'],
+    safety: 'An advanced exercise that\'s tricky to master. Only do it if you can hold a wall handstand comfortably.', ref: SL(['Handstand push-up', 'handstand-push-up']),
+  },
 ];

@@ -194,4 +194,28 @@ module.exports = [
     cues: ['Stand and press one dumbbell to a straight arm over your head.', 'Keeping your upper arm still and vertical, lower the dumbbell behind your head.', 'Extend your arm again. Finish the reps, then switch arms.'],
     safety: 'One set = both arms.', ref: SL(['Dumbbell standing triceps extension', 'dumbbell-standing-triceps-extension']),
   },
+  {
+    id: 'Lying_Cable_Curl', name: 'Lying cable curl (floor)', short: 'Lying cable curl', variant: STD,
+    credit: { biceps: 1 }, lo: 10, hi: 15, rest: 60, level: 'beginner',
+    cues: ['Attach a straight bar to the low pulley and lie on the floor, head away from the machine.', 'Grip the bar underhand, arms straight along the floor.', 'Keep your upper arms still and curl the bar toward your shoulders; pause briefly.', 'Return slowly to the start.'],
+    safety: 'Upper arms stay still on the floor; only the elbows bend.', ref: SL(['Lying bicep cable curl on floor', 'lying-bicep-cable-curl-on-floor']),
+  },
+  {
+    id: 'Lying_Close-Grip_Bar_Curl_On_High_Pulley', name: 'Lying cable curl (bench, high pulley)', short: 'Lying high-cable curl', variant: 'Arm overhead',
+    credit: { biceps: 1 }, lo: 10, hi: 15, rest: 60, level: 'beginner',
+    cues: ['Put a bench in front of a high pulley with a straight bar. Lie on it with your head at the end nearest the machine.', 'Grip the bar underhand, arms straight toward the pulley.', 'Keep your upper arms still and curl the bar toward your head; pause briefly.', 'Return slowly to straight arms.'],
+    safety: 'Upper arms stay still; only the elbows bend.', ref: SL(['Lying bicep cable curl on bench', 'lying-bicep-cable-curl-on-bench']),
+  },
+  {
+    id: 'Machine_Triceps_Extension', name: 'Machine overhead triceps extension', short: 'Machine OH extension', variant: 'Overhead · long head',
+    credit: { triceps: 1 }, lo: 10, hi: 15, rest: 60, level: 'beginner',
+    cues: ['Set the seat so the handles line up with or a little above your shoulders; arms on the pads.', 'Hold the handles with your elbows close to your head.', 'Extend your elbows until your arms are fully straight.', 'Bend them back down with control.'],
+    safety: 'Only the elbows move.', ref: SL(['Machine overhead triceps extension', 'machine-overhead-triceps-extension']),
+  },
+  {
+    id: 'Body_Tricep_Press', name: 'Bodyweight triceps extension', short: 'Bodyweight tri ext', variant: 'Lying extension',
+    credit: { triceps: 1 }, lo: 8, hi: 15, rest: 60, level: 'beginner',
+    cues: ['Set a bar in a rack, grip it overhand about shoulder-width and step back so you lean on it with straight arms, body straight like a standing plank.', 'Bend your elbows, bringing your torso forward and your head below the bar, slowly and under control.', 'Straighten your arms to return.'],
+    safety: 'A higher bar makes it easier; a lower bar harder.', ref: SL(['Triceps bodyweight extension', 'triceps-bodyweight-extension']),
+  },
 ];
