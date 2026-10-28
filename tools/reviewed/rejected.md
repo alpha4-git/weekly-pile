@@ -44,3 +44,8 @@ Database exercises that were reviewed but not added, with the reason. Database n
 - Seated Close-Grip Concentration Barbell Curl — no reference page.
 - Lying Supine Dumbbell Curl — no reference page.
 - Alternate Incline Dumbbell Curl — near-duplicate of the incline dumbbell curl.
+- Board Press — the photos show a partner holding the boards; partner-assisted moves are left out.
+- Bench Press - With Bands — a band-only press with handles; no reference covers it.
+- Reverse Band Bench Press — bands hung from the top of the rack; StrengthLog's banded bench loops the band under the bench instead.
+- Smith Machine Decline Press — duplicate of the decline Smith press.
+- Dip Machine — no reference page for the seated dip machine.

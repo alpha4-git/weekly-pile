@@ -250,4 +250,17 @@ module.exports = [
     cues: ['Hands shoulder-width on the floor, fingers forward, close to a wall.', 'Kick up into a handstand against the wall; your heels can rest lightly on it.', 'Brace your core and lower your head toward the floor with control.', 'Press back up by straightening your elbows.'],
     safety: 'An advanced exercise that\'s tricky to master. Only do it if you can hold a wall handstand comfortably.', ref: SL(['Handstand push-up', 'handstand-push-up']),
   },
+  {
+    id: 'Dumbbell_One-Arm_Shoulder_Press', name: 'One-arm dumbbell shoulder press', short: '1-arm DB press', variant: 'Overhead press', perSide: true,
+    credit: OHP, lo: 8, hi: 12, rest: 90, level: 'beginner',
+    cues: ['Stand with one dumbbell at your shoulder.', 'Breathe in and lightly brace your core.', 'Press it up to a straight arm.', 'Lower it with control back to your shoulder. Finish the reps, then switch arms.'],
+    safety: 'Pressing one arm at a time works the obliques more. No leaning to the side. One set = both arms.', ref: SL(['Dumbbell shoulder press', 'dumbbell-shoulder-press']),
+  },
+  {
+    id: 'One-Arm_Side_Laterals', name: 'One-arm dumbbell lateral raise', short: '1-arm lateral raise', variant: 'Dumbbell raise', perSide: true,
+    credit: { sdelt: 1 }, lo: 10, hi: 15, rest: 60, level: 'beginner',
+    cues: ['Stand tall holding a dumbbell at your side; hold something steady with the other hand.', 'With a slight elbow bend, lift the dumbbell out to the side until your upper arm is horizontal; no higher.', 'Lower it with control. Finish the reps, then switch arms.'],
+    safety: LIGHT + ' The reference raises both arms; one at a time, each arm moves the same way. One set = both arms.',
+    ref: SL(['Dumbbell lateral raise', 'dumbbell-lateral-raise']),
+  },
 ];
