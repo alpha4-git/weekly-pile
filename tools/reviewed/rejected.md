@@ -72,3 +72,27 @@ Database exercises that were reviewed but not added, with the reason. Database n
 - Back Flyes - With Bands — no reference page; the photos don't make the anchor direction clear (the band appears to come from behind, which would make it a chest fly).
 - Bent Over Low-Pulley Side Lateral — no reference page for the bent-over low-pulley version; the database cue (arm in line with the ear) doesn't match a rear-delt raise.
 - Front Two-Dumbbell Raise — duplicate of the dumbbell front raise; the photo also raises above the head.
+- Alternating Cable Shoulder Press — no reference page for a cable shoulder press (StrengthLog and ACE have none).
+- Cable Shoulder Press — no reference page (StrengthLog and ACE have none).
+- Seated Cable Shoulder Press — no reference page.
+- Shoulder Press - With Bands — no reference page for a band shoulder press.
+- See-Saw Press (Alternating Side Press) — combines a press with a side bend; no reference page.
+- Standing Alternating Dumbbell Press — near-duplicate of the standing dumbbell press (one arm at a time).
+- Dumbbell One-Arm Upright Row — near-duplicate of the dumbbell upright row; the first photo has the elbow above shoulder height, past the limit the library uses.
+- Smith Machine One-Arm Upright Row — one hand on a full Smith bar; no reference page.
+- Dumbbell Lying One-Arm Rear Lateral Raise — photos don't match the instructions (standing over the end of the bench rather than lying on it); near-duplicate of the incline-bench reverse fly.
+- Lying One-Arm Lateral Raise — instructions say chest down, photos show lying on the side; no reference page.
+- One-Arm Incline Lateral Raise — no reference page for the side-lying version.
+- Front Incline Dumbbell Raise — no reference page for the seated-incline version.
+- Side Laterals to Front Raise — combines lateral and front raises, both already in the library; no reference page.
+- Standing Dumbbell Straight-Arm Front Delt Raise Above Head — raises overhead; the reference front raise stops at shoulder height.
+- Front Raise And Pullover — 180° barbell arc lying down; no reference page.
+- Oblique Crunches - On The Floor — side-lying version; the reference oblique crunch is done lying on the back (already in the library).
+- Rope Crunch — duplicate of the cable crunch.
+- Lying Close-Grip Barbell Triceps Extension Behind The Head — duplicate of the lying triceps extension already in the library (same reference, EZ bar).
+- Lying Triceps Press — duplicate of the lying triceps extension; the photos lower to the forehead, the library uses the behind-the-head version.
+- Kneeling Cable Triceps Extension — no reference page for the kneeling, bench-supported version with a bar (StrengthLog's is standing with a rope).
+- Smith Machine Hip Raise — pressing a Smith bar with the feet while curling the spine; no reference page.
+- Barbell Side Split Squat — the reference Cossack squat is bodyweight only and deeper; none covers it with a barbell on the back.
+- Bent-Arm Dumbbell Pullover — near-duplicate of the dumbbell pullover already in the library.
+- Incline Hammer Curls — near-duplicate of the incline dumbbell curl; no reference page for the neutral-grip version.

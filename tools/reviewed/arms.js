@@ -224,4 +224,18 @@ module.exports = [
     cues: ['Tilt a bench backrest back slightly. Stand behind it with a dumbbell and rest your upper arm on the backrest.', 'Lower the dumbbell as far as you can with control.', 'Curl it back up. Finish the reps, then switch arms.'],
     safety: 'If full extension feels uncomfortable, reverse a little earlier. One set = both arms.', ref: SL(['Dumbbell preacher curl', 'dumbbell-preacher-curl']),
   },
+  {
+    id: 'Standing_Low-Pulley_One-Arm_Triceps_Extension', name: 'One-arm overhead cable triceps extension', short: '1-arm OH cable ext', variant: 'Overhead · long head', perSide: true,
+    credit: { triceps: 1 }, lo: 10, hi: 15, rest: 60, level: 'intermediate',
+    cues: ['Attach a single handle to the low pulley. Face away from the machine and use both hands to lift the handle into place behind your head, then hold it in one hand, palm forward.', 'Upper arm vertical next to your head; your other hand can steady the elbow.', 'Straighten your arm fully, moving only the forearm.', 'Lower back behind your head into the stretch. Finish the reps, then switch arms.'],
+    safety: EXT + ' The reference uses a rope with both hands; one arm at a time with a handle, the elbow moves the same way. One set = both arms.',
+    ref: SL(['Overhead cable triceps extension (lower position)', 'overhead-cable-triceps-extension']),
+  },
+  {
+    id: 'Standing_One-Arm_Cable_Curl', name: 'One-arm cable curl', short: '1-arm cable curl', variant: STD, perSide: true,
+    credit: { biceps: 1 }, lo: 10, hi: 15, rest: 60, level: 'beginner',
+    cues: ['Attach a single handle to the low pulley. Hold it underhand in one hand and step back so the weight lifts off the stack.', 'Upper arm still at your side; put your other hand on your waist for balance.', 'Curl the handle up by bending your elbow, then lower with control. Finish the reps, then switch arms.'],
+    safety: CURL + ' The reference uses a bar with both hands; one arm at a time with a handle, the elbow moves the same way. One set = both arms.',
+    ref: SL(['Cable curl with bar', 'cable-curl-with-bar']),
+  },
 ];

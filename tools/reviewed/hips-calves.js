@@ -81,7 +81,7 @@ module.exports = [
     id: 'Standing_Barbell_Calf_Raise', name: 'Barbell standing calf raise', short: 'Barbell calf raise', variant: STRAIGHT,
     credit: { calves: 1 }, lo: 10, hi: 15, rest: 60, level: 'beginner',
     cues: ['Bar on your upper back; balls of your feet on a plate or step, heels hanging off.', 'Stand with your back near a wall so the plates touch it, which helps balance.', 'Lower your heels to a full stretch, then rise as high as you can with straight knees.'],
-    safety: CALF + ' Use the rack\'s safety arms or the Smith machine if balance is an issue.', ref: CALVES,
+    safety: CALF + ' Use the rack\'s safety arms or the Smith machine if balance is an issue.', ref: SL(['Barbell standing calf raise', 'barbell-standing-calf-raise']),
   },
   {
     id: 'Standing_Dumbbell_Calf_Raise', name: 'Dumbbell standing calf raise', short: 'DB calf raise', variant: STRAIGHT,
@@ -125,5 +125,12 @@ module.exports = [
     credit: { calves: 1 }, lo: 12, hi: 20, rest: 60, level: 'beginner',
     cues: ['Sit on a bench, feet hip-width, with a barbell across your thighs just above your knees.', 'Put a plate or block under the balls of your feet for a longer range.', 'Press the weight up by lifting your heels.', 'Lower with control back to the start.'],
     safety: CALF, ref: SL(['Barbell seated calf raise', 'barbell-seated-calf-raise']),
+  },
+  {
+    id: 'Smith_Machine_Calf_Raise', name: 'Smith machine calf raise', short: 'Smith calf raise', variant: STRAIGHT,
+    credit: { calves: 1 }, lo: 10, hi: 15, rest: 60, level: 'beginner',
+    cues: ['Put a plate or block under the bar and set the bar at shoulder height.', 'Stand on the block with the balls of your feet, heels hanging off, bar on your upper back; unrack it.', 'Lower your heels to a full stretch, then rise as high as you can with straight knees.'],
+    safety: CALF + ' The reference uses a free barbell; the Smith rails only guide the bar.',
+    ref: SL(['Barbell standing calf raise', 'barbell-standing-calf-raise']),
   },
 ];

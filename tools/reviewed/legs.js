@@ -243,4 +243,11 @@ module.exports = [
     cues: ['Bar on your upper back. Stand in front of a sturdy box or bench and put one whole foot on it.', 'Brace lightly and step up until that leg is straight.', 'Lower yourself with control, keeping that foot on the box.', 'Finish the reps, then switch legs.'],
     safety: 'Balance is harder with a bar than with dumbbells; start light and use a low box. One set = both legs.', ref: SL(['Step-up', 'step-up']),
   },
+  {
+    id: 'Smith_Single-Leg_Split_Squat', name: 'Smith machine Bulgarian split squat', short: 'Smith split squat', variant: SINGLE, perSide: true,
+    credit: { quads: 1, glutes: 1, adductors: 0.5 }, lo: 8, hi: 12, rest: 120, level: 'intermediate',
+    cues: ['Set the bar at shoulder height and put a knee-high bench about one long step behind where you will stand.', 'Unrack the bar onto your upper back and rest the top of one foot on the bench behind you.', 'Squat down with control until your back knee is just off the floor.', 'Push through your front foot to stand back up. Finish the reps, then switch legs.'],
+    safety: 'Let your front knee track in the direction of your toes. Balance is the limit at first: start light. One set = both legs.',
+    ref: SL(['Smith machine Bulgarian split squat', 'smith-machine-bulgarian-split-squat']),
+  },
 ];

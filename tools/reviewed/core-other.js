@@ -56,7 +56,7 @@ module.exports = [
     id: 'Ab_Roller', name: 'Ab wheel roll-out (kneeling)', short: 'Ab wheel', variant: 'Anti-extension',
     credit: { abs: 1 }, lo: 6, hi: 12, rest: 90, level: 'intermediate',
     cues: ['Kneel with your hands on the wheel directly in front of your knees.', 'Brace and roll forward until your body forms a straight line from knees to head, back flat.', 'Pull back to the start with your abs.'],
-    safety: 'Keep your back straight; if your lower back sags, roll out less far. The straight-leg version is for experienced trainees only.', ref: ABS,
+    safety: 'Keep your back straight; if your lower back sags, roll out less far. The straight-leg version is for experienced trainees only.', ref: SL(['Kneeling ab wheel roll-out', 'kneeling-ab-wheel-roll-out']),
   },
   {
     id: 'Dead_Bug', name: 'Dead bug', short: 'Dead bug', variant: 'Anti-extension',
@@ -192,5 +192,19 @@ module.exports = [
     cues: ['Set a barbell in a landmine (or wedge the end securely in a corner). Stand facing it, feet slightly wider than shoulder-width.', 'Hold the end of the bar with both hands, arms straight in front of you at about shoulder height.', 'Brace your core and, keeping your arms straight, turn your hips and torso together to sweep the bar down toward the outside of one hip.', 'Rotate back across and down to the other side. Alternate sides with control and do the same number each way.'],
     safety: 'Start light. Turn your hips and torso together and keep the movement controlled; no jerking at the turn.',
     ref: SL(['Landmine rotation', 'landmine-rotation']),
+  },
+  {
+    id: 'Russian_Twist', name: 'Russian twist', short: 'Russian twist', variant: 'Obliques',
+    credit: { abs: 1 }, lo: 10, hi: 20, rest: 60, level: 'beginner',
+    cues: ['Sit on the floor with your knees bent, feet flat on the floor or slightly lifted.', 'Hold a weight plate (or a medicine ball or kettlebell) with both hands in front of your chest.', 'Lean back slightly with a straight back and your core braced.', 'Rotate your torso to bring the weight toward one hip while your hips stay still. Return to the middle and rotate to the other side; do the same number each way.'],
+    safety: 'Keep your back straight and your hips still; it can be done with no weight to start. The photos hook the feet under a bench; the reference keeps them on the floor or slightly lifted.',
+    ref: SL(['Core twist', 'core-twist']),
+  },
+  {
+    id: 'Barbell_Ab_Rollout_-_On_Knees', name: 'Barbell roll-out (kneeling)', short: 'Barbell roll-out', variant: 'Anti-extension',
+    credit: { abs: 1 }, lo: 6, hi: 12, rest: 90, level: 'intermediate',
+    cues: ['Load a barbell with two plates of the same size so it rolls freely. Kneel on a soft pad, hands on the bar about shoulder-width, directly in front of your knees.', 'Brace and roll the bar forward as far as you can while keeping your back straight.', 'Reverse with control back to the start.'],
+    safety: 'Keep your back straight; if your lower back sags, roll out less far. The reference allows a barbell that rolls freely in place of the ab wheel.',
+    ref: SL(['Kneeling ab wheel roll-out', 'kneeling-ab-wheel-roll-out']),
   },
 ];
