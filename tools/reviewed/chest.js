@@ -244,4 +244,11 @@ module.exports = [
     safety: 'Dips can be stressful on the shoulders and sternum if you\'re not used to them: build volume very gradually. A partner lifting your legs or a dip machine makes it easier; a belt with weight, harder.',
     ref: SL(['Ring dip', 'ring-dip']),
   },
+  {
+    id: 'One-Arm_Kettlebell_Floor_Press', name: 'One-arm kettlebell floor press', short: '1-arm KB floor press', variant: 'Flat press', perSide: true,
+    credit: PRESS, lo: 8, hi: 12, rest: 90, step: 5, level: 'beginner',
+    cues: ['Lie on the floor with a kettlebell at your chest, upper arm on the floor.', 'Press it to a straight arm, then bend your knees and put your feet flat.', 'Lower it slowly until your upper arm touches the floor, then press again.', 'Finish the reps, then switch arms; set the kettlebell down gently at the end.'],
+    safety: 'The reference uses a kettlebell in each hand; one at a time, each arm moves the same way. One set = both arms.',
+    ref: SL(['Kettlebell floor press', 'kettlebell-floor-press']),
+  },
 ];

@@ -201,4 +201,10 @@ module.exports = [
     cues: ['Stand with a kettlebell in front of your feet, feet about hip-width.', 'Hinge forward at the hips with a neutral spine and brace your core; grab the kettlebell.', 'Pull it toward you as far as you can, elbow close to your side, shoulder blade pulled back.', 'Lower with control. Finish the reps, then switch sides.'],
     safety: 'No swinging with your upper body. One set = both arms.', ref: SL(['Kettlebell row', 'kettlebell-row']),
   },
+  {
+    id: 'Two-Arm_Kettlebell_Row', name: 'Two-arm kettlebell row', short: 'KB row', variant: ROW,
+    credit: PULL, lo: 8, hi: 12, rest: 120, step: 5, level: 'intermediate',
+    cues: ['Stand with your feet about hip-width, two kettlebells in front of your feet.', 'Hinge forward at the hips with a neutral spine, brace your core and grab the kettlebells.', 'Pull them toward you as far as you can, elbows close to your sides, shoulder blades pulled back.', 'Lower with control and start the next rep before they touch the floor.'],
+    safety: 'No swinging with your upper body; your lower back holds the bent-over position.', ref: SL(['Kettlebell row', 'kettlebell-row']),
+  },
 ];

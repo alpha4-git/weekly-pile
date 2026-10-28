@@ -230,4 +230,11 @@ module.exports = [
     safety: 'It\'s rough on the elbow crooks at first: start light and wrap a towel around the bar if it hurts. Don\'t round your back. Set the safety arms.',
     ref: SL(['Zercher squat', 'zercher-squat']),
   },
+  {
+    id: 'Kettlebell_Pistol_Squat', name: 'Pistol squat', short: 'Pistol squat', variant: SINGLE, perSide: true,
+    credit: { quads: 1, glutes: 1 }, lo: 3, hi: 8, rest: 120, step: 5, level: 'expert',
+    cues: ['Stand on one leg with the other leg extended straight out in front of you.', 'Chest up, core braced, arms (or a light kettlebell) held forward for balance.', 'Bend the standing leg and squat as low as you can while staying balanced and in control; keep the other leg straight and off the floor.', 'Press through your standing heel to stand up. Finish the reps, then switch legs.'],
+    safety: 'Very demanding on balance and strength. The reference describes it with arms forward; the photos hold a kettlebell in front. One set = both legs.',
+    ref: SL(['Pistol squat', 'pistol-squat']),
+  },
 ];

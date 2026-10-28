@@ -16,3 +16,10 @@ Database exercises that were reviewed but not added, with the reason. Database n
 - Dips - Triceps Version — StrengthLog describes one bar dip; kept the chest version as "Bar dip".
 - V-Bar Pullup — hooking a V-handle over the pull-up bar isn't covered by any reference; use the neutral-grip pull-up on fixed handles.
 - Triceps Overhead Extension with Rope — duplicate of the overhead cable triceps extension already in the app.
+- Kettlebell Seated Press — the photos show it seated on the floor after a clean; StrengthLog's version is seated on a bench with the bell already in the rack position.
+- Extended Range One-Arm Kettlebell Floor Press — the crossed-leg setup isn't covered by any reference.
+- Kettlebell Arnold Press — starts with a clean (explosive lifts are left out) and no reference covers a kettlebell Arnold press.
+- Alternating Kettlebell Row — near-duplicate of the one- and two-arm kettlebell rows.
+- Alternating Kettlebell Press — starts with a clean, and near-duplicate of the two-arm kettlebell press.
+- Seated Dumbbell Palms-Up Wrist Curl — near-duplicate of the one-arm seated version (which matches the reference).
+- Seated Dumbbell Palms-Down Wrist Curl — near-duplicate of the one-arm seated version (which matches the reference).

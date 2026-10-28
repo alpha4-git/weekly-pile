@@ -162,4 +162,28 @@ module.exports = [
     safety: 'Your neck is sensitive: start very light, move slowly and avoid extreme ranges. Do neck work at the end of a workout. If you\'ve had neck or cervical spine problems, see a doctor or physio first.',
     ref: [SL(['Lying neck curl', 'lying-neck-curl']), SL(['Neck exercises', 'neck-muscles-exercises-workout'])],
   },
+  {
+    id: 'Seated_One-Arm_Dumbbell_Palms-Up_Wrist_Curl', name: 'Seated one-arm wrist curl', short: '1-arm wrist curl', variant: 'Wrist flexion', perSide: true,
+    credit: { forearms: 1 }, lo: 15, hi: 20, rest: 45, level: 'beginner',
+    cues: ['Sit and rest one forearm on your thigh, palm up, wrist just past your knee, dumbbell in hand.', 'Lower your hand toward the floor and let the dumbbell roll out into your fingers.', 'Close your grip and bend your wrist up. Finish the reps, then switch arms.'],
+    safety: 'Use a light weight and a slow, full range. One set = both arms.', ref: SL(['Dumbbell wrist curl', 'dumbbell-wrist-curl']),
+  },
+  {
+    id: 'Seated_One-Arm_Dumbbell_Palms-Down_Wrist_Curl', name: 'Seated one-arm wrist extension', short: '1-arm wrist ext', variant: 'Wrist extension', perSide: true,
+    credit: { forearms: 1 }, lo: 15, hi: 20, rest: 45, level: 'beginner',
+    cues: ['Sit and rest one forearm on your thigh, palm down, wrist just past your knee, dumbbell in hand.', 'Lower your hand toward the floor.', 'Bend your wrist upward. Finish the reps, then switch arms.'],
+    safety: 'Use a light weight and slow, full reps. One set = both arms.', ref: SL(['Dumbbell wrist extension', 'dumbbell-wrist-extension']),
+  },
+  {
+    id: 'Palms-Down_Wrist_Curl_Over_A_Bench', name: 'Barbell wrist extension over a bench', short: 'Bench wrist ext', variant: 'Wrist extension',
+    credit: { forearms: 1 }, lo: 15, hi: 20, rest: 45, level: 'beginner',
+    cues: ['Kneel facing a flat bench and rest your forearms on it, wrists over the edge, barbell held overhand.', 'Lower your hands toward the floor.', 'Bend your wrists upward.'],
+    safety: 'Use a light weight and slow, full reps.', ref: SL(['Barbell wrist extension', 'barbell-wrist-extension']),
+  },
+  {
+    id: 'Palms-Up_Barbell_Wrist_Curl_Over_A_Bench', name: 'Barbell wrist curl over a bench', short: 'Bench wrist curl', variant: 'Wrist flexion',
+    credit: { forearms: 1 }, lo: 15, hi: 20, rest: 45, level: 'beginner',
+    cues: ['Kneel facing a flat bench and rest your forearms on it, wrists over the edge, barbell held underhand.', 'Lower your hands toward the floor and let the bar roll out into your fingers.', 'Close your grip and bend your wrists upward.'],
+    safety: 'Use a light weight and a slow, full range.', ref: SL(['Barbell wrist curl', 'barbell-wrist-curl']),
+  },
 ];

@@ -230,4 +230,11 @@ module.exports = [
     safety: 'Use a light weight and no swinging; don\'t shrug. The reference describes it standing bent over; seated, the arms move the same way.',
     ref: SL(['Reverse dumbbell flyes', 'reverse-dumbbell-flyes']),
   },
+  {
+    id: 'Smith_Machine_Upright_Row', name: 'Smith machine upright row', short: 'Smith upright row', variant: 'Upright row · + traps',
+    credit: { sdelt: 1, traps: 0.5, fdelt: 0.5 }, lo: 10, hi: 15, rest: 90, level: 'intermediate',
+    cues: ['Set the bar at about mid-thigh height. Grip it overhand, hands slightly narrower than shoulder-width, and unrack.', 'Pull the bar straight up toward your chin, close to your body, elbows out to the sides.', 'Stop before your upper arms go above shoulder height.', 'Lower the bar with control.'],
+    safety: 'The reference covers the free-barbell upright row; the rails only guide the bar. Same rules: light weights, few sets, and reverse earlier if your shoulders hurt.',
+    ref: SL(['Barbell upright row', 'barbell-upright-row']),
+  },
 ];
