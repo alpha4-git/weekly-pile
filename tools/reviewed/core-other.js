@@ -1,5 +1,4 @@
 // Abs, upper traps and forearms. Reviewed against StrengthLog exercise pages (linked per entry) and the database photos.
-// Not yet reviewed (reference pages couldn't be loaded): sit-up, behind-the-back wrist curl, wrist roller, plate pinch, neck work.
 const SL = s => ({ title: 'StrengthLog: ' + s[0], url: 'https://www.strengthlog.com/' + s[1] + '/' });
 const ABS = SL(['Ab exercises', 'ab-exercises']);
 const OBL = SL(['Oblique exercises', 'oblique-exercises']);
@@ -8,8 +7,8 @@ module.exports = [
   {
     id: 'Crunches', name: 'Crunch', short: 'Crunch', variant: 'Crunch',
     credit: { abs: 1 }, lo: 12, hi: 20, rest: 60, level: 'beginner',
-    cues: ['Lie on your back, knees bent to about 90°, hands across your chest (or lightly at your temples).', 'Curl your upper body forward by contracting your abs.', 'Go as far as you can while your lower back stays on the floor, then lower slowly.'],
-    safety: 'Don\'t pull on your head or neck; the abs do the lifting. Hold a plate on your chest when 20 reps gets easy.', ref: SL(['Crunches', 'crunch']),
+    cues: ['Lie on your back, knees bent to about 90°, hands in front of your chest.', 'Lift your upper body by contracting your abs and bending forward.', 'Bend as far forward as you can while your lower back stays on the floor, then return to the start.'],
+    safety: 'Hold a weight against your chest to make it harder.', ref: SL(['Crunches', 'crunch']),
   },
   {
     id: 'Ab_Crunch_Machine', name: 'Ab crunch machine', short: 'Machine crunch', variant: 'Crunch',
@@ -42,6 +41,12 @@ module.exports = [
     safety: 'Demanding on balance and the hip flexors; bend the knees slightly if needed.', ref: SL(['Jackknife sit-up', 'jackknife-sit-up']),
   },
   {
+    id: 'Sit-Up', name: 'Sit-up', short: 'Sit-up', variant: 'Sit-up',
+    credit: { abs: 1 }, lo: 10, hi: 20, rest: 60, level: 'beginner',
+    cues: ['Lie on your back, knees bent to about 90°, feet hooked under something that won\'t move.', 'Hands in front of your chest (the reference\'s position; the photos show hands behind the head).', 'Lift your upper body by contracting your abs and bend forward as far as you can.', 'Return to the starting position.'],
+    safety: 'Hold a weight against your chest to make it harder.', ref: SL(['Sit-up', 'sit-up']),
+  },
+  {
     id: 'Plank', name: 'Plank', short: 'Plank', variant: 'Anti-extension', timed: true,
     credit: { abs: 1 }, lo: 30, hi: 60, rest: 60, level: 'beginner',
     cues: ['Rest on your forearms and toes, elbows directly under your shoulders.', 'Brace your abs and squeeze your glutes; body in a straight line from head to heels.', 'Hold for the target time. Log the seconds held in the reps box.'],
@@ -62,14 +67,14 @@ module.exports = [
   {
     id: 'Air_Bike', name: 'Bicycle crunch', short: 'Bicycle crunch', variant: 'Obliques',
     credit: { abs: 1 }, lo: 10, hi: 20, rest: 60, level: 'beginner',
-    cues: ['Lie on your back, fingertips at your temples, knees bent 90° in the air.', 'Lift your head and shoulders, then extend one leg while rotating to bring the opposite elbow toward the bent knee.', 'Alternate sides in a steady, controlled pedaling rhythm. Count reps per side.'],
-    safety: 'Rotate with your trunk, not by yanking your head with your hands.', ref: SL(['Bicycle crunch', 'bicycle-crunch']),
+    cues: ['Lie on your back, hands behind your head, legs raised with knees bent to 90°.', 'Lift your head and shoulders, then extend one leg while rotating to bring the opposite elbow toward the bent knee.', 'Alternate sides in a steady, controlled pedaling rhythm. Count reps per side.'],
+    safety: 'Rotate your torso; don\'t pull on your neck with your hands.', ref: [SL(['Bicycle crunch', 'bicycle-crunch']), OBL],
   },
   {
     id: 'Oblique_Crunches', name: 'Oblique crunch', short: 'Oblique crunch', variant: 'Obliques',
     credit: { abs: 1 }, lo: 10, hi: 20, rest: 60, level: 'beginner',
-    cues: ['Lie on your back, knees bent (or calves on a bench), fingertips at the sides of your head.', 'Lift your shoulders and twist so one elbow moves diagonally toward the opposite knee; pause.', 'Lower without fully relaxing, then repeat or alternate sides.'],
-    safety: 'Don\'t pull on your neck. Hold a plate on your chest when it gets easy.', ref: OBL,
+    cues: ['Lie on your back, knees bent, feet flat and hip-width apart, hands at the sides of your head.', 'Lift your shoulders and twist so one elbow moves diagonally toward the opposite knee; pause.', 'Lower without fully relaxing, then repeat or alternate sides.'],
+    safety: 'Don\'t pull on your neck with your hands. When you can do more reps than planned, hold a plate or dumbbell to your chest.', ref: OBL,
   },
   {
     id: 'Dumbbell_Side_Bend', name: 'Dumbbell side bend', short: 'Side bend', variant: 'Obliques', perSide: true,
@@ -105,7 +110,7 @@ module.exports = [
     id: 'Palms-Up_Dumbbell_Wrist_Curl_Over_A_Bench', name: 'Dumbbell wrist curl', short: 'DB wrist curl', variant: 'Wrist flexion',
     credit: { forearms: 1 }, lo: 15, hi: 20, rest: 60, level: 'beginner',
     cues: ['Kneel or sit with your forearms on a bench, hands past the edge, dumbbells held palms up.', 'Lower your hands and let the dumbbells roll out to your fingers.', 'Close your grip and curl your wrists up as far as you can.'],
-    safety: 'Light weights and full, slow range; forearm tendons dislike heavy jerky reps.', ref: SL(['Dumbbell wrist curl', 'dumbbell-wrist-curl']),
+    safety: 'Use a light weight and a slow, full range.', ref: SL(['Dumbbell wrist curl', 'dumbbell-wrist-curl']),
   },
   {
     id: 'Palms-Down_Dumbbell_Wrist_Curl_Over_A_Bench', name: 'Dumbbell wrist extension', short: 'DB wrist extension', variant: 'Wrist extension',
@@ -124,5 +129,37 @@ module.exports = [
     credit: { forearms: 1 }, lo: 15, hi: 20, rest: 60, level: 'beginner',
     cues: ['Sit with your forearms on your thighs, wrists just past your knees, barbell held palms down.', 'Lower your hands toward the floor.', 'Raise the backs of your hands as high as you can.'],
     safety: 'Light weight, slow reps.', ref: SL(['Dumbbell wrist extension (barbell variation)', 'dumbbell-wrist-extension']),
+  },
+  {
+    id: 'Standing_Palms-Up_Barbell_Behind_The_Back_Wrist_Curl', name: 'Barbell wrist curl behind the back', short: 'Behind-back curl', variant: 'Wrist flexion', swap: true,
+    credit: { forearms: 1 }, lo: 15, hi: 20, rest: 60, level: 'beginner',
+    cues: ['Stand holding a barbell behind your back at arm\'s length, hands shoulder-width, palms facing back.', 'Open your hands and let the bar roll out into your fingers.', 'Close your grip and curl your wrists up. Only the hands and wrists move.'],
+    safety: 'Easiest to take the bar from a rack set at hip height and put it back there.', ref: SL(['Barbell wrist curl behind the back', 'barbell-wrist-curl-behind-the-back']),
+  },
+  {
+    id: 'Wrist_Roller', name: 'Wrist roller', short: 'Wrist roller', variant: 'Wrist roller', swap: true,
+    credit: { forearms: 1 }, lo: 3, hi: 5, rest: 90, level: 'beginner',
+    cues: ['Stand with feet shoulder-width, holding the roller in both hands, arms straight out in front of you, weight hanging on the cord.', 'Roll the bar forward with your wrists, winding the cord until the weight reaches the bar.', 'Slowly reverse the motion to lower the weight back down. One rep = all the way up and down.'],
+    safety: 'Lower slowly by unwinding; don\'t let the weight drop.', ref: SL(['Wrist roller', 'wrist-roller']),
+  },
+  {
+    id: 'Plate_Pinch', name: 'Plate pinch', short: 'Plate pinch', variant: 'Pinch grip', timed: true, perSide: true,
+    credit: { forearms: 1 }, lo: 20, hi: 40, rest: 90, level: 'intermediate',
+    cues: ['Put two plates together, smooth sides facing out.', 'Pinch them with your fingers on one side and your thumb on the other, and lift them off the floor.', 'Hold as long as you can, then put them down under control. Log the seconds held; switch hands.'],
+    safety: 'The plates\' surface and chalk change how much you can hold a lot; compare like with like.', ref: SL(['Plate pinch', 'plate-pinch']),
+  },
+  {
+    id: 'Lying_Face_Down_Plate_Neck_Resistance', name: 'Lying neck extension (plate)', short: 'Neck extension', variant: 'Extension',
+    credit: { neck: 1 }, lo: 12, hi: 15, rest: 60, level: 'intermediate',
+    cues: ['Lie face down on a flat bench, chest and stomach supported, head just off the end; feet on the floor for balance.', 'Hold a plate on the back of your head with both hands (a folded towel underneath is more comfortable).', 'Start with your chin slightly tucked and your neck neutral, then raise the back of your head toward the ceiling.', 'Pause briefly at the top, then lower slowly back to the start. No jerky movements.'],
+    safety: 'Your neck is sensitive: start very light, move slowly and avoid extreme ranges (the first photo drops the head further than needed). Do neck work at the end of a workout. If you\'ve had neck or cervical spine problems, see a doctor or physio first.',
+    ref: [SL(['Lying neck extension', 'lying-neck-extension']), SL(['Neck exercises', 'neck-muscles-exercises-workout'])],
+  },
+  {
+    id: 'Lying_Face_Up_Plate_Neck_Resistance', name: 'Lying neck curl (plate)', short: 'Neck curl', variant: 'Flexion',
+    credit: { neck: 1 }, lo: 12, hi: 15, rest: 60, level: 'intermediate',
+    cues: ['Lie on your back on a flat bench with your head slightly past the end.', 'Put a folded towel on your forehead and hold a plate on it with both hands; the hands only balance it, they don\'t lift.', 'Tuck your chin slightly and keep it tucked, then curl your head toward your chest without lifting your shoulders.', 'Pause briefly, then lower slowly back to the start.'],
+    safety: 'Your neck is sensitive: start very light, move slowly and avoid extreme ranges. Do neck work at the end of a workout. If you\'ve had neck or cervical spine problems, see a doctor or physio first.',
+    ref: [SL(['Lying neck curl', 'lying-neck-curl']), SL(['Neck exercises', 'neck-muscles-exercises-workout'])],
   },
 ];

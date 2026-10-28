@@ -5,7 +5,7 @@ const SL = s => ({ title: 'StrengthLog: ' + s[0], url: 'https://www.strengthlog.
 const SQ = { quads: 1, glutes: 0.5, adductors: 0.5 };
 const BSQ = { quads: 1, glutes: 0.5, adductors: 0.5, lowback: 0.5 };
 const LUNGE = { quads: 1, glutes: 1, adductors: 0.5 };
-const KNEES = 'Knees track over your toes; don\'t let them cave in. Go as deep as you can with good form, and don\'t bounce out of the bottom.';
+const KNEES = 'Let your knees track in the same direction as your toes. Go as deep as you can with good technique.';
 const SQUAT = 'Squat', FRONT = 'Front-loaded squat', SINGLE = 'Single-leg', EXT = 'Leg extension · rectus femoris';
 module.exports = [
   {
@@ -13,23 +13,23 @@ module.exports = [
     credit: BSQ, lo: 6, hi: 10, rest: 180, level: 'intermediate',
     cues: [
       'Set the bar at about sternum height. Grip slightly wider than your shoulders, bar on your upper back; unrack and take three steps back.',
-      'Feet about shoulder-width, toes slightly out. Breathe in and brace.',
-      'Squat down by bending hips, knees and ankles together, at least to thighs parallel, back flat.',
+      'Take a comfortable stance (narrow to wide all work), toes slightly out. Breathe in and brace.',
+      'Squat down by bending your knees, hips and ankles, back straight, until your thighs are below parallel or you reach your natural depth limit.',
       'Drive back up to standing. Re-rack by walking in and squatting the bar down onto the hooks.',
     ],
-    safety: KNEES + ' Always set the safety arms just below your lowest point. Firm, flat shoes; no plates under the heels.',
+    safety: KNEES + ' Always set the safety arms just below your lowest point. Wear firm shoes; a raised heel (lifting shoes) helps many people, but don\'t stand on plates.',
     ref: SL(['Squat', 'squat']),
   },
   {
     id: 'Front_Barbell_Squat', name: 'Front squat', short: 'Front squat', variant: FRONT,
     credit: BSQ, lo: 6, hi: 10, rest: 180, level: 'intermediate',
     cues: [
-      'Grip slightly wider than your shoulders and rest the bar on the front of your shoulders, elbows high.',
+      'Grip slightly wider than your shoulders and rest the bar on the front of your shoulders, on top of your collarbones.',
       'Breathe in, brace, unrack and take two steps back.',
       'Squat as deep as you can with your torso upright and elbows up.',
       'Stand back up, breathing out on the way.',
     ],
-    safety: KNEES + ' Needs wrist, shoulder and ankle mobility; crossing your arms under the bar or using straps helps if the wrists complain. Set the safety arms.',
+    safety: KNEES + ' Needs wrist, shoulder and ankle mobility; crossing your arms with your hands on top of the bar, or using straps, helps if the wrists complain. Set the safety arms.',
     ref: SL(['Front squat', 'front-squat']),
   },
   {
@@ -175,7 +175,7 @@ module.exports = [
       'Don\'t let your back knee hit the floor.',
       'Push back up to standing with the front leg.',
     ],
-    safety: 'Easier on the knees and more stable than forward lunges, since the front foot stays put. One set = both legs.',
+    safety: 'One set = both legs.',
     ref: SL(['Reverse dumbbell lunge', 'reverse-dumbbell-lunge']),
   },
   {

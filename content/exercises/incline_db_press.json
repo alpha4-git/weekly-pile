@@ -2,7 +2,7 @@
  "type": "exercise",
  "schema": 1,
  "id": "incline_db_press",
- "version": 4,
+ "version": 5,
  "name": "Incline dumbbell press",
  "short": "Incline press",
  "equipment": "Adjustable bench, two dumbbells",
@@ -28,7 +28,7 @@
   "Shoulder blades pulled down and back. Head, upper back and hips stay on the bench.",
   "Feet planted on the floor. Don't arch your lower back.",
   "Lower slowly to the sides of your upper chest. No bouncing.",
-  "Forearms vertical, elbows under the wrists. Press up until your arms are straight over your shoulders."
+  "Forearms vertical, elbows under the wrists. Press up until your arms are straight."
  ],
  "safety": "No spotter: stop 1–2 reps short. To finish, bring the dumbbells to your chest and sit up with them resting on your thighs.",
  "refs": [

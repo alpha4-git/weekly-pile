@@ -57,7 +57,7 @@ manifest.webmanifest, icons/    home-screen install
 content/index.json              list of exercise files, the plan file and the library bundle (with versions)
 content/plan.json               muscles, default monthly targets and focus minimums
 content/exercises/<id>.json     the 16 hand-reviewed exercises (cues, credit, references, figure)
-content/library.json            152 more exercises from the free-exercise-db, each reviewed by hand (photos from the database)
+content/library.json            154 more exercises from the free-exercise-db, each reviewed by hand (photos from the database)
 tools/build-content.js          builds the original 16 exercises, plan.json and index.json
 tools/reviewed/*.js             the reviews: cues, safety notes, muscle credit, emphasis, reps, rest and reference link per exercise
 tools/import-fedb.js            builds content/library.json from the reviewed entries only
@@ -80,15 +80,23 @@ Rebuild: `node tools/import-fedb.js <free-exercise-db>/dist/exercises.json <comm
 (target scale, DY window, your targets and focus minimums, pool filters, hidden exercises). The same zip can be imported to restore everything.
 
 ## Exercise review
-Only reviewed exercises are suggested. For each database exercise in the library:
+Only reviewed exercises are suggested. For every exercise in the library (the original 16 and the 154 from the database):
 - both photos were looked at (dropped if wrong or unclear; reordered when the second photo shows the starting position);
-- its StrengthLog page was read, and the cues, safety note and muscles worked agree with it (the link is on the exercise page);
-- muscle credit follows one rule: 1 for the main mover(s) the reference lists, 0.5 for genuine synergists, 0 for stabilizers.
+- every cue, the safety note and the muscles were checked one by one against the linked reference page (October 2026).
+  Anything the page contradicts was rewritten to match it. A few setup and safety details the page doesn't mention
+  (safety arms, stoppers, "one set = both sides") were kept because they only make the exercise safer or match how the app counts.
+  Where the photos show a different version from the reference, the exercise was replaced or dropped;
+- muscle credit is the app's volume-counting rule, not a copy of the page's "primary" list: 1 for the muscle the exercise
+  directly trains, 0.5 for muscles it works indirectly (front delts and triceps on presses, biceps and rear delts on rows),
+  the "fractional" counting used by Pelland et al. (2024). StrengthLog often lists those helpers as primary.
 
 Left out: explosive and Olympic-style lifts, joint-unfriendly positions (behind-the-neck presses, bench dips), partner-assisted moves,
-near-duplicates, and the dumbbell kickback (little resistance through most of the range). Not yet reviewed: sit-up, wrist roller,
-plate pinch, behind-the-back wrist curl and the neck exercises.
+near-duplicates, the dumbbell kickback (StrengthLog calls it a poor choice), and versions whose photos don't match any reference
+(two-cable overhead curl, seated two-arm cable lateral raise, standing-on-band lateral raise, low-back-support dumbbell press,
+separate "triceps" and "chest" dips: StrengthLog describes one bar dip).
 
 ## Sources
 - Exercise photos: [free-exercise-db](https://github.com/yuhonas/free-exercise-db) (Unlicense / public domain), loaded from a fixed commit.
-- Technique and muscles worked: [StrengthLog exercise directory](https://www.strengthlog.com/exercise-directory/), one page per exercise.
+- Technique and muscles worked: [StrengthLog exercise directory](https://www.strengthlog.com/exercise-directory/), one page per exercise;
+  the original 16 also use [ACE's exercise library](https://www.acefitness.org/resources/everyone/exercise-library/).
+- Set counting: Pelland et al., [The Resistance Training Dose-Response](https://sportrxiv.org/index.php/server/preprint/view/460) (SportRxiv preprint, 2024).

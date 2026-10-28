@@ -2,7 +2,7 @@
  "type": "exercise",
  "schema": 1,
  "id": "oh_triceps",
- "version": 4,
+ "version": 5,
  "name": "Overhead cable triceps extension",
  "short": "Triceps",
  "equipment": "Cable station, low pulley, rope",
@@ -22,7 +22,7 @@
   "triceps": 1
  },
  "cues": [
-  "Rope on the low pulley. Face away from the machine with the rope over your head, one foot in front.",
+  "Rope on the low pulley. Face away from the machine holding the rope behind your head, one foot in front.",
   "Upper arms next to your ears. Elbows stay where they are, the same width apart. Only your forearms move.",
   "Lean slightly forward from the hips, back straight, ribs down. Don't arch your lower back.",
   "Straighten your arms fully without locking, then lower back into the stretch behind your head."

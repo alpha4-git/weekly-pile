@@ -5,7 +5,7 @@
 const SL = s => ({ title: 'StrengthLog: ' + s[0], url: 'https://www.strengthlog.com/' + s[1] + '/' });
 const HAMS = SL(['How to train your hamstrings', 'hamstring-muscles-exercises-workout']);
 const CALVES = SL(['Calf exercises', 'calf-exercises']);
-const CALF = 'Pause for a full stretch at the bottom and a squeeze at the top; no bouncing or short, choppy reps.';
+const CALF = 'Get a full stretch at the bottom and a full contraction at the top of each rep; no bouncing or short, choppy reps.';
 const STRAIGHT = 'Straight knee · gastrocnemius';
 module.exports = [
   // ---------------------------------------------------------------- hamstrings: knee flexion
@@ -30,7 +30,7 @@ module.exports = [
   {
     id: 'Glute_Ham_Raise', name: 'Glute-ham raise', short: 'Glute-ham raise', variant: 'Glute-ham raise', swap: true,
     credit: { hams: 1, glutes: 0.5 }, lo: 5, hi: 10, rest: 120, level: 'intermediate',
-    cues: ['Set the machine so your knees rest just behind the pad and your feet are locked under the footplate.', 'Body straight from knees to head, core braced, arms across your chest.', 'Bend at the knees and lower yourself slowly until your body is nearly parallel to the floor.', 'Pull yourself back up with your hamstrings and glutes.'],
+    cues: ['Set the machine so your knees rest on the support pad and your feet are locked under the footplate.', 'Body straight from knees to head, core braced, arms across your chest.', 'Bend at the knees and lower yourself slowly until your body is nearly parallel to the floor.', 'Pull yourself back up with your hamstrings and glutes.'],
     safety: 'Very demanding: push off lightly with your hands at the bottom if you can\'t pull all the way up yet. Keep it controlled.', ref: SL(['Glute ham raise', 'glute-ham-raise']),
   },
   // ---------------------------------------------------------------- glutes
@@ -43,8 +43,8 @@ module.exports = [
   {
     id: 'Barbell_Glute_Bridge', name: 'Barbell glute bridge', short: 'Glute bridge', variant: 'Bridge',
     credit: { glutes: 1 }, lo: 10, hi: 15, rest: 90, level: 'beginner',
-    cues: ['Lie on your back on the floor with a padded bar over your hips, knees bent, feet flat.', 'Tuck your pelvis slightly to engage the glutes.', 'Push your hips up until your body is straight from shoulders to knees; squeeze at the top.', 'Lower with control.'],
-    safety: 'Pad the bar. Shorter range than the hip thrust, so you can usually use more weight.', ref: [SL(['Glute bridge', 'glute-bridge']), SL(['Hip thrust', 'hip-thrust'])],
+    cues: ['Lie on your back on the floor with a padded bar over your hips, knees bent, feet flat.', 'Tuck your pelvis slightly to engage the glutes.', 'Push your hips up with your glutes until your body forms a straight line from head to knees; squeeze at the top.', 'Lower with control.'],
+    safety: 'Pad the bar with a mat, towel or barbell pad.', ref: [SL(['Glute bridge', 'glute-bridge']), SL(['Hip thrust', 'hip-thrust'])],
   },
   {
     id: 'Single_Leg_Glute_Bridge', name: 'Single-leg glute bridge', short: '1-leg bridge', variant: 'Single-leg bridge', perSide: true,
@@ -86,14 +86,14 @@ module.exports = [
   {
     id: 'Standing_Dumbbell_Calf_Raise', name: 'Dumbbell standing calf raise', short: 'DB calf raise', variant: STRAIGHT,
     credit: { calves: 1 }, lo: 12, hi: 20, rest: 60, level: 'beginner',
-    cues: ['Hold a dumbbell in each hand (or one, holding a rail with the other); balls of your feet on a step.', 'Lower your heels to a full stretch with straight knees.', 'Rise as high as you can and pause.'],
-    safety: CALF + ' One leg at a time with one dumbbell doubles the load if two-legged gets easy.', ref: CALVES,
+    cues: ['Hold a dumbbell in each hand (or one, holding a rail with the other); balls of your feet on a step.', 'Lower your heels to a full stretch with straight knees.', 'Rise as high as you can.'],
+    safety: CALF + ' For an added challenge, do one leg at a time holding one dumbbell, the other hand on a wall or rail.', ref: CALVES,
   },
   {
     id: 'Calf_Press_On_The_Leg_Press_Machine', name: 'Leg press calf raise', short: 'Leg press calf raise', variant: STRAIGHT,
     credit: { calves: 1 }, lo: 12, hi: 20, rest: 60, level: 'beginner',
-    cues: ['Sit in the leg press with the balls of your feet on the bottom edge of the platform, heels hanging off.', 'Unrack with knees very slightly bent, and keep them there.', 'Let the platform push your toes back to a full stretch, then press through the balls of your feet as far as you can.'],
-    safety: CALF + ' Keep the safety stops engaged: if a foot slips off the platform, they catch the sled.', ref: CALVES,
+    cues: ['Sit in the leg press with the balls of your feet on the bottom edge of the platform, heels hanging off.', 'Unrack with knees very slightly bent, and keep them there.', 'Lower your heels under control as far as your ankles comfortably allow, then press through the balls of your feet, heels as high as possible.'],
+    safety: CALF + ' On a 45° leg press, make sure the safety bars are in place: they save you if a foot slips off the platform.', ref: CALVES,
   },
   // ---------------------------------------------------------------- adductors / abductors
   {
@@ -109,9 +109,9 @@ module.exports = [
     safety: 'Mainly trains the gluteus medius and minimus (the outer hip).', ref: SL(['Abductor exercises', 'abductor-exercises']),
   },
   {
-    id: 'Monster_Walk', name: 'Band walk (monster walk)', short: 'Band walk', variant: 'Band walk',
+    id: 'Monster_Walk', name: 'Band lateral walk', short: 'Band walk', variant: 'Band walk',
     credit: { abductors: 1 }, lo: 10, hi: 20, rest: 60, level: 'beginner',
-    cues: ['Put a band around your ankles (and/or knees) with tension at shoulder-width stance.', 'Bend your knees slightly and hinge forward a little at the hips.', 'Take short steps forward, then backward (or sideways), pushing out against the band the whole time.', 'Count steps per leg.'],
-    safety: 'Pick a band that\'s challenging but lets you keep your knees from caving in.', ref: SL(['Abductor exercises', 'abductor-exercises']),
+    cues: ['Put a band around your ankles.', 'Bend your knees slightly and hinge forward a little at the hips.', 'Walk sideways, so each step brings your leg out against the band. Then walk back the other way.', 'Count steps per leg.'],
+    safety: 'Pick a band that\'s neither too easy nor too hard to stretch.', ref: SL(['Abductor exercises', 'abductor-exercises']),
   },
 ];

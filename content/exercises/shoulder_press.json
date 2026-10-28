@@ -2,7 +2,7 @@
  "type": "exercise",
  "schema": 1,
  "id": "shoulder_press",
- "version": 4,
+ "version": 5,
  "name": "Machine shoulder press",
  "short": "Shoulder press",
  "equipment": "Shoulder press machine",
@@ -26,7 +26,7 @@
  "cues": [
   "Set the seat so the handles start level with or a little above your shoulders, elbows slightly in front of your sides.",
   "Back against the pad, abs braced. Don't arch your lower back.",
-  "Press until your elbows are nearly straight, not locked. Lower under control to the start."
+  "Press until your elbows are fully extended but not locked. Lower under control to the start."
  ],
  "safety": "Safe to take close to failure.",
  "refs": [

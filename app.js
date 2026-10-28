@@ -1,7 +1,7 @@
 /* Weekly Pile core. All data lives in this browser's IndexedDB on the phone:
    exercises (library add-ons), plans (ordered set lists), logs (one record per set), meta (settings). */
 'use strict';
-const APP_VERSION = '1.3.6';
+const APP_VERSION = '1.3.7';
 
 // ---------------------------------------------------------------- utilities
 const $ = s => document.querySelector(s);
@@ -465,7 +465,8 @@ function describe(sum) {
   if (sum.current) bits.push(`plan "${sum.current}" loaded`);
   else if (sum.plans) bits.push(`${sum.plans} plan${sum.plans > 1 ? 's' : ''} saved`);
   if (sum.logs) bits.push(`${sum.logs} set${sum.logs > 1 ? 's' : ''}`);
-  if (sum.removed) bits.push(`${sum.removed} unreviewed removed`);
+  if (sum.removed) bits.push(`${sum.removed} removed`);
+  if (sum.retired) bits.push(`${sum.retired} retired (kept for your history)`);
   if (!bits.length) bits.push(sum.sameEx ? 'Everything was already up to date' : 'Nothing to import');
   return bits.join(', ') + (sum.errors.length ? ` · ${sum.errors.length} item${sum.errors.length > 1 ? 's' : ''} skipped` : '');
 }
@@ -482,18 +483,25 @@ async function getLatest() {
   const entries = await Promise.all(want.map(async e => ({ name: e.file, text: await fetchText('content/' + e.file) })));
   if (/^[a-z0-9_-]+\.json$/.test(idx.plan || '')) entries.push({ name: idx.plan, text: await fetchText('content/' + idx.plan) });
   const lib = idx.library;
-  let libV = 0;
+  let libV = 0, libIds = null;
   if (lib && /^[a-z0-9_-]+\.json$/.test(lib.file || '') && Number.isInteger(+lib.version) && +lib.version > S.libVersion) {
-    entries.push({ name: lib.file, text: await fetchText('content/' + lib.file) });
+    const text = await fetchText('content/' + lib.file);
+    entries.push({ name: lib.file, text });
     libV = +lib.version;
+    try { const b = JSON.parse(text); if (b && Array.isArray(b.exercises)) libIds = new Set(b.exercises.map(e => e && e.id)); } catch (e) {}
   }
   const sum = await applyImport(classify(entries), { makeCurrent: true });
   if (libV) {
     S.libVersion = libV; await setMeta('libVersion', libV);
-    // the library is reviewed-only now: drop older unreviewed database entries, except ones you've logged sets on
+    // Database exercises that are unreviewed or no longer in the reviewed library are removed, except ones you've
+    // logged sets on: those stay for your history, marked unreviewed so they're never suggested.
     const logged = new Set(S.logs.map(l => l.ex));
-    const drop = [...S.ex.values()].filter(e => !e.reviewed && e.source === 'free-exercise-db' && !logged.has(e.id)).map(e => e.id);
-    if (drop.length) { await DB.delMany('exercises', drop); drop.forEach(id => S.ex.delete(id)); sum.removed = drop.length; changed(); }
+    const gone = [...S.ex.values()].filter(e => e.source === 'free-exercise-db' && (!e.reviewed || (libIds && !libIds.has(e.id))));
+    const drop = gone.filter(e => !logged.has(e.id)).map(e => e.id);
+    const retire = gone.filter(e => logged.has(e.id) && e.reviewed).map(e => ({ ...e, reviewed: false }));
+    if (drop.length) { await DB.delMany('exercises', drop); drop.forEach(id => S.ex.delete(id)); sum.removed = drop.length; }
+    if (retire.length) { await DB.putMany('exercises', retire); retire.forEach(e => S.ex.set(e.id, e)); sum.retired = retire.length; }
+    if (drop.length || retire.length) changed();
   }
   return sum;
 }

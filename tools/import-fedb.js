@@ -15,7 +15,7 @@ const FILES = ['chest', 'back', 'hinge', 'shoulders', 'arms', 'legs', 'hips-calv
 const reviewed = FILES.flatMap(f => require(path.join(dir, f + '.js')));
 
 // Bump when any reviewed entry changes, so phones replace their copies.
-const VERSION = 2;   // v1 was the unreviewed import; v2 is the first reviewed set
+const VERSION = 3;   // v1: unreviewed import; v2: first reviewed set; v3: every entry re-checked claim by claim against its reference
 const MUSCLES = new Set(['chest', 'back', 'fdelt', 'sdelt', 'rdelt', 'biceps', 'triceps', 'quads', 'glutes', 'adductors', 'hams', 'calves', 'abs',
   'traps', 'lowback', 'forearms', 'abductors', 'neck']);
 const EQUIP = { barbell: 'barbell', dumbbell: 'dumbbell', cable: 'cable', machine: 'machine', 'e-z curl bar': 'ez bar', 'body only': 'bodyweight',
@@ -30,7 +30,7 @@ const EQUIP_FIX = { Decline_Push_Up: 'bodyweight', 'Decline_Push-Up': 'bodyweigh
 const STAPLES = new Set(['Barbell_Bench_Press_-_Medium_Grip', 'Dumbbell_Bench_Press', 'Barbell_Incline_Bench_Press_-_Medium_Grip', 'Butterfly',
   'Cable_Crossover', 'Dumbbell_Flyes', 'Pushups', 'Dips_-_Chest_Version', 'Pullups', 'Chin-Up', 'One-Arm_Dumbbell_Row', 'Bent_Over_Barbell_Row',
   'Dumbbell_Incline_Row', 'Leverage_Iso_Row', 'Straight-Arm_Pulldown', 'Barbell_Deadlift', 'Romanian_Deadlift', 'Hyperextensions_Back_Extensions',
-  'Dumbbell_Shoulder_Press', 'Standing_Military_Press', 'Front_Dumbbell_Raise', 'Cable_Seated_Lateral_Raise', 'Face_Pull', 'Reverse_Flyes',
+  'Dumbbell_Shoulder_Press', 'Standing_Military_Press', 'Front_Dumbbell_Raise', 'Standing_Low-Pulley_Deltoid_Raise', 'Face_Pull', 'Reverse_Flyes',
   'Cable_Rear_Delt_Fly', 'Barbell_Curl', 'EZ-Bar_Curl', 'Dumbbell_Bicep_Curl', 'Hammer_Curls', 'Incline_Dumbbell_Curl', 'Preacher_Curl',
   'Triceps_Pushdown', 'Triceps_Pushdown_-_Rope_Attachment', 'EZ-Bar_Skullcrusher', 'Standing_Dumbbell_Triceps_Extension',
   'Close-Grip_Barbell_Bench_Press', 'Barbell_Squat', 'Goblet_Squat', 'Hack_Squat', 'Leg_Extensions', 'Dumbbell_Lunges', 'Dumbbell_Rear_Lunge',

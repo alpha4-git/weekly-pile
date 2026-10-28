@@ -50,7 +50,7 @@ const REST = {
 };
 // Version of every exercise file; bump (globally or per id) whenever content changes so phones pick up the new copy.
 const BASE_VERSION = 4; // v2: added rest times; v3: rep range, equipment key, level, reviewed flag; v4: emphasis label, 5 lb steps
-const VERSIONS = {};
+const VERSIONS = { incline_db_press: 5, shoulder_press: 5, split_squat: 5, oh_triceps: 5 };   // v5: cues re-checked against the references
 
 const exDir = path.join(root, 'content', 'exercises');
 fs.mkdirSync(exDir, { recursive: true });
@@ -76,7 +76,7 @@ const plan = {
 };
 fs.writeFileSync(path.join(root, 'content', 'plan.json'), JSON.stringify(plan, null, 1) + '\n');
 // library.json comes from tools/import-fedb.js; raise LIBRARY_VERSION whenever it is regenerated
-const LIBRARY_VERSION = 2;   // 2: reviewed-only library
+const LIBRARY_VERSION = 3;   // 2: reviewed-only library; 3: re-verified, 5 entries dropped, 7 added
 const libCount = fs.existsSync(path.join(root, 'content', 'library.json')) ? JSON.parse(fs.readFileSync(path.join(root, 'content', 'library.json'), 'utf8')).exercises.length : 0;
 fs.writeFileSync(path.join(root, 'content', 'index.json'), JSON.stringify({ type: 'library-index', schema: 1, plan: 'plan.json', exercises: index,
   library: { file: 'library.json', version: LIBRARY_VERSION, count: libCount } }, null, 1) + '\n');

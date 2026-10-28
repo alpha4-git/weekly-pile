@@ -6,7 +6,7 @@ const TYPES = SL(['Types of dumbbell curls', 'different-types-of-dumbbell-curls'
 const LONG = SL(['Long-head triceps exercises', 'long-head-triceps-exercises']);
 const CURL = 'Upper arms stay at your sides (or drift slightly forward); if you have to swing, the weight is too heavy. Keep your wrists straight.';
 const STD = 'Standard curl', BEHIND = 'Arm behind body', FRONT = 'Arm in front (preacher)', NEUTRAL = 'Neutral grip · brachialis', REV = 'Reverse grip · forearms';
-const EXT = 'Keep your elbows pointing forward at a constant width; flaring them stresses the shoulder. Heavy low-rep extensions can bother the elbows, so favor 10–15 reps.';
+const EXT = 'Keep your elbows the same width apart throughout; letting them flare out is stressful for the shoulder. Heavy, low-rep sets are often uncomfortable here, so stay around 8–15 reps.';
 module.exports = [
   // ---------------------------------------------------------------- biceps
   {
@@ -18,8 +18,8 @@ module.exports = [
   {
     id: 'EZ-Bar_Curl', name: 'EZ-bar curl', short: 'EZ curl', variant: STD,
     credit: { biceps: 1 }, lo: 8, hi: 12, rest: 90, level: 'beginner',
-    cues: ['Grip the EZ bar underhand on the angled parts, feet about shoulder-width, core braced.', 'Curl the bar toward your chest with your elbows close to your body; pause briefly at the top.', 'Lower slowly to straight arms.'],
-    safety: CURL + ' The angled grip is easier on the wrists than a straight bar.', ref: SL(['EZ curl', 'ez-curl']),
+    cues: ['Grip the EZ bar underhand on the angled parts, feet about hip-width, core braced.', 'Curl the bar toward your chest with your elbows close to your body; pause briefly at the top.', 'Lower slowly to the start.'],
+    safety: 'Don\'t let your elbows drift forward. If you have to swing, the weight is too heavy. Keep your wrists straight. The angled grip can be kinder to the wrists and elbows.', ref: SL(['EZ curl', 'ez-curl']),
   },
   {
     id: 'Dumbbell_Bicep_Curl', name: 'Dumbbell curl', short: 'DB curl', variant: STD,
@@ -30,7 +30,7 @@ module.exports = [
   {
     id: 'Dumbbell_Alternate_Bicep_Curl', name: 'Alternating dumbbell curl', short: 'Alt DB curl', variant: STD,
     credit: { biceps: 1 }, lo: 8, hi: 12, rest: 90, level: 'beginner',
-    cues: ['Stand tall with the dumbbells at your sides, elbows close to your body.', 'Curl one dumbbell, turning the palm up as it rises.', 'Lower it under control, then curl the other. One rep = both arms.'],
+    cues: ['Stand tall with the dumbbells at your sides, palms facing forward, elbows close to your body.', 'Curl one dumbbell up by bending the elbow.', 'Lower it to the start, then curl the other. One rep = both arms.'],
     safety: CURL, ref: SL(['Dumbbell curl', 'dumbbell-curl']),
   },
   {
@@ -48,8 +48,8 @@ module.exports = [
   {
     id: 'Incline_Dumbbell_Curl', name: 'Incline dumbbell curl', short: 'Incline curl', variant: BEHIND,
     credit: { biceps: 1 }, lo: 10, hi: 15, rest: 90, level: 'beginner',
-    cues: ['Set a bench to 45–60° and sit back with the dumbbells hanging straight down behind your torso, palms forward.', 'Keep your shoulders back and down against the bench.', 'Curl the dumbbells up without letting your elbows swing forward.', 'Lower slowly all the way to straight arms.'],
-    safety: 'Use lighter dumbbells than for standing curls: the stretched start is harder. Stop the stretch short of any shoulder discomfort.',
+    cues: ['Set a bench to 45–60° and sit back with the dumbbells hanging straight down at your sides, palms forward.', 'Keep your shoulders down and back against the bench; don\'t bring them forward as you curl.', 'Keep your upper arms still and curl the dumbbells up, moving only your forearms.', 'Lower back to the start.'],
+    safety: 'Expect incline curls to feel much heavier than standing curls; start lighter.',
     ref: TYPES,
   },
   {
@@ -80,7 +80,7 @@ module.exports = [
   {
     id: 'Spider_Curl', name: 'Spider curl', short: 'Spider curl', variant: FRONT,
     credit: { biceps: 1 }, lo: 10, hi: 15, rest: 90, level: 'beginner',
-    cues: ['Lie chest-down on an incline bench (or the vertical side of a preacher pad) with your arms hanging straight down.', 'Curl the bar or dumbbells up without moving your upper arms.', 'Lower slowly to straight arms.'],
+    cues: ['Lie with your chest and stomach on a 45° bench, dumbbells in an underhand grip, upper arms hanging vertical.', 'Curl the dumbbells up with control; don\'t let your upper arms move back or forward.', 'Lower back to the start.'],
     safety: 'Expect to use light weights; no swinging.', ref: TYPES,
   },
   {
@@ -88,12 +88,6 @@ module.exports = [
     credit: { biceps: 1 }, lo: 10, hi: 15, rest: 90, level: 'beginner',
     cues: ['Attach a straight bar to the low pulley, grip underhand about shoulder-width, and step back.', 'Curl the bar up by bending your elbows; upper arms still or slightly forward.', 'Lower with control.'],
     safety: CURL, ref: SL(['Cable curl with bar', 'cable-curl-with-bar']),
-  },
-  {
-    id: 'Overhead_Cable_Curl', name: 'Overhead cable curl', short: 'Overhead cable curl', variant: 'Arms overhead',
-    credit: { biceps: 1 }, lo: 10, hi: 15, rest: 90, level: 'intermediate',
-    cues: ['Use both high pulleys (or one high bar). Stand (or sit) between them with your arms straight out to the sides at shoulder height, palms up.', 'Keep your upper arms still and curl the handles toward your head.', 'Pause briefly, then straighten your arms slowly.'],
-    safety: 'Light weight; the upper arms must not drop. Stop if the shoulders complain.', ref: SL(['Overhead cable curl', 'overhead-cable-curl']),
   },
   {
     id: 'Reverse_Barbell_Curl', name: 'Reverse barbell curl', short: 'Reverse curl', variant: REV,
@@ -123,8 +117,8 @@ module.exports = [
   {
     id: 'Triceps_Pushdown_-_Rope_Attachment', name: 'Triceps pushdown (rope)', short: 'Rope pushdown', variant: 'Pushdown',
     credit: { triceps: 1 }, lo: 10, hi: 15, rest: 90, level: 'beginner',
-    cues: ['Rope on a high pulley, overhand grip, one step back, core braced.', 'Upper arms vertical and tucked at your sides.', 'Push down until your arms are fully straight, spreading the rope ends slightly at the bottom.', 'Let it rise under control.'],
-    safety: 'Only the elbows move. Too much weight leads to body swing and sore elbows.', ref: SL(['Tricep pushdown with rope', 'tricep-pushdown-with-rope']),
+    cues: ['Rope on a high pulley, overhand grip, one step back, core braced.', 'Upper arms vertical and tucked at your sides.', 'Push down until your arms are fully extended.', 'Let it rise under control.'],
+    safety: 'Only the elbows move; avoid momentum. Heavy weight with low reps feels uncomfortable in the elbows for many people.', ref: SL(['Tricep pushdown with rope', 'tricep-pushdown-with-rope']),
   },
   {
     id: 'Triceps_Pushdown_-_V-Bar_Attachment', name: 'Triceps pushdown (V-bar)', short: 'V-bar pushdown', variant: 'Pushdown',
@@ -135,8 +129,8 @@ module.exports = [
   {
     id: 'EZ-Bar_Skullcrusher', name: 'EZ-bar lying triceps extension', short: 'Lying extension', variant: 'Lying extension',
     credit: { triceps: 1 }, lo: 10, hi: 15, rest: 90, level: 'beginner',
-    cues: ['Lie on a bench with your head near the end. Hold the EZ bar over your chest with straight arms, shoulder-width grip.', 'Bend only your elbows and lower the bar behind your head (not to your forehead).', 'Keep the elbows the same width apart and pointing up.', 'Extend back to straight arms.'],
-    safety: EXT + ' Lowering behind the head is safer than to the forehead.', ref: SL(['Barbell lying triceps extension', 'barbell-lying-triceps-extension']),
+    cues: ['Lie on a bench with your head near the end. Hold the EZ bar over your chest with straight arms, shoulder-width grip.', 'Bend only your elbows and lower the bar behind your head (not to your forehead).', 'Keep the elbows the same width apart throughout.', 'Extend back to straight arms.'],
+    safety: EXT + ' Lowering behind the head (rather than to the forehead) gives a longer range of motion.', ref: SL(['Barbell lying triceps extension', 'barbell-lying-triceps-extension']),
   },
   {
     id: 'Lying_Dumbbell_Tricep_Extension', name: 'Lying dumbbell triceps extension', short: 'Lying DB extension', variant: 'Lying extension', swap: true,
@@ -165,21 +159,14 @@ module.exports = [
   {
     id: 'Close-Grip_Barbell_Bench_Press', name: 'Close-grip bench press', short: 'Close-grip bench', variant: 'Close-grip press', swap: true,
     credit: { triceps: 1, chest: 0.5, fdelt: 0.5 }, lo: 6, hi: 10, rest: 150, level: 'beginner',
-    cues: ['Set up as for a bench press: shoulder blades back and down, feet flat.', 'Grip about shoulder-width (hands over your shoulders), not narrower.', 'Lower under control to the lower chest, elbows closer to your sides than in a normal bench.', 'Press back up to straight arms.'],
+    cues: ['Lie on the bench, pull your shoulder blades together and down, feet planted.', 'Grip narrower than a regular bench press, hands about directly above your shoulders.', 'Lower with control until the bar touches your chest around where the ribs end.', 'Press back up to the start.'],
     safety: 'Set the safety arms or use a spotter. Expect to use less weight than your regular bench.', ref: SL(['Close-grip bench press', 'close-grip-bench-press']),
   },
   {
     id: 'Push-Ups_-_Close_Triceps_Position', name: 'Close-grip push-up', short: 'Close push-up', variant: 'Close-grip press',
     credit: { triceps: 1, chest: 0.5, fdelt: 0.5 }, lo: 8, hi: 20, rest: 90, level: 'beginner',
-    cues: ['Push-up position with hands about shoulder-width or a little closer.', 'Body in a straight line, abs lightly braced.', 'Lower as far as you can with your elbows close to your sides.', 'Push back up to straight arms.'],
+    cues: ['Push-up position with your hands shoulder-width apart.', 'Body in a straight line, abs lightly braced.', 'Lower as far as you can with your elbows close to your sides.', 'Push back up to straight arms.'],
     safety: 'Too hard? Put your hands on a bench.', ref: SL(['Close-grip push-up', 'close-grip-push-up']),
-  },
-  {
-    id: 'Dips_-_Triceps_Version', name: 'Triceps dip', short: 'Triceps dip', variant: 'Dip', swap: true,
-    credit: { triceps: 1, chest: 0.5, fdelt: 0.5 }, lo: 6, hi: 12, rest: 150, level: 'intermediate',
-    cues: ['Lift yourself to straight arms on the dip bars, body upright, shoulders down.', 'Lower with control, elbows traveling straight back, until your shoulders are just below your elbows or as deep as is comfortable.', 'Push back up to straight arms. Staying upright keeps the focus on the triceps.'],
-    safety: 'Dips load the shoulders and sternum: build volume gradually, don\'t shrug, and stop if your shoulders hurt. Use the assisted-dip machine or a band if needed.',
-    ref: SL(['Bar dip', 'bar-dip']),
   },
   {
     id: 'Tate_Press', name: 'Tate press', short: 'Tate press', variant: 'Lying extension', swap: true,

@@ -1,7 +1,7 @@
 // Hip hinges and lower back. Reviewed against StrengthLog exercise pages (linked per entry) and the database photos.
 const SL = s => ({ title: 'StrengthLog: ' + s[0], url: 'https://www.strengthlog.com/' + s[1] + '/' });
 const RDL = { hams: 1, glutes: 1, adductors: 0.5, lowback: 0.5 };
-const BACK = 'Keep your back flat (neutral), not rounded. If it rounds, use less weight or a shorter range. Lower-back aches beyond normal muscle soreness mean too much, too soon: cut the volume and check your form.';
+const BACK = 'Keep your back straight (neutral), never rounded; if it rounds, lower the weight. Apart from normal muscle soreness this shouldn\'t hurt your back: aches mean too much, too soon, so cut the volume and check your form.';
 module.exports = [
   {
     id: 'Barbell_Deadlift', name: 'Deadlift', short: 'Deadlift', variant: 'Deadlift',
@@ -9,7 +9,7 @@ module.exports = [
     cues: [
       'Stand with the bar over the middle of your feet, hands about shoulder-width, arms straight like ropes.',
       'Breathe in, brace, chest up, and take the slack out of the bar before it leaves the floor.',
-      'Push the floor away: hips and knees extend together, bar dragging close up your legs, until you stand tall.',
+      'Push the floor away, extending your knees and hips, and pull the bar close up your legs until you stand tall with hips and knees locked out.',
       'Lower by pushing your hips back first, then bend your knees once the bar passes them. Reset your breath each rep.',
     ],
     safety: BACK + ' Wear flat, firm shoes. Don\'t let your hips shoot up before the bar moves.',
@@ -31,7 +31,7 @@ module.exports = [
     id: 'Hyperextensions_Back_Extensions', name: 'Back extension (45°)', short: 'Back extension', variant: 'Back extension',
     credit: { lowback: 1, glutes: 1, hams: 0.5 }, lo: 10, hi: 15, rest: 90, step: 5, level: 'beginner',
     cues: [
-      'Set the pad so its top edge sits just below your hip bones, feet shoulder-width on the platform.',
+      'Set the top pad against the top of your thighs, feet shoulder-width on the platform.',
       'Cross your arms on your chest (or hold a plate there for more load).',
       'Lower your upper body slowly over the pad.',
       'Raise until your body is in a straight line, squeeze your glutes, pause, and lower slowly. Don\'t arch past straight.',
@@ -44,8 +44,8 @@ module.exports = [
     credit: RDL, lo: 6, hi: 10, rest: 150, step: 5, level: 'intermediate',
     cues: [
       'Start standing with the bar (lift it from the floor or a rack), hands just outside your legs.',
-      'Brace, then push your hips back with knees slightly bent; slide the bar down the front of your thighs.',
-      'Go as low as you can with a flat back, usually just below the knees. You should feel a strong hamstring stretch.',
+      'Brace, then hinge at the hips with your knees almost straight (a slight bend), sliding the bar down the front of your thighs.',
+      'Lean forward as far as you can without rounding your back. The bar doesn\'t have to touch the floor.',
       'Drive your hips forward to stand back up.',
     ],
     safety: BACK + ' Straps are fine if your grip gives out first.',
@@ -56,7 +56,7 @@ module.exports = [
     credit: RDL, lo: 6, hi: 10, rest: 150, step: 5, level: 'intermediate',
     cues: [
       'Feet shoulder-width or narrower, overhand grip, knees only slightly bent and staying that way.',
-      'Hinge at the hips, lowering the bar close to your legs, back flat.',
+      'Hinge at the hips, lowering the bar close to your legs, back straight.',
       'Go down until you feel a strong hamstring stretch (the bar can touch the floor between reps if you can keep your back flat).',
       'Stand back up by driving your hips forward.',
     ],
@@ -113,7 +113,7 @@ module.exports = [
   },
   {
     id: 'Trap_Bar_Deadlift', name: 'Trap bar deadlift', short: 'Trap bar deadlift', variant: 'Deadlift',
-    credit: { glutes: 1, quads: 0.5, lowback: 0.5, hams: 0.5, adductors: 0.5 }, lo: 5, hi: 8, rest: 180, step: 10, level: 'beginner',
+    credit: { glutes: 1, quads: 0.5, lowback: 0.5, adductors: 0.5 }, lo: 5, hi: 8, rest: 180, step: 10, level: 'beginner',
     cues: [
       'Stand inside the bar with the handles in line with the middle of your feet.',
       'Breathe in, bend down and grip the handles; chest up, back flat.',
@@ -129,10 +129,10 @@ module.exports = [
     cues: [
       'Lie face down on the machine (or a high bench) with your hips at the edge, legs hanging, hands holding the handles.',
       'Legs straight and together, core braced, back neutral.',
-      'Raise your legs until they\'re in line with your body, squeeze your glutes briefly.',
+      'Raise your legs until they\'re in line with your body or slightly above; squeeze your glutes and hold a moment.',
       'Lower slowly under control. No swinging.',
     ],
-    safety: 'Don\'t swing the legs up past body line; controlled reps keep the load on the glutes rather than the spine.',
+    safety: 'Slow and controlled; don\'t swing your legs up or down.',
     ref: SL(['Reverse hyperextension', 'reverse-hyperextension']),
   },
 ];
