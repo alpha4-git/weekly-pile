@@ -189,4 +189,16 @@ module.exports = [
     safety: 'Raise the bar to make it easier; put your feet on a bench to make it harder. Check the bar is seated securely in the rack.',
     ref: SL(['Inverted row', 'inverted-row']),
   },
+  {
+    id: 'Inverted_Row_with_Straps', name: 'Ring or strap row', short: 'Ring row', variant: ROW,
+    credit: PULL, lo: 8, hi: 15, rest: 90, step: 5, level: 'beginner',
+    cues: ['Set the rings (or suspension straps) to the height you want and grip them, facing the anchor.', 'Lean back on straight arms and walk your feet forward until your body is at an angle, straight from head to heels.', 'Pull your chest toward the rings by driving your elbows back, core tight.', 'Lower yourself slowly back to the start.'],
+    safety: 'The more upright you stand, the easier it is.', ref: SL(['Ring row', 'ring-row']),
+  },
+  {
+    id: 'One-Arm_Kettlebell_Row', name: 'One-arm kettlebell row', short: '1-arm KB row', variant: ROW, perSide: true,
+    credit: PULL, lo: 8, hi: 12, rest: 90, step: 5, level: 'beginner',
+    cues: ['Stand with a kettlebell in front of your feet, feet about hip-width.', 'Hinge forward at the hips with a neutral spine and brace your core; grab the kettlebell.', 'Pull it toward you as far as you can, elbow close to your side, shoulder blade pulled back.', 'Lower with control. Finish the reps, then switch sides.'],
+    safety: 'No swinging with your upper body. One set = both arms.', ref: SL(['Kettlebell row', 'kettlebell-row']),
+  },
 ];

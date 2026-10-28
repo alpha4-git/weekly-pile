@@ -174,4 +174,24 @@ module.exports = [
     cues: ['Lie on a flat bench with dumbbells held straight up over your chest, palms facing your feet.', 'Bend your elbows out to the sides and lower the dumbbells until they nearly touch your chest.', 'Extend your elbows to press them back up.'],
     safety: 'Light dumbbells and slow reps; the flared-elbow path is unusual, so stop if the elbows or shoulders complain.', ref: SL(['Tate press', 'tate-press']),
   },
+  {
+    id: 'Seated_Dumbbell_Curl', name: 'Seated dumbbell curl', short: 'Seated DB curl', variant: STD,
+    credit: { biceps: 1 }, lo: 8, hi: 12, rest: 90, level: 'beginner',
+    cues: ['Sit on the end of a flat bench, a dumbbell in each hand at arm\'s length, palms facing forward, elbows close to your body.', 'Curl the dumbbells up with control by bending your elbows.', 'Lower them back to the start.'],
+    safety: 'The reference describes the standing curl; seated, the arms move the same way. ' + 'Keep your elbows from drifting forward or back, and keep your wrists straight. If you start to swing, use less weight.',
+    ref: SL(['Dumbbell curl', 'dumbbell-curl']),
+  },
+  {
+    id: 'Two-Arm_Dumbbell_Preacher_Curl', name: 'Dumbbell preacher curl (two arms)', short: 'DB preacher curl', variant: FRONT,
+    credit: { biceps: 1 }, lo: 8, hi: 12, rest: 90, level: 'beginner',
+    cues: ['Use a preacher bench (or a bench backrest tilted back slightly) and rest your upper arms on the pad, a dumbbell in each hand.', 'Lower the dumbbells as far as you can with control.', 'Curl them back up to the start.'],
+    safety: 'If full extension feels uncomfortable at the bottom, reverse a little earlier.',
+    ref: SL(['Dumbbell preacher curl', 'dumbbell-preacher-curl']),
+  },
+  {
+    id: 'Standing_One-Arm_Dumbbell_Triceps_Extension', name: 'One-arm overhead dumbbell extension', short: '1-arm overhead ext', variant: 'Overhead · long head', perSide: true,
+    credit: { triceps: 1 }, lo: 10, hi: 15, rest: 60, level: 'beginner',
+    cues: ['Stand and press one dumbbell to a straight arm over your head.', 'Keeping your upper arm still and vertical, lower the dumbbell behind your head.', 'Extend your arm again. Finish the reps, then switch arms.'],
+    safety: 'One set = both arms.', ref: SL(['Dumbbell standing triceps extension', 'dumbbell-standing-triceps-extension']),
+  },
 ];

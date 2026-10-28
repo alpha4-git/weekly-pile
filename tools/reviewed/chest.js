@@ -237,4 +237,11 @@ module.exports = [
     safety: 'Your upper arms stop against the floor, so the range is shorter than a bench press.',
     ref: SL(['Dumbbell floor press', 'dumbbell-floor-press']),
   },
+  {
+    id: 'Ring_Dips', name: 'Ring dip', short: 'Ring dip', variant: 'Dip', swap: true,
+    credit: PRESS, lo: 5, hi: 10, rest: 150, step: 5, level: 'expert',
+    cues: ['Grip the rings about shoulder-width apart and jump up to straight arms.', 'Lower yourself with control until your shoulders are below your elbows, or as deep as you comfortably can.', 'Push back up to the start.'],
+    safety: 'Dips can be stressful on the shoulders and sternum if you\'re not used to them: build volume very gradually. A partner lifting your legs or a dip machine makes it easier; a belt with weight, harder.',
+    ref: SL(['Ring dip', 'ring-dip']),
+  },
 ];

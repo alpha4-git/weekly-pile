@@ -223,4 +223,11 @@ module.exports = [
     safety: 'Use a box low enough that your knee isn\'t above your hip when you start. Make sure it can\'t slide. One set = both legs.',
     ref: SL(['Step up', 'step-up']),
   },
+  {
+    id: 'Zercher_Squats', name: 'Zercher squat', short: 'Zercher squat', variant: FRONT,
+    credit: BSQ, lo: 6, hi: 12, rest: 150, level: 'intermediate',
+    cues: ['Set the bar in a rack at about elbow height. Rest it in the crooks of your elbows, elbows close together.', 'Back out of the rack and brace your core.', 'Squat down as in a regular squat, as deep as you can with your back straight, pulling the bar into your body.', 'Stand back up through your heels.'],
+    safety: 'It\'s rough on the elbow crooks at first: start light and wrap a towel around the bar if it hurts. Don\'t round your back. Set the safety arms.',
+    ref: SL(['Zercher squat', 'zercher-squat']),
+  },
 ];

@@ -135,4 +135,11 @@ module.exports = [
     safety: 'Slow and controlled; don\'t swing your legs up or down.',
     ref: SL(['Reverse hyperextension', 'reverse-hyperextension']),
   },
+  {
+    id: 'Deficit_Deadlift', name: 'Deficit deadlift', short: 'Deficit deadlift', variant: 'Deadlift',
+    credit: { glutes: 1, lowback: 1, hams: 0.5, quads: 0.5, adductors: 0.5 }, lo: 4, hi: 8, rest: 180, level: 'intermediate',
+    cues: ['Stand on a low platform or a weight plate, the bar over the middle of your feet.', 'Breathe in, lean forward and grip the bar.', 'Hold your breath, brace, and pull the bar close to your body with a straight back until you stand straight.', 'Lower the bar to the floor with control; breathe and repeat.'],
+    safety: BACK + ' The deficit makes the lift harder and works the quads more: use less weight than your normal deadlift.',
+    ref: SL(['Deficit deadlift', 'deficit-deadlift']),
+  },
 ];

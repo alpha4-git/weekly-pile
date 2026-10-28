@@ -114,4 +114,16 @@ module.exports = [
     cues: ['Put a band around your ankles.', 'Bend your knees slightly and hinge forward a little at the hips.', 'Walk sideways, so each step brings your leg out against the band. Then walk back the other way.', 'Count steps per leg.'],
     safety: 'Pick a band that\'s neither too easy nor too hard to stretch.', ref: SL(['Abductor exercises', 'abductor-exercises']),
   },
+  {
+    id: 'Natural_Glute_Ham_Raise', name: 'Nordic hamstring curl (lowering)', short: 'Nordic curl', variant: 'Nordic', swap: false,
+    credit: { hams: 1 }, lo: 3, hi: 6, rest: 120, level: 'intermediate',
+    cues: ['Kneel with your hips straight and your feet wedged under something that can\'t move.', 'Lean forward by straightening your knees, without pushing your hips back.', 'Fight the fall with your hamstrings for as long as you can (aim for about 2 seconds).', 'When your chest reaches the floor, push yourself back up with your arms.'],
+    safety: 'Only the lowering is the exercise; catch yourself with your hands at the bottom.', ref: SL(['Nordic hamstring eccentric', 'nordic-hamstring-eccentric']),
+  },
+  {
+    id: 'Barbell_Seated_Calf_Raise', name: 'Barbell seated calf raise', short: 'BB seated calf', variant: 'Bent knee · soleus',
+    credit: { calves: 1 }, lo: 12, hi: 20, rest: 60, level: 'beginner',
+    cues: ['Sit on a bench, feet hip-width, with a barbell across your thighs just above your knees.', 'Put a plate or block under the balls of your feet for a longer range.', 'Press the weight up by lifting your heels.', 'Lower with control back to the start.'],
+    safety: CALF, ref: SL(['Barbell seated calf raise', 'barbell-seated-calf-raise']),
+  },
 ];

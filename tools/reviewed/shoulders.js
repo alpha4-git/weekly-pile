@@ -210,4 +210,24 @@ module.exports = [
     safety: 'Start light: the point is feeling the rear delts work, not moving the most weight.',
     ref: SL(['Cable rear delt row', 'cable-rear-delt-row']),
   },
+  {
+    id: 'Seated_Side_Lateral_Raise', name: 'Seated dumbbell lateral raise', short: 'Seated lateral raise', variant: 'Dumbbell raise',
+    credit: { sdelt: 1 }, lo: 10, hi: 15, rest: 90, level: 'beginner',
+    cues: ['Sit on the end of a flat bench, feet flat, dumbbells hanging at your sides on almost straight arms.', 'With control, lift the dumbbells out to your sides until your upper arms are horizontal; no higher.', 'Lower them with control. Keep your elbows slightly bent throughout.'],
+    safety: LIGHT + ' Don\'t arch your back or roll your shoulders forward. The reference describes it standing; seated, the arms move the same way.',
+    ref: SL(['Dumbbell lateral raise', 'dumbbell-lateral-raise']),
+  },
+  {
+    id: 'Standing_Dumbbell_Press', name: 'Standing dumbbell shoulder press', short: 'Standing DB press', variant: 'Overhead press',
+    credit: OHP, lo: 8, hi: 12, rest: 120, level: 'beginner',
+    cues: ['Stand with a dumbbell in each hand at your shoulders.', 'Breathe in and lightly brace your core.', 'Press the dumbbells up to straight arms.', 'Lower them with control back to your shoulders.'],
+    safety: 'No leg drive or leaning back. Pressing one arm at a time works the obliques more.', ref: SL(['Dumbbell shoulder press', 'dumbbell-shoulder-press']),
+  },
+  {
+    id: 'Seated_Bent-Over_Rear_Delt_Raise', name: 'Seated bent-over reverse fly', short: 'Seated rear fly', variant: 'Rear fly',
+    credit: { rdelt: 1 }, lo: 12, hi: 20, rest: 60, level: 'beginner',
+    cues: ['Sit on the end of a bench and lean forward with a straight back, dumbbells hanging toward the floor.', 'With your elbows slightly bent and fixed, raise the dumbbells out to your sides until your arms are about level with your body.', 'Lower them back slowly.'],
+    safety: 'Use a light weight and no swinging; don\'t shrug. The reference describes it standing bent over; seated, the arms move the same way.',
+    ref: SL(['Reverse dumbbell flyes', 'reverse-dumbbell-flyes']),
+  },
 ];
