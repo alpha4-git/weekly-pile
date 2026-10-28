@@ -207,4 +207,38 @@ module.exports = [
     cues: ['Stand with your feet about hip-width, two kettlebells in front of your feet.', 'Hinge forward at the hips with a neutral spine, brace your core and grab the kettlebells.', 'Pull them toward you as far as you can, elbows close to your sides, shoulder blades pulled back.', 'Lower with control and start the next rep before they touch the floor.'],
     safety: 'No swinging with your upper body; your lower back holds the bent-over position.', ref: SL(['Kettlebell row', 'kettlebell-row']),
   },
+  {
+    id: 'Lying_Cambered_Barbell_Row', name: 'Seal row (cambered bar)', short: 'Seal row', variant: ROW,
+    credit: PULL, lo: 8, hi: 12, rest: 120, step: 5, level: 'beginner',
+    cues: ['Lie on your stomach on a bench with the bar on the floor below you.', 'Grip it overhand, slightly wider than shoulder-width.', 'Breathe in and pull the bar as high as you can, ideally to the underside of the bench.', 'Lower it with control.'],
+    safety: 'The bench supports your chest, so your lower back rests. The photos use a cambered bar, which lets it travel higher on a low bench.',
+    ref: SL(['Seal row', 'seal-row']),
+  },
+  {
+    id: 'Smith_Machine_Bent_Over_Row', name: 'Smith machine bent-over row', short: 'Smith row', variant: ROW,
+    credit: { back: 1, biceps: 0.5, rdelt: 0.5, lowback: 0.5 }, lo: 8, hi: 12, rest: 120, step: 5, level: 'beginner',
+    cues: ['Set the bar just below knee height. Feet about shoulder-width, grip overhand slightly wider than your shoulders.', 'Push your hips back and lean forward, back neither rounded nor arched, arms straight.', 'Unhook the bar and pull it to your lower chest or upper abs, shoulder blades together.', 'Lower with control.'],
+    safety: 'Your lower back holds the position the whole set. The reference covers the free-barbell row; the rails only guide the bar.',
+    ref: SL(['Barbell row', 'barbell-row']),
+  },
+  {
+    id: 'Bent_Over_Two-Dumbbell_Row', name: 'Bent-over dumbbell row', short: 'Bent-over DB row', variant: ROW,
+    credit: PULL, lo: 8, hi: 12, rest: 120, step: 5, level: 'beginner',
+    cues: ['Stand with your feet about hip-width, a dumbbell in each hand.', 'Hinge forward at the hips with a neutral spine and brace your core; let the dumbbells hang from straight arms.', 'Pull them toward you as far as you can, elbows close to your sides, shoulder blades pulled back.', 'Lower with control.'],
+    safety: 'No swinging with your upper body. The reference uses kettlebells; dumbbells hang from your hands the same way.',
+    ref: SL(['Kettlebell row', 'kettlebell-row']),
+  },
+  {
+    id: 'Rope_Straight-Arm_Pulldown', name: 'Rope straight-arm pulldown', short: 'Rope pulldown', variant: 'Straight-arm · lats only',
+    credit: { back: 1, rdelt: 0.5 }, lo: 10, hi: 15, rest: 90, step: 5, level: 'beginner',
+    cues: ['Attach a rope to the high pulley and grip the ends, palms facing each other.', 'Stable stance, knees slightly bent, torso leaning slightly forward; core braced, a slight bend in the elbows.', 'Pull the rope down by moving your arms along your sides until your hands reach your hips; don\'t bend the elbows more.', 'Return under control.'],
+    safety: 'Keep the shoulders down; the elbow angle stays the same throughout.', ref: SL(['Rope lat pulldown', 'rope-lat-pulldown']),
+  },
+  {
+    id: 'Kneeling_Single-Arm_High_Pulley_Row', name: 'Kneeling one-arm pulldown', short: 'Kneeling 1-arm pulldown', variant: V, perSide: true,
+    credit: PULL, lo: 10, hi: 15, rest: 90, step: 5, level: 'beginner',
+    cues: ['Attach a single handle to a high pulley and kneel facing it, arm straight up holding the handle.', 'Chest up, eyes slightly up.', 'Pull the handle down toward your side.', 'Return slowly until your arm is straight again. Finish the reps, then switch arms.'],
+    safety: 'The reference does this seated with thighs under a pad; kneeling, the arm moves the same way. Don\'t twist to finish. One set = both arms.',
+    ref: SL(['One-handed lat pulldown', 'one-handed-lat-pulldown']),
+  },
 ];

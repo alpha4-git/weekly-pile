@@ -49,3 +49,13 @@ Database exercises that were reviewed but not added, with the reason. Database n
 - Reverse Band Bench Press — bands hung from the top of the rack; StrengthLog's banded bench loops the band under the bench instead.
 - Smith Machine Decline Press — duplicate of the decline Smith press.
 - Dip Machine — no reference page for the seated dip machine.
+- Bent Over Two-Arm Long Bar Row — near-duplicate of the T-bar row.
+- Bent Over One-Arm Long Bar Row — no reference page.
+- Incline Bench Pull — its instructions say dumbbells; the photos show a barbell.
+- Lying T-Bar Row — no reference page for the chest-supported T-bar machine.
+- Bodyweight Mid Row — no reference page.
+- Full Range-Of-Motion Lat Pulldown — no reference page for the crossed-cable pulldown.
+- Kneeling High Pulley Row — no reference page (bent-arm rope pull to the face).
+- Elevated Cable Rows — near-duplicate of the seated cable row.
+- Low Pulley Row To Neck — no reference page.
+- Shotgun Row — no reference page.
