@@ -18,8 +18,8 @@ Use **Data → Export everything** now and then for a backup zip.
   for that muscle (with its figure or photos and the logger) and up to three other ways to work it, each with a different
   emphasis. Arrows and swipes walk the top 10 muscles; the middle button lists them. The order re-sorts after every set,
   and the page you're on stays put. An exercise you pick or log for a muscle stays its choice for the rest of the day.
-- **Header**: logo, title, and the counter. **Counter**: sets needed today, as DY / WK / MO. DY brings today up to the daily share of the weekly set target (the Plan
-  estimate ÷ 7), WK brings the last 7 days up to the target, MO brings the 30-day average up to it (tap it for details).
+- **Header**: logo, title, and the counter. **Counter**: sets needed today, as DY / WK / MO. DY brings the last N days (Plan → DY window, 1–5 days, today
+  included) up to N days' share of the weekly set target (the Plan estimate ÷ 7 × N), WK brings the last 7 days up to the target, MO brings the 30-day average up to it (tap it for details).
   The bar under the header is the last 7 days against the weekly target.
 - **Log**: every set, editable.
 - **Goals**: *Priorities* (the muscles furthest below target), every muscle's sets per week and focused share, and rolling
@@ -77,7 +77,7 @@ Rebuild: `node tools/import-fedb.js <free-exercise-db>/dist/exercises.json <comm
 
 ### Export zip
 `plan.json`, `plans/`, `exercises/`, `logs/` (one JSON file per set: `id, ex, w, unit, r, t`), and `settings.json`
-(target scale, your targets and focus minimums, pool filters, hidden exercises). The same zip can be imported to restore everything.
+(target scale, DY window, your targets and focus minimums, pool filters, hidden exercises). The same zip can be imported to restore everything.
 
 ## Exercise review
 Only reviewed exercises are suggested. For each database exercise in the library:

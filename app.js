@@ -1,7 +1,7 @@
 /* Weekly Pile core. All data lives in this browser's IndexedDB on the phone:
    exercises (library add-ons), plans (ordered set lists), logs (one record per set), meta (settings). */
 'use strict';
-const APP_VERSION = '1.3.4';
+const APP_VERSION = '1.3.5';
 
 // ---------------------------------------------------------------- utilities
 const $ = s => document.querySelector(s);
@@ -195,8 +195,9 @@ const S = {
   ex: new Map(), plans: new Map(), plan: null, logs: [],
   ramp: 1, view: 'workout', cur: null, inputs: {}, editing: null, armed: null, rest: {}, goalSel: 'all', goalRange: 90,
   targets: {}, focus: {}, pool: null, hidden: new Set(), libVersion: 0, est: null, rank: null, libQ: '', openMus: new Set(),
-  slot: null, picks: {},
+  slot: null, picks: {}, dyDays: 1,
 };
+const DY_OPTS = [1, 2, 3, 4, 5];   // days in the DY window of the header counter
 function validPool(p) {
   const d = { levels: { beginner: true, intermediate: true, expert: false }, equip: {} };
   if (!p || typeof p !== 'object') return d;
@@ -223,6 +224,7 @@ async function loadAll() {
   S.hidden = new Set(validHidden(m.hidden));
   S.libVersion = Number.isInteger(m.libVersion) ? m.libVersion : 0;
   S.sound = m.sound !== false;
+  S.dyDays = DY_OPTS.includes(m.dyDays) ? m.dyDays : 1;
   S.picks = m.picks && m.picks.day === dayKey(new Date()) && typeof m.picks.p === 'object' ? m.picks.p : {};   // exercise choices last for the day
 }
 function setPick(m, id) { S.picks[m] = id; setMeta('picks', { day: dayKey(new Date()), p: S.picks }); }
@@ -233,7 +235,7 @@ const setMeta = (k, v) => DB.put('meta', { k, v }).catch(e => console.warn(e));
 const daysBack = n => { const d = new Date(); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() - (n - 1)); return d.getTime(); };
 const countSince = t => { let n = 0; for (let i = S.logs.length - 1; i >= 0 && S.logs[i].t >= t; i--) n++; return n; };
 // Header counter: sets in the last 7 days against the weekly set estimate, and how many sets today would bring
-//   d: today's sets up to the daily share of the weekly target (target ÷ 7)
+//   d: the last N days (N = S.dyDays, today included) up to N days' share of the weekly target (target ÷ 7 × N)
 //   x: the last 7 days up to the weekly target
 //   y: the 30-day average (the same window as the Goals 30-day line, so shorter until you have a month of history) up to it
 function setTotals() {
@@ -242,8 +244,8 @@ function setTotals() {
   const first = S.logs.length ? new Date(S.logs[0].t).setHours(0, 0, 0, 0) : Date.now();
   const span = Math.max(7, Math.min(30, Math.round((daysBack(1) - first) / DAY) + 1));
   const sumSpan = countSince(daysBack(span));
-  const today = countSince(startOfToday());
-  return { W, sum7, span, sumSpan, today, d: Math.max(0, Math.ceil(W / 7 - today)),
+  const N = S.dyDays, sumN = countSince(daysBack(N));
+  return { W, sum7, span, sumSpan, N, sumN, d: Math.max(0, Math.ceil(W / 7 * N - sumN)),
     x: Math.max(0, Math.ceil(W - sum7)), y: Math.max(0, Math.ceil(W / 7 * span - sumSpan)) };
 }
 const startOfToday = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d.getTime(); };
@@ -401,7 +403,7 @@ function classify(entries) {
       case 'plan': got.plans.push(validPlan(o)); break;
       case 'log': got.logs.push(validLog(o)); break;
       case 'settings': got.settings = {
-        ramp: [0.5, 0.75, 1].includes(o.ramp) ? o.ramp : null, currentPlan: str(o.currentPlan, 60),
+        ramp: [0.5, 0.75, 1].includes(o.ramp) ? o.ramp : null, currentPlan: str(o.currentPlan, 60), dyDays: DY_OPTS.includes(o.dyDays) ? o.dyDays : null,
         targets: o.targets ? muscleMap(o.targets, 0, 400) : null, focus: o.focus ? muscleMap(o.focus, 0, 1) : null,
         pool: o.pool ? validPool(o.pool) : null, hidden: Array.isArray(o.hidden) ? validHidden(o.hidden) : null,
       }; break;
@@ -446,6 +448,7 @@ async function applyImport(got, { makeCurrent = true } = {}) {
   const st = got.settings;
   if (st) {
     if (st.ramp) { S.ramp = st.ramp; await setMeta('ramp', S.ramp); }
+    if (st.dyDays) { S.dyDays = st.dyDays; await setMeta('dyDays', S.dyDays); }
     if (st.targets) { S.targets = st.targets; await setMeta('targets', S.targets); }
     if (st.focus) { S.focus = st.focus; await setMeta('focus', S.focus); }
     if (st.pool) { S.pool = st.pool; await setMeta('pool', S.pool); }
@@ -510,7 +513,7 @@ function exportAll() {
     const d = new Date(l.t);
     files.push({ name: dir + `logs/${dayKey(d)}_${pad2(d.getHours())}${pad2(d.getMinutes())}${pad2(d.getSeconds())}_${l.ex}_${l.id}.json`, data: j(l) });
   }
-  files.push({ name: dir + 'settings.json', data: j({ type: 'settings', schema: 2, ramp: S.ramp, currentPlan: S.plan ? S.plan.id : '', targets: S.targets, focus: S.focus,
+  files.push({ name: dir + 'settings.json', data: j({ type: 'settings', schema: 2, ramp: S.ramp, dyDays: S.dyDays, currentPlan: S.plan ? S.plan.id : '', targets: S.targets, focus: S.focus,
     pool: S.pool, hidden: [...S.hidden], exported: new Date().toISOString(), app: APP_VERSION }) });
   download(zipStore(files), `weekly-pile-${stamp}.zip`);
   toast(`Exported ${S.logs.length} set${S.logs.length === 1 ? '' : 's'}, ${S.ex.size} exercises`);
@@ -1080,6 +1083,9 @@ function renderPlan() {
       <p class="muted">That's how many sets it takes to reach every target below, using the best exercises in your pool. Up next always suggests the one that closes the biggest gaps.</p>
       <div class="lhead" style="margin-top:8px"><span>Target scale <span class="muted sm">(week 1: 50%, week 2: 75%)</span></span>
       <div class="seg" role="group" aria-label="Target scale">${[0.5, 0.75, 1].map(r => `<button data-ramp="${r}" aria-pressed="${S.ramp === r}">${r * 100}%</button>`).join('')}</div></div>
+      <div class="lhead" style="margin-top:12px"><span>DY window <span class="muted sm">(days)</span></span>
+      <div class="seg" role="group" aria-label="Days in the DY window">${DY_OPTS.map(n => `<button data-dy="${n}" aria-pressed="${S.dyDays === n}">${n}</button>`).join('')}</div></div>
+      <p class="muted sm" style="margin-top:6px">The header's DY number counts the last ${S.dyDays === 1 ? 'day (today)' : `${S.dyDays} days, today included,`} against ${S.dyDays === 1 ? 'one day\'s' : `${S.dyDays} days'`} share of the weekly target, so a rest day carries over. Set it to how often you train: 2 for every other day, 3 for every third.</p>
     </div>
     <div class="card sec"><h3>Targets per muscle</h3>
       <p class="muted">Tap a muscle to change it. Targets are sets per month (weekly equivalent in brackets). <b>Focused ≥</b> is the minimum share of that muscle's sets that must come from exercises giving it a full set, like lateral raises for side delts, rather than half credit from presses.</p>
@@ -1202,7 +1208,8 @@ function wire() {
     if (!S.plan) return;
     const T = setTotals();
     const more = v => v ? `${v} more` : 'met', r1 = v => fmtW(Math.round(v * 10) / 10);
-    toast(`Sets needed today. DY: ${more(T.d)} (today ${T.today} of ${r1(T.W / 7)} a day). WK: ${more(T.x)} (last 7 days ${T.sum7} of ${T.W}). `
+    const dy = T.N === 1 ? `today ${T.sumN} of ${r1(T.W / 7)} a day` : `last ${T.N} days ${T.sumN} of ${r1(T.W / 7 * T.N)}`;
+    toast(`Sets needed today. DY: ${more(T.d)} (${dy}). WK: ${more(T.x)} (last 7 days ${T.sum7} of ${T.W}). `
       + `MO: ${more(T.y)} (${T.span}-day average ${r1(T.sumSpan / T.span * 7)} of ${T.W} a week).`, 8000);
   });
   $('#edClose').addEventListener('click', () => $('#editDlg').close());
@@ -1217,7 +1224,7 @@ function wire() {
     render();
   });
   document.addEventListener('click', async e => {
-    const a = e.target.closest('[data-a],[data-edit],[data-ramp],[data-range],[data-gsel],[data-grange],[data-open],[data-pick],[data-hide],[data-unhide],[data-lvl],[data-eq],[data-mus]');
+    const a = e.target.closest('[data-a],[data-edit],[data-ramp],[data-dy],[data-range],[data-gsel],[data-grange],[data-open],[data-pick],[data-hide],[data-unhide],[data-lvl],[data-eq],[data-mus]');
     if (!a || a.closest('dialog')) return;
     if (a.dataset.open) { openEx(a.dataset.open); return; }
     if (a.dataset.pick) { setPick(a.dataset.m, a.dataset.pick); S.slot = a.dataset.m; renderWorkout('in-r'); renderHeader(); window.scrollTo({ top: 0 }); return; }
@@ -1229,6 +1236,7 @@ function wire() {
     }
     if (a.dataset.edit) { const l = S.logs.find(x => x.id === a.dataset.edit); if (l) openEditor(l); return; }
     if (a.dataset.ramp) { S.ramp = +a.dataset.ramp; setMeta('ramp', S.ramp); changed(); render(); return; }
+    if (a.dataset.dy) { const n = +a.dataset.dy; if (DY_OPTS.includes(n)) { S.dyDays = n; setMeta('dyDays', n); render(); } return; }
     if (a.dataset.range) { S.logShowAll = a.dataset.range === 'all'; renderLog(); return; }
     if (a.dataset.gsel) {
       const fromTable = !!a.closest('.gtab');
