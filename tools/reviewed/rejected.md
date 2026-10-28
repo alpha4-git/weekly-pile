@@ -170,3 +170,44 @@ Database exercises that were reviewed but not added, with the reason. Database n
 - Kneeling Squat — no reference page.
 - Lying Machine Squat — no reference page for this machine.
 - Smith Machine Leg Press — lying under a Smith bar pushing it with the feet; no reference page.
+- Band Good Morning — band looped behind the neck; no reference page.
+- Band Good Morning (Pull Through) — band looped around the neck; no reference page.
+- Good Morning off Pins — near-duplicate of the good morning, started bent over from the pins; no reference page.
+- Hanging Bar Good Morning — bar hung from chains or straps; no reference page.
+- Seated Good Mornings — no reference page.
+- Stiff Leg Barbell Good Morning — near-duplicate of the good morning already in the library.
+- Cable Deadlifts — no reference page.
+- Leverage Deadlift — no reference page; the database instructions skip the lifting step.
+- One-Arm Side Deadlift — one-hand barbell suitcase lift; no reference page.
+- Floor Glute-Ham Raise — needs a partner to hold the feet; the library already has the glute-ham raise.
+- Hyperextensions With No Hyperextension Bench — needs a partner to hold the legs.
+- Weighted Ball Hyperextension — the second photo shows kneeling beside the ball, not the movement described.
+- Hip Extension with Bands — no reference page for the standing band version.
+- Platform Hamstring Slides — no reference page.
+- Seated Band Hamstring Curl — no reference page.
+- Decline Reverse Crunch — near-duplicate of the reverse crunch; the photos swing the legs well past vertical.
+- Cable Reverse Crunch — cable on the ankles; no reference page.
+- Cross-Body Crunch — near-duplicate of the bicycle and oblique crunches.
+- Elbow to Knee — near-duplicate of the oblique crunch.
+- Weighted Crunches — near-duplicate of the crunch.
+- Crunch - Hands Overhead — near-duplicate of the crunch.
+- Tuck Crunch — near-duplicate of the crunch.
+- Decline Crunch — no reference page for the decline-bench version.
+- Decline Oblique Crunch — no reference page.
+- 3/4 Sit-Up — near-duplicate of the sit-up.
+- Janda Sit-Up — no reference page.
+- Frog Sit-Ups — no reference page.
+- Press Sit-Up — combines a sit-up with a barbell press; no reference page.
+- Alternate Heel Touchers — no reference page.
+- Barbell Ab Rollout — from the feet, rolling the bar toward the feet with the hips up, unlike the reference roll-out; expert only.
+- Barbell Rollout from Bench — knees on a bench; no reference page.
+- Barbell Side Bend — bar on the back instead of a dumbbell in the hand changes how the load is held; no reference page.
+- Bent-Knee Hip Raise — duplicate of the reverse crunch.
+- Body-Up — near-duplicate of the bodyweight triceps extension already in the library.
+- Bosu Ball Cable Crunch With Side Bends — no reference page.
+- Bottoms Up — near-duplicate of the reverse crunch and lying leg raise.
+- Butt-Ups — no reference page.
+- Cable Russian Twists — cable twist lying on a ball; no reference page.
+- Cable Seated Crunch — near-duplicate of the cable crunch.
+- Crunch - Legs On Exercise Ball — near-duplicate of the crunch.
+- Flat Bench Leg Pull-In — near-duplicate of the reverse crunch and lying leg raise.

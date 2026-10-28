@@ -207,4 +207,32 @@ module.exports = [
     safety: 'Keep your back straight; if your lower back sags, roll out less far. The reference allows a barbell that rolls freely in place of the ab wheel.',
     ref: SL(['Kneeling ab wheel roll-out', 'kneeling-ab-wheel-roll-out']),
   },
+  {
+    id: 'Reverse_Crunch', name: 'Reverse crunch', short: 'Reverse crunch', variant: 'Leg raise',
+    credit: { abs: 1 }, lo: 10, hi: 20, rest: 60, level: 'beginner',
+    cues: ['Lie on your back, arms out to your sides, palms down.', 'Brace and lift your feet so your knees are directly above your hips, bent to 90°.', 'Slowly curl your hips off the mat, rolling your pelvis toward your ribs without changing the knee angle; pause when your spine can\'t roll further.', 'Roll back down slowly until your hips touch the mat with your knees back over your hips.'],
+    safety: 'Control the way down to protect your lower back, and don\'t let your knees drift past your hips or swing your legs for momentum.',
+    ref: { title: 'ACE: Reverse crunch', url: 'https://www.acefitness.org/resources/everyone/exercise-library/76/reverse-crunch/' },
+  },
+  {
+    id: 'Exercise_Ball_Crunch', name: 'Stability ball crunch', short: 'Ball crunch', variant: 'Crunch',
+    credit: { abs: 1 }, lo: 10, hi: 20, rest: 60, level: 'beginner',
+    cues: ['Sit on the ball and walk your feet out until your shoulders, back and tailbone rest on it; feet hip-width, knees at 90°.', 'Hands behind your head, elbows back; keep them there throughout.', 'Tuck your chin slightly and curl your ribs toward your hips until your upper back lifts off the ball; hold briefly.', 'Lower slowly back onto the ball. Your lower back and tailbone stay on the ball the whole time.'],
+    safety: 'Don\'t arch your lower back or pull on your head. The second photo leans further back than ACE\'s start position: stop with your back resting along the ball. Widen your feet if balance is hard.',
+    ref: { title: 'ACE: Stability ball sit-ups & crunches', url: 'https://www.acefitness.org/resources/everyone/exercise-library/68/stability-ball-sit-ups-crunches/' },
+  },
+  {
+    id: 'Exercise_Ball_Pull-In', name: 'Stability ball knee tuck', short: 'Ball knee tuck', variant: 'Leg raise',
+    credit: { abs: 1 }, lo: 8, hi: 15, rest: 60, level: 'expert',
+    cues: ['Lie face down over the ball, hands and feet on the floor. Walk your hands forward until your shins rest on the ball, hands under your shoulders, body in a straight line.', 'Brace and pull your knees toward your chest, rolling the ball forward until your knees are under your hips; hold briefly.', 'Push your legs back out to the straight-line start.'],
+    safety: 'Don\'t let your lower back sag or your hips hike up at the start. ACE rates it advanced: master the plank first.',
+    ref: { title: 'ACE: Stability ball knee tucks', url: 'https://www.acefitness.org/resources/everyone/exercise-library/60/stability-ball-knee-tucks/' },
+  },
+  {
+    id: 'Suspended_Reverse_Crunch', name: 'Suspended knee tuck', short: 'Strap knee tuck', variant: 'Leg raise',
+    credit: { abs: 1 }, lo: 8, hi: 15, rest: 60, level: 'expert',
+    cues: ['Set suspension straps with the foot cradles about a foot off the floor. Put both feet in them and get into a push-up position directly under the anchor, hands under your shoulders.', 'Brace, keep your feet together and your body straight.', 'Draw your knees toward your chest until they are under your hips, letting your hips rise and spine curl.', 'Slowly extend back to the push-up position.'],
+    safety: 'Don\'t let your lower back sag, and don\'t swing the straps. The second photo lifts the hips higher than the reference: stop with your knees under your hips. ACE rates it advanced.',
+    ref: { title: 'ACE: TRX suspended knee tucks', url: 'https://www.acefitness.org/resources/everyone/exercise-library/87/trx-reg-suspended-knee-tucks/' },
+  },
 ];
