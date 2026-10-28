@@ -306,4 +306,11 @@ module.exports = [
     safety: 'Set the stoppers just below your chest. Expect to use less weight than your regular bench. The reference covers the free-barbell version; the rails only guide the bar.',
     ref: [SL(['Close-grip bench press', 'close-grip-bench-press']), SL(['Smith machine bench press', 'smith-machine-bench-press'])],
   },
+  {
+    id: 'Suspended_Push-Up', name: 'Suspension-strap push-up', short: 'Strap push-up', variant: 'Push-up',
+    credit: PRESS, lo: 8, hi: 15, rest: 90, step: 5, level: 'expert',
+    cues: ['Hold a ring or strap handle in each hand and face away from the anchor, elbows at chest height, palms down, wrists straight.', 'Lean forward until the straps are tight (ACE uses a split stance; the photos keep the feet together), body straight from head to heels.', 'Brace and lower your chest toward your hands under control.', 'Press back up to straight arms, keeping your torso rigid.'],
+    safety: 'Don\'t let your lower back sag or your hips pike. Standing more upright makes it easier; moving further from the anchor makes it harder. ACE rates it advanced.',
+    ref: { title: 'ACE: TRX chest press', url: 'https://www.acefitness.org/resources/everyone/exercise-library/85/trx-reg-chest-press/' },
+  },
 ];

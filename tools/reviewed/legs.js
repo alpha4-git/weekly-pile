@@ -257,4 +257,11 @@ module.exports = [
     safety: KNEES + ' Always set the safety arms just below your lowest point. Needs good hip mobility; only go as wide as is comfortable.',
     ref: SL(['Sumo squat', 'sumo-squat']),
   },
+  {
+    id: 'Suspended_Split_Squat', name: 'Suspended lunge (rear foot in strap)', short: 'Strap split squat', variant: SINGLE, perSide: true,
+    credit: { quads: 1, glutes: 1, adductors: 0.5 }, lo: 8, hi: 12, rest: 90, level: 'intermediate',
+    cues: ['Set the strap\'s foot cradle (or a ring) about knee height. Face away from the anchor and loop one foot into it behind you.', 'Stand tall on the other leg, chest up.', 'Lower slowly, pushing your hips back with your weight over your front heel and letting the strapped leg move back, until your rear thigh and torso form a straight line.', 'Push up through your front heel to stand. Finish the reps, then switch legs.'],
+    safety: 'Keep your front knee in line with your toes and go only as low as you can control. One set = both legs.',
+    ref: { title: 'ACE: TRX suspended lunge', url: 'https://www.acefitness.org/resources/everyone/exercise-library/93/trx-reg-suspended-lunge/' },
+  },
 ];

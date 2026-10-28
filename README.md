@@ -80,23 +80,31 @@ Rebuild: `node tools/import-fedb.js <free-exercise-db>/dist/exercises.json <comm
 (target scale, DY window, your targets and focus minimums, pool filters, hidden exercises). The same zip can be imported to restore everything.
 
 ## Exercise review
-Only reviewed exercises are suggested. For every exercise in the library (the original 16 and the 154 from the database):
+Only reviewed exercises are suggested. Every database exercise the app used to import was reviewed by hand (October 2026):
+217 were kept and 283 were left out, each with its reason in [tools/reviewed/rejected.md](tools/reviewed/rejected.md).
+For every exercise in the library (the original 16 and the 217 from the database):
 - both photos were looked at (dropped if wrong or unclear; reordered when the second photo shows the starting position);
 - every cue, the safety note and the muscles were checked one by one against the linked reference page (October 2026).
   Anything the page contradicts was rewritten to match it. A few setup and safety details the page doesn't mention
   (safety arms, stoppers, "one set = both sides") were kept because they only make the exercise safer or match how the app counts.
-  Where the photos show a different version from the reference, the exercise was replaced or dropped;
+  Where the photos show a different version from the reference, the exercise was replaced or dropped; where a photo only
+  goes further than the reference (higher, deeper), the cues say so;
+- a variant that only changes posture, support or guidance (seated, chest- or head-supported, Smith-machine rails,
+  one arm or leg at a time) uses the main version's reference page, with a note saying so, when the working joints
+  move the same way. A variant that changes how the load is held, or needs a clean, a jump or a partner, was left out;
 - muscle credit is the app's volume-counting rule, not a copy of the page's "primary" list: 1 for the muscle the exercise
   directly trains, 0.5 for muscles it works indirectly (front delts and triceps on presses, biceps and rear delts on rows),
   the "fractional" counting used by Pelland et al. (2024). StrengthLog often lists those helpers as primary.
 
 Left out: explosive and Olympic-style lifts, joint-unfriendly positions (behind-the-neck presses, bench dips), partner-assisted moves,
-near-duplicates, the dumbbell kickback (StrengthLog calls it a poor choice), and versions whose photos don't match any reference
+near-duplicates, band and chain setups on barbell lifts, anything that needs a kettlebell clean, the dumbbell kickback
+(StrengthLog calls it a poor choice), exercises with no StrengthLog or ACE page, and versions whose photos don't match any reference
 (two-cable overhead curl, seated two-arm cable lateral raise, standing-on-band lateral raise, low-back-support dumbbell press,
 separate "triceps" and "chest" dips: StrengthLog describes one bar dip).
 
 ## Sources
 - Exercise photos: [free-exercise-db](https://github.com/yuhonas/free-exercise-db) (Unlicense / public domain), loaded from a fixed commit.
 - Technique and muscles worked: [StrengthLog exercise directory](https://www.strengthlog.com/exercise-directory/), one page per exercise;
-  the original 16 also use [ACE's exercise library](https://www.acefitness.org/resources/everyone/exercise-library/).
+  the original 16 and a few exercises StrengthLog doesn't cover (reverse crunch, stability-ball and suspension-strap moves)
+  use [ACE's exercise library](https://www.acefitness.org/resources/everyone/exercise-library/).
 - Set counting: Pelland et al., [The Resistance Training Dose-Response](https://sportrxiv.org/index.php/server/preprint/view/460) (SportRxiv preprint, 2024).

@@ -268,3 +268,20 @@ Database exercises that were reviewed but not added, with the reason. Database n
 - Standing Olympic Plate Hand Squeeze — near-duplicate of the plate pinch.
 - Isometric Neck Exercise - Front And Back — no reference page (StrengthLog's neck guide covers harness and lying versions only).
 - Isometric Neck Exercise - Sides — no reference page.
+- Lunge Pass Through — passing a kettlebell under the leg mid-lunge; no reference page.
+- One-Arm Overhead Kettlebell Squats — needs a kettlebell clean and press to get into position.
+- Power Partials — partial lateral raises; near-duplicate of the lateral raise, no reference page.
+- Reverse Triceps Bench Press — no reference page for the free-barbell version (StrengthLog's reverse-grip bench uses a Smith machine).
+- Smith Machine Pistol Squat — no reference page.
+- Squats - With Bands — band-only squat; no reference page.
+- Standing Palm-In One-Arm Dumbbell Press — near-duplicate of the one-arm dumbbell shoulder press.
+- Step-up with Knee Raise — near-duplicate of the step-up.
+- Straight Raises on Incline Bench — no reference page.
+- Svend Press — no reference page.
+- Upright Row - With Bands — no reference page; the photo raises the elbows above shoulder height, past the limit the library uses.
+- Weighted Sissy Squat — no reference page.
+- Wide-Grip Barbell Bench Press — near-duplicate of the bench press (grip width only).
+- Sumo Deadlift with Chains — band or chain setup on a barbell lift (powerlifting accommodating resistance); no StrengthLog or ACE page covers it, and the plain lift is already in the library.
+- Wide-Grip Decline Barbell Bench Press — near-duplicate of the decline bench press (grip width only).
+- Wide-Grip Decline Barbell Pullover — barbell lifted from the floor behind the head on a decline; no reference page.
+- Kettlebell Overhead Triceps Extension — the database has no photos for it, so the pictures can't be checked.
