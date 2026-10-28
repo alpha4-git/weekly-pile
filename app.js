@@ -1,7 +1,7 @@
 /* Weekly Pile core. All data lives in this browser's IndexedDB on the phone:
    exercises (library add-ons), plans (ordered set lists), logs (one record per set), meta (settings). */
 'use strict';
-const APP_VERSION = '1.3.5';
+const APP_VERSION = '1.3.6';
 
 // ---------------------------------------------------------------- utilities
 const $ = s => document.querySelector(s);
@@ -245,8 +245,9 @@ function setTotals() {
   const span = Math.max(7, Math.min(30, Math.round((daysBack(1) - first) / DAY) + 1));
   const sumSpan = countSince(daysBack(span));
   const N = S.dyDays, sumN = countSince(daysBack(N));
-  return { W, sum7, span, sumSpan, N, sumN, d: Math.max(0, Math.ceil(W / 7 * N - sumN)),
-    x: Math.max(0, Math.ceil(W - sum7)), y: Math.max(0, Math.ceil(W / 7 * span - sumSpan)) };
+  const goal = n => Math.ceil(W * n / 7 - 1e-9);   // whole sets; the epsilon keeps 58 × 7 ÷ 7 from rounding up to 59
+  const gN = goal(N), g7 = goal(7), gS = goal(span);
+  return { W, sum7, span, sumSpan, N, sumN, gN, g7, gS, d: Math.max(0, gN - sumN), x: Math.max(0, g7 - sum7), y: Math.max(0, gS - sumSpan) };
 }
 const startOfToday = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d.getTime(); };
 const countToday = exId => { const t0 = startOfToday(); let n = 0; for (let i = S.logs.length - 1; i >= 0 && S.logs[i].t >= t0; i--) n += S.logs[i].ex === exId; return n; };
@@ -752,6 +753,20 @@ function renderJump() {
 }
 
 // ---------------------------------------------------------------- rendering
+// Popup behind the header counter: each number as window · done · goal · need (goal rounded up, so need = goal − done)
+function renderNeed() {
+  const T = setTotals(), win = n => n === 1 ? 'Today' : `Last ${n} days`;
+  const rows = [['DY', win(T.N), T.sumN, T.gN, T.d], ['WK', 'Last 7 days', T.sum7, T.g7, T.x], ['MO', win(T.span), T.sumSpan, T.gS, T.y]].map(([k, w, done, goal, need]) => {
+    return `<tr><th scope="row">${k}</th><td>${esc(w)}</td><td class="num">${done}</td><td class="num">${goal}</td><td class="num nd${need ? '' : ' met'}">${need || '✓'}</td></tr>`;
+  }).join('');
+  $('#needBody').innerHTML = `
+    <table class="ntab"><thead><tr><th></th><th>Window</th><th>Done</th><th>Goal</th><th>Need</th></tr></thead><tbody>${rows}</tbody></table>
+    <ul class="nnotes muted">
+      <li>Weekly target: <b class="num">${T.W}</b> sets${S.ramp < 1 ? ` (${S.ramp * 100}% scale)` : ''}. Goal = ${T.W} ÷ 7 × days in the window, rounded up.</li>
+      <li>DY window: ${T.N} day${T.N === 1 ? '' : 's'} (set on the Plan page).</li>
+      ${T.span < 30 ? `<li>MO covers 30 days once you have a month of history (${T.span} days so far).</li>` : ''}
+    </ul>`;
+}
 function renderHeader() {
   const T = setTotals();
   const n = v => `<b class="nv${v ? '' : ' z'}">${v}</b>`, sl = '<i>/</i>';
@@ -1201,16 +1216,13 @@ function wire() {
   $('#prevBtn').addEventListener('click', () => go(-1));
   $('#nextBtn').addEventListener('click', () => go(+1));
   $('#jumpBtn').addEventListener('click', () => { renderJump(); $('#jumpDlg').showModal(); });
+  $('#needDlg').addEventListener('click', e => { if (e.target === e.currentTarget) e.currentTarget.close(); });   // tap outside closes
   $('#jumpList').addEventListener('click', e => { const b = e.target.closest('[data-jump]'); if (!b) return; e.preventDefault(); $('#jumpDlg').close(); showSlot(b.dataset.jump, null); });
   $('#updBtn').addEventListener('click', installUpdate);
   document.addEventListener('pointerdown', audioUnlock, { once: true, capture: true });   // so a rest that started before a reload can still beep
   $('#totBox').addEventListener('click', () => {
     if (!S.plan) return;
-    const T = setTotals();
-    const more = v => v ? `${v} more` : 'met', r1 = v => fmtW(Math.round(v * 10) / 10);
-    const dy = T.N === 1 ? `today ${T.sumN} of ${r1(T.W / 7)} a day` : `last ${T.N} days ${T.sumN} of ${r1(T.W / 7 * T.N)}`;
-    toast(`Sets needed today. DY: ${more(T.d)} (${dy}). WK: ${more(T.x)} (last 7 days ${T.sum7} of ${T.W}). `
-      + `MO: ${more(T.y)} (${T.span}-day average ${r1(T.sumSpan / T.span * 7)} of ${T.W} a week).`, 8000);
+    renderNeed(); $('#needDlg').showModal();
   });
   $('#edClose').addEventListener('click', () => $('#editDlg').close());
   $('#edCancel').addEventListener('click', () => $('#editDlg').close());
