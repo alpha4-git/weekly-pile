@@ -250,4 +250,11 @@ module.exports = [
     safety: 'Let your front knee track in the direction of your toes. Balance is the limit at first: start light. One set = both legs.',
     ref: SL(['Smith machine Bulgarian split squat', 'smith-machine-bulgarian-split-squat']),
   },
+  {
+    id: 'Wide_Stance_Barbell_Squat', name: 'Sumo barbell squat', short: 'Sumo BB squat', variant: 'Wide stance · adductors',
+    credit: { quads: 1, adductors: 1, glutes: 0.5, lowback: 0.5 }, lo: 6, hi: 10, rest: 180, level: 'intermediate',
+    cues: ['Set the bar in a rack at about sternum height, bar on your upper back; unrack and step back.', 'Take a wide stance with your feet pointing slightly out. Brace your core and keep your chest up.', 'Bend your knees and hips together to lower straight down between your legs, as far as your mobility allows with your heels on the floor.', 'Push through your whole foot to stand back up.'],
+    safety: KNEES + ' Always set the safety arms just below your lowest point. Needs good hip mobility; only go as wide as is comfortable.',
+    ref: SL(['Sumo squat', 'sumo-squat']),
+  },
 ];

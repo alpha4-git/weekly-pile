@@ -96,3 +96,77 @@ Database exercises that were reviewed but not added, with the reason. Database n
 - Barbell Side Split Squat — the reference Cossack squat is bodyweight only and deeper; none covers it with a barbell on the back.
 - Bent-Arm Dumbbell Pullover — near-duplicate of the dumbbell pullover already in the library.
 - Incline Hammer Curls — near-duplicate of the incline dumbbell curl; no reference page for the neutral-grip version.
+- Push-Ups With Feet Elevated — duplicate of the decline push-up.
+- Incline Push-Up Medium — duplicate of the incline push-up.
+- Incline Push-Up Close-Grip — near-duplicate of the incline push-up (hand width only); no reference page.
+- Incline Push-Up Wide — near-duplicate of the incline push-up (hand width only); no reference page.
+- Incline Push-Up Reverse Grip — palms-up on a bar; no reference page.
+- Push-Up Wide — near-duplicate of the push-up (hand width only).
+- Pushups (Close and Wide Hand Positions) — duplicate of the push-up and close-grip push-up.
+- Close-Grip Push-Up off of a Dumbbell — near-duplicate of the close-grip push-up; balancing on an upright dumbbell adds a rolling risk.
+- Parallel Bar Dip — duplicate of the bar dip; the photos show a low bar with the feet on the floor, not matching the instructions.
+- Single-Arm Push-Up — no reference page.
+- Clock Push-Up — no reference page.
+- Push Up to Side Plank — no reference page; the photos show only the push-up part.
+- Push-Ups With Feet On An Exercise Ball — no reference page.
+- Bodyweight Flyes — rolling EZ bars under the hands; no reference page.
+- Incline Dumbbell Bench With Palms Facing In — duplicate of the neutral-grip incline dumbbell press.
+- Decline Dumbbell Flyes — no reference page for a decline fly.
+- Incline Cable Chest Press — instructions say seated pressing forward, photos show lying on an incline bench pressing up; no reference page.
+- Incline Cable Flye — no reference page (StrengthLog's seated cable fly is upright with the pulleys at chest height).
+- Flat Bench Cable Flyes — needs a partner to hand over the handles; no reference page.
+- Incline Dumbbell Flyes - With A Twist — near-duplicate of the incline dumbbell fly.
+- Close-Grip Dumbbell Press — one dumbbell pressed lying across a bench; no reference page.
+- Close-Grip EZ-Bar Press — near-duplicate of the close-grip bench press.
+- Alternating Floor Press — near-duplicate of the kettlebell floor press (alternating arms).
+- One Arm Floor Press — a full barbell in one hand, handed over by a partner; balance risk and no reference page.
+- Leg-Over Floor Press — near-duplicate of the one-arm kettlebell floor press.
+- Around The Worlds — no reference page.
+- Bench Press - Powerlifting — duplicate of the bench press; the photos show a dumbbell, not a barbell.
+- Bent-Arm Barbell Pullover — near-duplicate of the dumbbell pullover; no reference page for the barbell version.
+- Decline Close-Grip Bench To Skull Crusher — combines two exercises; no reference page.
+- JM Press — no reference page.
+- Band Skull Crusher — band anchored under the bench; no reference page.
+- Cable Incline Pushdown — actually a straight-arm pullover on an incline bench; no reference page.
+- Cable Incline Triceps Extension — no reference page.
+- Cable Lying Triceps Extension — needs someone to hand over the bar; no reference page.
+- Cable One Arm Tricep Extension — underhand one-arm pushdown; no reference page covers the underhand grip.
+- Chain Handle Extension — chains as the weight; no reference page.
+- Decline Dumbbell Triceps Extension — near-duplicate of the lying dumbbell triceps extension.
+- Decline EZ Bar Triceps Extension — near-duplicate of the lying EZ-bar triceps extension.
+- Dumbbell One-Arm Triceps Extension — duplicate of the one-arm overhead dumbbell extension already in the library.
+- Dumbbell Tricep Extension -Pronated Grip — near-duplicate of the lying dumbbell triceps extension (grip only).
+- Low Cable Triceps Extension — lying on a row-machine bench with the rope behind the head; no reference page.
+- Lying Close-Grip Barbell Triceps Press To Chin — near-duplicate of the lying triceps extension.
+- One Arm Pronated Dumbbell Triceps Extension — near-duplicate of the lying dumbbell triceps extension.
+- One Arm Supinated Dumbbell Triceps Extension — near-duplicate of the lying dumbbell triceps extension.
+- Reverse Grip Triceps Pushdown — StrengthLog's pushdown uses an overhand grip; no reference page covers the underhand grip.
+- Bench Press with Chains — band or chain setup on a barbell lift (powerlifting accommodating resistance); no StrengthLog or ACE page covers it, and the plain lift is already in the library.
+- Box Squat with Bands — band or chain setup on a barbell lift (powerlifting accommodating resistance); no StrengthLog or ACE page covers it, and the plain lift is already in the library.
+- Box Squat with Chains — band or chain setup on a barbell lift (powerlifting accommodating resistance); no StrengthLog or ACE page covers it, and the plain lift is already in the library.
+- Deadlift with Bands — band or chain setup on a barbell lift (powerlifting accommodating resistance); no StrengthLog or ACE page covers it, and the plain lift is already in the library.
+- Deadlift with Chains — band or chain setup on a barbell lift (powerlifting accommodating resistance); no StrengthLog or ACE page covers it, and the plain lift is already in the library.
+- Floor Press with Chains — chains on a barbell floor press (powerlifting accommodating resistance); no StrengthLog or ACE page covers it.
+- Rack Pull with Bands — band or chain setup on a barbell lift (powerlifting accommodating resistance); no StrengthLog or ACE page covers it, and the plain lift is already in the library.
+- Reverse Band Box Squat — band or chain setup on a barbell lift (powerlifting accommodating resistance); no StrengthLog or ACE page covers it, and the plain lift is already in the library.
+- Reverse Band Deadlift — band or chain setup on a barbell lift (powerlifting accommodating resistance); no StrengthLog or ACE page covers it, and the plain lift is already in the library.
+- Reverse Band Power Squat — band or chain setup on a barbell lift (powerlifting accommodating resistance); no StrengthLog or ACE page covers it, and the plain lift is already in the library.
+- Reverse Band Sumo Deadlift — band or chain setup on a barbell lift (powerlifting accommodating resistance); no StrengthLog or ACE page covers it, and the plain lift is already in the library.
+- Squat with Bands — band or chain setup on a barbell lift (powerlifting accommodating resistance); no StrengthLog or ACE page covers it, and the plain lift is already in the library.
+- Squat with Chains — band or chain setup on a barbell lift (powerlifting accommodating resistance); no StrengthLog or ACE page covers it, and the plain lift is already in the library.
+- Sumo Deadlift with Bands — band or chain setup on a barbell lift (powerlifting accommodating resistance); no StrengthLog or ACE page covers it, and the plain lift is already in the library.
+- Chain Press — chains held in the hands as the weight; no reference page.
+- Barbell Full Squat — duplicate of the barbell back squat.
+- Barbell Squat To A Bench — duplicate of the box squat.
+- Dumbbell Squat To A Bench — near-duplicate of the dumbbell squat and box squat.
+- Front Barbell Squat To A Bench — near-duplicate of the front squat and box squat.
+- Narrow Stance Squats — near-duplicate of the back squat (stance only).
+- Narrow Stance Hack Squats — near-duplicate of the hack squat (stance only).
+- Narrow Stance Leg Press — near-duplicate of the leg press (stance only).
+- Weighted Squat — dip belt while standing on two benches; StrengthLog's belt squat uses a machine, no page covers this setup.
+- Elevated Back Lunge — near-duplicate of the reverse lunge; the instructions have the knee touch the floor.
+- One Leg Barbell Squat — near-duplicate of the Bulgarian split squat; the setup presses the bar overhead to get it onto the back.
+- Single-Leg High Box Squat — step-up holding a band for balance; no reference page.
+- Kneeling Squat — no reference page.
+- Lying Machine Squat — no reference page for this machine.
+- Smith Machine Leg Press — lying under a Smith bar pushing it with the feet; no reference page.
