@@ -25,13 +25,13 @@ module.exports = [
     id: 'Dumbbell_Bicep_Curl', name: 'Dumbbell curl', short: 'DB curl', variant: STD,
     credit: { biceps: 1 }, lo: 8, hi: 12, rest: 90, level: 'beginner',
     cues: ['Stand tall with the dumbbells at your sides, palms facing forward, elbows close to your body.', 'Curl both dumbbells up by bending only your elbows.', 'Lower under control to straight arms.'],
-    safety: CURL, ref: SL(['Dumbbell curl', 'dumbbell-curl']),
+    safety: CURL + ' The photos hold the lowered dumbbells palms-in; the reference keeps the palms facing forward.', ref: SL(['Dumbbell curl', 'dumbbell-curl']),
   },
   {
     id: 'Dumbbell_Alternate_Bicep_Curl', name: 'Alternating dumbbell curl', short: 'Alt DB curl', variant: STD,
     credit: { biceps: 1 }, lo: 8, hi: 12, rest: 90, level: 'beginner',
     cues: ['Stand tall with the dumbbells at your sides, palms facing forward, elbows close to your body.', 'Curl one dumbbell up by bending the elbow.', 'Lower it to the start, then curl the other. One rep = both arms.'],
-    safety: CURL, ref: SL(['Dumbbell curl', 'dumbbell-curl']),
+    safety: CURL + ' The photos hold the lowered dumbbell palm-in; the reference keeps the palms facing forward.', ref: SL(['Dumbbell curl', 'dumbbell-curl']),
   },
   {
     id: 'Hammer_Curls', name: 'Hammer curl', short: 'Hammer curl', variant: NEUTRAL,
@@ -49,7 +49,7 @@ module.exports = [
     id: 'Incline_Dumbbell_Curl', name: 'Incline dumbbell curl', short: 'Incline curl', variant: BEHIND,
     credit: { biceps: 1 }, lo: 10, hi: 15, rest: 90, level: 'beginner',
     cues: ['Set a bench to 45–60° and sit back with the dumbbells hanging straight down at your sides, palms forward.', 'Keep your shoulders down and back against the bench; don\'t bring them forward as you curl.', 'Keep your upper arms still and curl the dumbbells up, moving only your forearms.', 'Lower back to the start.'],
-    safety: 'Expect incline curls to feel much heavier than standing curls; start lighter.',
+    safety: 'Expect incline curls to feel much heavier than standing curls; start lighter. The photos curl one arm at a time.',
     ref: TYPES,
   },
   {
@@ -160,7 +160,7 @@ module.exports = [
     id: 'Push-Ups_-_Close_Triceps_Position', name: 'Close-grip push-up', short: 'Close push-up', variant: 'Close-grip press',
     credit: { triceps: 1, chest: 0.5, fdelt: 0.5 }, lo: 8, hi: 20, rest: 90, level: 'beginner',
     cues: ['Push-up position with your hands shoulder-width apart.', 'Body in a straight line, abs lightly braced.', 'Lower as far as you can with your elbows close to your sides.', 'Push back up to straight arms.'],
-    safety: 'Too hard? Put your hands on a bench.', ref: SL(['Close-grip push-up', 'close-grip-push-up']),
+    safety: 'Too hard? Put your hands on a bench. The photos put the hands almost together; the reference uses shoulder-width.', ref: SL(['Close-grip push-up', 'close-grip-push-up']),
   },
   {
     id: 'Tate_Press', name: 'Tate press', short: 'Tate press', variant: 'Lying extension', swap: true,

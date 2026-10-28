@@ -37,7 +37,7 @@ module.exports = [
       'Lower the bar with control, in front of your face, back to your shoulders.',
       'Press back up to straight arms.',
     ],
-    safety: 'Keep the bar in front of your head, not behind the neck. A spotter makes the unrack easier.',
+    safety: 'Keep the bar in front of your head, not behind the neck. A spotter makes the unrack easier. The photos use a flat bench without a backrest.',
     ref: SL(['Seated barbell overhead press', 'seated-barbell-overhead-press']),
   },
   {
@@ -81,7 +81,7 @@ module.exports = [
     credit: { fdelt: 1 }, lo: 10, hi: 15, rest: 90, level: 'beginner',
     cues: [
       'Stand tall holding the dumbbells on straight arms in front of your hips.',
-      'With control, raise them forward with straight arms to shoulder height (the second photo goes higher than needed).',
+      'With control, raise them forward with straight arms to shoulder height (the second photo raises one arm, higher than needed; the reference raises both together).',
       'Lower under control. No swinging from the hips.',
     ],
     safety: LIGHT, ref: SL(['Dumbbell front raise', 'dumbbell-front-raise']),
@@ -102,7 +102,7 @@ module.exports = [
     credit: { fdelt: 1 }, lo: 10, hi: 15, rest: 90, level: 'beginner',
     cues: [
       'Hold a plate by its edges at about 3 and 9 o\'clock, arms straight in front of your hips.',
-      'Raise it forward with straight arms to shoulder height.',
+      'Raise it forward with straight arms to shoulder height (the second photo goes higher than needed).',
       'Lower slowly under control.',
     ],
     safety: LIGHT, ref: SL(['Plate front raise', 'plate-front-raise']),
@@ -126,7 +126,7 @@ module.exports = [
       'Stop before your upper arms go above shoulder height.',
       'Lower the bar with control.',
     ],
-    safety: 'Upright rows have a reputation for pinching the shoulder at the top: use light weights and few sets, keep your upper arms from going above shoulder height, and reverse earlier if your shoulders hurt. Lateral raises are an alternative.',
+    safety: 'Upright rows have a reputation for pinching the shoulder at the top: use light weights and few sets, keep your upper arms from going above shoulder height (the top photo goes slightly above), and reverse earlier if your shoulders hurt. Lateral raises are an alternative.',
     ref: SL(['Barbell upright row', 'barbell-upright-row']),
   },
   {

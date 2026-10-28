@@ -15,7 +15,7 @@ const FILES = ['chest', 'back', 'hinge', 'shoulders', 'arms', 'legs', 'hips-calv
 const reviewed = FILES.flatMap(f => require(path.join(dir, f + '.js')));
 
 // Bump when any reviewed entry changes, so phones replace their copies.
-const VERSION = 3;   // v1: unreviewed import; v2: first reviewed set; v3: every entry re-checked claim by claim against its reference
+const VERSION = 4;   // v1: unreviewed import; v2: first reviewed set; v3: every entry re-checked claim by claim against its reference
 const MUSCLES = new Set(['chest', 'back', 'fdelt', 'sdelt', 'rdelt', 'biceps', 'triceps', 'quads', 'glutes', 'adductors', 'hams', 'calves', 'abs',
   'traps', 'lowback', 'forearms', 'abductors', 'neck']);
 const EQUIP = { barbell: 'barbell', dumbbell: 'dumbbell', cable: 'cable', machine: 'machine', 'e-z curl bar': 'ez bar', 'body only': 'bodyweight',
