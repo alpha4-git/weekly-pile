@@ -1,7 +1,7 @@
 /* Weekly Pile core. All data lives in this browser's IndexedDB on the phone:
    exercises (library add-ons), plans (ordered set lists), logs (one record per set), meta (settings). */
 'use strict';
-const APP_VERSION = '1.3.10';
+const APP_VERSION = '1.3.11';
 
 // ---------------------------------------------------------------- utilities
 const $ = s => document.querySelector(s);
@@ -574,8 +574,10 @@ async function holdScreen(on) {
     if (!on && wake) { const w = wake; wake = null; await w.release(); }
   } catch (e) { wake = null; }
 }
-// One beep when a rest ends: a pure 880 Hz sine, 5 ms linear attack (short, but long enough not to click), then an
-// exponential fade to silence by 0.7 s. The peak is the volume setting, as a share of full scale (100% = 1.0).
+// Two beeps when a rest ends, a perfect fifth apart (880 Hz, then 1320 Hz = 3:2), starting 0.3 s apart. Each is a pure
+// sine with a 5 ms linear attack (short, but long enough not to click) and an exponential fade of 80 dB by 0.7 s.
+// The peak is the volume setting, as a share of full scale (100% = 1.0). The first tone is still ringing at −34 dB
+// when the second starts, so the second peaks that much lower (−0.18 dB) and the two together never pass the setting.
 // It plays through headphones when they're connected. Browsers only allow sound after a tap, so the audio is
 // unlocked on the first tap (and on every Log tap); a page in the background can't play it.
 let actx = null;
@@ -585,17 +587,24 @@ function audioUnlock() {
     if (actx && actx.state === 'suspended') actx.resume();
   } catch (e) { actx = null; }
 }
+const BEEP = { f: 880, ratio: 3 / 2, gap: 0.3, att: 0.005, dur: 0.7 };
+function tone(f, t, peak) {
+  const o = actx.createOscillator(), g = actx.createGain(), B = BEEP;
+  o.type = 'sine'; o.frequency.value = f;
+  g.gain.setValueAtTime(0, t);
+  g.gain.linearRampToValueAtTime(peak, t + B.att);
+  g.gain.exponentialRampToValueAtTime(peak * 1e-4, t + B.dur);   // −80 dB, the same shape at any volume
+  o.connect(g); g.connect(actx.destination);
+  o.start(t); o.stop(t + B.dur + 0.05);
+}
 function beep() {
   if (!S.sound || !actx) return;
   try {
     if (actx.state === 'suspended') actx.resume();
-    const t = actx.currentTime + 0.03, o = actx.createOscillator(), g = actx.createGain();
-    o.type = 'sine'; o.frequency.value = 880;
-    g.gain.setValueAtTime(0, t);
-    g.gain.linearRampToValueAtTime(S.beepVol / 100, t + 0.005);
-    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.7);
-    o.connect(g); g.connect(actx.destination);
-    o.start(t); o.stop(t + 0.75);
+    const t = actx.currentTime + 0.03, v = S.beepVol / 100, B = BEEP;
+    const tail = Math.pow(1e-4, (B.gap - B.att) / (B.dur - B.att));   // first tone's level when the second starts
+    tone(B.f, t, v);
+    tone(B.f * B.ratio, t + B.gap, v * (1 - tail));
   } catch (e) {}
 }
 function tickRest() {
@@ -1169,7 +1178,7 @@ async function renderData() {
       <label class="tog"><input type="checkbox" id="soundOn" ${S.sound ? 'checked' : ''}> Beep when a rest ends</label>
       <label class="ml" style="margin-top:10px">Beep volume <b data-bv>${volLabel(S.beepVol)}</b><input type="range" id="beepVol" min="5" max="100" step="5" value="${S.beepVol}"></label>
       <div class="btns"><button type="button" class="btn" data-a="testbeep">Test the beep</button></div>
-      <p class="muted" style="font-size:13px">One short tone through your headphones, or the speaker at media volume. It plays while the app is open; the phone also vibrates.</p>
+      <p class="muted" style="font-size:13px">Two short tones, a fifth apart, through your headphones, or the speaker at media volume. It plays while the app is open; the phone also vibrates.</p>
     </div></div>`;
 }
 function render(anim) {
