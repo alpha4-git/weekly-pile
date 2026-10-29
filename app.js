@@ -1,7 +1,7 @@
 /* Weekly Pile core. All data lives in this browser's IndexedDB on the phone:
    exercises (library add-ons), plans (ordered set lists), logs (one record per set), meta (settings). */
 'use strict';
-const APP_VERSION = '1.3.9';
+const APP_VERSION = '1.3.10';
 
 // ---------------------------------------------------------------- utilities
 const $ = s => document.querySelector(s);
@@ -195,9 +195,11 @@ const S = {
   ex: new Map(), plans: new Map(), plan: null, logs: [],
   ramp: 1, view: 'workout', cur: null, inputs: {}, editing: null, armed: null, rest: {}, goalSel: 'all', goalRange: 90,
   targets: {}, focus: {}, pool: null, hidden: new Set(), libVersion: 0, est: null, rank: null, libQ: '', openMus: new Set(),
-  slot: null, picks: {}, dyDays: 1,
+  slot: null, picks: {}, dyDays: 1, beepVol: 100,
 };
 const DY_OPTS = [1, 2, 3, 4, 5];   // days in the DY window of the header counter
+const volOk = v => Number.isInteger(v) && v >= 5 && v <= 100 && v % 5 === 0;   // beep peak, % of full scale
+const volLabel = v => `${v}% (${v === 100 ? '0' : '−' + (-20 * Math.log10(v / 100)).toFixed(1)} dB)`;
 function validPool(p) {
   const d = { levels: { beginner: true, intermediate: true, expert: false }, equip: {} };
   if (!p || typeof p !== 'object') return d;
@@ -225,6 +227,7 @@ async function loadAll() {
   S.libVersion = Number.isInteger(m.libVersion) ? m.libVersion : 0;
   S.sound = m.sound !== false;
   S.dyDays = DY_OPTS.includes(m.dyDays) ? m.dyDays : 1;
+  S.beepVol = volOk(m.beepVol) ? m.beepVol : 100;
   S.picks = m.picks && m.picks.day === dayKey(new Date()) && typeof m.picks.p === 'object' ? m.picks.p : {};   // exercise choices last for the day
 }
 function setPick(m, id) { S.picks[m] = id; setMeta('picks', { day: dayKey(new Date()), p: S.picks }); }
@@ -405,6 +408,7 @@ function classify(entries) {
       case 'log': got.logs.push(validLog(o)); break;
       case 'settings': got.settings = {
         ramp: [0.5, 0.75, 1].includes(o.ramp) ? o.ramp : null, currentPlan: str(o.currentPlan, 60), dyDays: DY_OPTS.includes(o.dyDays) ? o.dyDays : null,
+        beepVol: volOk(o.beepVol) ? o.beepVol : null,
         targets: o.targets ? muscleMap(o.targets, 0, 400) : null, focus: o.focus ? muscleMap(o.focus, 0, 1) : null,
         pool: o.pool ? validPool(o.pool) : null, hidden: Array.isArray(o.hidden) ? validHidden(o.hidden) : null,
       }; break;
@@ -450,6 +454,7 @@ async function applyImport(got, { makeCurrent = true } = {}) {
   if (st) {
     if (st.ramp) { S.ramp = st.ramp; await setMeta('ramp', S.ramp); }
     if (st.dyDays) { S.dyDays = st.dyDays; await setMeta('dyDays', S.dyDays); }
+    if (st.beepVol) { S.beepVol = st.beepVol; await setMeta('beepVol', S.beepVol); }
     if (st.targets) { S.targets = st.targets; await setMeta('targets', S.targets); }
     if (st.focus) { S.focus = st.focus; await setMeta('focus', S.focus); }
     if (st.pool) { S.pool = st.pool; await setMeta('pool', S.pool); }
@@ -522,7 +527,7 @@ function exportAll() {
     const d = new Date(l.t);
     files.push({ name: dir + `logs/${dayKey(d)}_${pad2(d.getHours())}${pad2(d.getMinutes())}${pad2(d.getSeconds())}_${l.ex}_${l.id}.json`, data: j(l) });
   }
-  files.push({ name: dir + 'settings.json', data: j({ type: 'settings', schema: 2, ramp: S.ramp, dyDays: S.dyDays, currentPlan: S.plan ? S.plan.id : '', targets: S.targets, focus: S.focus,
+  files.push({ name: dir + 'settings.json', data: j({ type: 'settings', schema: 2, ramp: S.ramp, dyDays: S.dyDays, beepVol: S.beepVol, currentPlan: S.plan ? S.plan.id : '', targets: S.targets, focus: S.focus,
     pool: S.pool, hidden: [...S.hidden], exported: new Date().toISOString(), app: APP_VERSION }) });
   download(zipStore(files), `weekly-pile-${stamp}.zip`);
   toast(`Exported ${S.logs.length} set${S.logs.length === 1 ? '' : 's'}, ${S.ex.size} exercises`);
@@ -569,12 +574,11 @@ async function holdScreen(on) {
     if (!on && wake) { const w = wake; wake = null; await w.release(); }
   } catch (e) { wake = null; }
 }
-// One beep when a rest ends: an 880 Hz tone with harmonics 2–5 at 1/n strength (a brighter, harder edge than a
-// pure sine), quick fade in, 0.7 s fade out. The browser scales the wave so its peak is exactly 1, and the gain
-// peaks at 1.0, so the beep hits full scale without clipping.
+// One beep when a rest ends: a pure 880 Hz sine, 5 ms linear attack (short, but long enough not to click), then an
+// exponential fade to silence by 0.7 s. The peak is the volume setting, as a share of full scale (100% = 1.0).
 // It plays through headphones when they're connected. Browsers only allow sound after a tap, so the audio is
 // unlocked on the first tap (and on every Log tap); a page in the background can't play it.
-let actx = null, beepWave = null;
+let actx = null;
 function audioUnlock() {
   try {
     if (!actx) { const AC = window.AudioContext || window.webkitAudioContext; if (AC) actx = new AC(); }
@@ -586,10 +590,9 @@ function beep() {
   try {
     if (actx.state === 'suspended') actx.resume();
     const t = actx.currentTime + 0.03, o = actx.createOscillator(), g = actx.createGain();
-    if (!beepWave || beepWave.ctx !== actx) beepWave = { ctx: actx, w: actx.createPeriodicWave(new Float32Array(6), Float32Array.from([0, 1, 1 / 2, 1 / 3, 1 / 4, 1 / 5])) };
-    o.setPeriodicWave(beepWave.w); o.frequency.value = 880;
-    g.gain.setValueAtTime(0.0001, t);
-    g.gain.exponentialRampToValueAtTime(1, t + 0.02);
+    o.type = 'sine'; o.frequency.value = 880;
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(S.beepVol / 100, t + 0.005);
     g.gain.exponentialRampToValueAtTime(0.0001, t + 0.7);
     o.connect(g); g.connect(actx.destination);
     o.start(t); o.stop(t + 0.75);
@@ -1164,6 +1167,7 @@ async function renderData() {
     </div>
     <div class="card sec"><h3>Rest timer</h3>
       <label class="tog"><input type="checkbox" id="soundOn" ${S.sound ? 'checked' : ''}> Beep when a rest ends</label>
+      <label class="ml" style="margin-top:10px">Beep volume <b data-bv>${volLabel(S.beepVol)}</b><input type="range" id="beepVol" min="5" max="100" step="5" value="${S.beepVol}"></label>
       <div class="btns"><button type="button" class="btn" data-a="testbeep">Test the beep</button></div>
       <p class="muted" style="font-size:13px">One short tone through your headphones, or the speaker at media volume. It plays while the app is open; the phone also vibrates.</p>
     </div></div>`;
@@ -1311,6 +1315,7 @@ function wire() {
       box.querySelector('[data-fv]').textContent = v + '%'; box.querySelector('[data-fz]').textContent = focusText(v / 100); saveTargetsSoon(); return;
     }
     if (t.id === 'libQ') { S.libQ = t.value; $('#libRes').innerHTML = libRowsHTML(); return; }
+    if (t.id === 'beepVol') { const v = +t.value; if (volOk(v)) { S.beepVol = v; t.closest('label').querySelector('[data-bv]').textContent = volLabel(v); } return; }
     const cur = S.cur && S.ex.get(S.cur); if (!cur) return;
     const it = itFor(cur);
     if (t.id === 'inW') { const v = parseFloat(t.value); inputsFor(it).w = Number.isFinite(v) ? v : 0; }
@@ -1320,6 +1325,7 @@ function wire() {
     const t = e.target;
     if (t.dataset.tgt || t.dataset.foc) { refreshEstimate(); return; }
     if (t.id === 'soundOn') { S.sound = t.checked; setMeta('sound', S.sound); if (S.sound) { audioUnlock(); beep(); } return; }
+    if (t.id === 'beepVol') { setMeta('beepVol', S.beepVol); audioUnlock(); const was = S.sound; S.sound = true; beep(); S.sound = was; return; }   // preview on release
     if (t.id === 'planSel') { const p = S.plans.get(t.value); if (p) { S.plan = p; setMeta('currentPlan', p.id); changed(); toast(`"${p.name}" is now current`); render(); } }
   });
   // swipe between exercises on an exercise page
