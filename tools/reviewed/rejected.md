@@ -26,7 +26,6 @@ Database exercises that were reviewed but not added, with the reason. Database n
 - Cable Chest Press — removed after a second look: its photos show a seated cable press; StrengthLog's cable chest press is standing with the pulleys high, and no reference covers the seated version.
 - Standing Cable Chest Press — the photos use chest-height pulleys; StrengthLog's version uses the top pulleys and a forward lean.
 - High Cable Curls — the photos (lying on a bench under a high pulley) don't match its own instructions (standing between two pulleys); the lying version is added separately.
-- Calf Press — near-duplicate of the leg press calf raise.
 - Hanging Pike — no reference for the inverted pike to the bar.
 - Chair Squat — StrengthLog's chair squat is bodyweight to a chair; the photos show a barbell squat without a chair.
 - Alternating Renegade Row — the photos show a bent-over stance, not the push-up position the reference describes.

@@ -93,7 +93,14 @@ module.exports = [
     id: 'Calf_Press_On_The_Leg_Press_Machine', name: 'Leg press calf raise', short: 'Leg press calf raise', variant: STRAIGHT,
     credit: { calves: 1 }, lo: 12, hi: 20, rest: 60, level: 'beginner',
     cues: ['Sit in the leg press with the balls of your feet on the bottom edge of the platform, heels hanging off.', 'Unrack with knees very slightly bent, and keep them there.', 'Lower your heels under control as far as your ankles comfortably allow, then press through the balls of your feet, heels as high as possible.'],
-    safety: CALF + ' On a 45° leg press, make sure the safety bars are in place: they save you if a foot slips off the platform.', ref: CALVES,
+    safety: CALF + ' On a 45° leg press, make sure the safety bars are in place: they save you if a foot slips off the platform.', ref: SL(['Calf raise in leg press', 'calf-raise-in-leg-press']),
+  },
+  {
+    id: 'Calf_Press', name: 'Calf press machine', short: 'Calf press', variant: STRAIGHT,
+    credit: { calves: 1 }, lo: 12, hi: 20, rest: 60, level: 'beginner',
+    cues: ['Set the seat so your legs are only slightly bent with the balls of your feet on the bottom edge of the footplate, heels off it. Hold the handles.', 'Keep your knees slightly bent and still the whole set; only your ankles move.', 'Let your toes come back toward you under control for a stretch in the calves.', 'Press through the balls of your feet as far as you can for a full contraction, pause, and return slowly.'],
+    safety: CALF + ' Don\'t lock or over-extend your knees. The reference uses a leg press; a calf press machine moves the ankles the same way with the knees nearly straight.',
+    ref: SL(['Calf raise in leg press', 'calf-raise-in-leg-press']),
   },
   // ---------------------------------------------------------------- adductors / abductors
   {

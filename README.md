@@ -81,8 +81,8 @@ Rebuild: `node tools/import-fedb.js <free-exercise-db>/dist/exercises.json <comm
 
 ## Exercise review
 Only reviewed exercises are suggested. Every database exercise the app used to import was reviewed by hand (October 2026):
-217 were kept and 283 were left out, each with its reason in [tools/reviewed/rejected.md](tools/reviewed/rejected.md).
-For every exercise in the library (the original 16 and the 217 from the database):
+218 were kept and 282 were left out, each with its reason in [tools/reviewed/rejected.md](tools/reviewed/rejected.md).
+For every exercise in the library (the original 16 and the 218 from the database):
 - both photos were looked at (dropped if wrong or unclear; reordered when the second photo shows the starting position);
 - every cue, the safety note and the muscles were checked one by one against the linked reference page (October 2026).
   Anything the page contradicts was rewritten to match it. A few setup and safety details the page doesn't mention
