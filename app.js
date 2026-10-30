@@ -1,7 +1,7 @@
 /* Weekly Pile core. All data lives in this browser's IndexedDB on the phone:
    exercises (library add-ons), plans (ordered set lists), logs (one record per set), meta (settings). */
 'use strict';
-const APP_VERSION = '1.3.11';
+const APP_VERSION = '1.3.12';
 
 // ---------------------------------------------------------------- utilities
 const $ = s => document.querySelector(s);
